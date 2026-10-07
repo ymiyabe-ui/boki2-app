@@ -1,0 +1,13 @@
+# 週次レポートの保存先。絶対にコミットしない
+private/
+
+# 秘密情報
+.env
+.env.*
+
+# 依存・ログ・OSの一時ファイル
+node_modules/
+*.log
+.DS_Store
+Thumbs.db
+Desktop.ini
