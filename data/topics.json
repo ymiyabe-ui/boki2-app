@@ -2,35 +2,309 @@
   "exam": "boki2",
   "scopeTable": "商工会議所簿記検定試験出題区分表（2022年4月1日施行、2026年度も適用）",
   "topics": [
-    { "id": "c01", "order": 1, "area": "shogyo", "name": "3級範囲の復習（仕訳・決算整理）", "examQ": [1, 3] },
-    { "id": "c02", "order": 2, "area": "shogyo", "name": "商品売買", "examQ": [1] },
-    { "id": "c03", "order": 3, "area": "shogyo", "name": "現金預金・銀行勘定調整表", "examQ": [1, 2] },
-    { "id": "c04", "order": 4, "area": "shogyo", "name": "手形・電子記録債権債務", "examQ": [1] },
-    { "id": "c05", "order": 5, "area": "shogyo", "name": "有形固定資産（減価償却・売却・除却・買換・圧縮記帳）", "examQ": [1, 2] },
-    { "id": "c06", "order": 6, "area": "shogyo", "name": "リース取引", "examQ": [1] },
-    { "id": "c07", "order": 7, "area": "shogyo", "name": "無形固定資産・研究開発費", "examQ": [1] },
-    { "id": "c08", "order": 8, "area": "shogyo", "name": "有価証券", "examQ": [1, 2] },
-    { "id": "c09", "order": 9, "area": "shogyo", "name": "引当金", "examQ": [1, 3] },
-    { "id": "c10", "order": 10, "area": "shogyo", "name": "外貨建取引", "examQ": [1] },
-    { "id": "c11", "order": 11, "area": "shogyo", "name": "税金・税効果会計", "examQ": [1, 3] },
-    { "id": "c12", "order": 12, "area": "shogyo", "name": "株式の発行・合併・事業譲渡", "examQ": [1] },
-    { "id": "c13", "order": 13, "area": "shogyo", "name": "剰余金の配当・株主資本等変動計算書", "examQ": [1, 2] },
-    { "id": "c14", "order": 14, "area": "shogyo", "name": "収益認識", "examQ": [1] },
-    { "id": "c15", "order": 15, "area": "shogyo", "name": "本支店会計", "examQ": [3] },
-    { "id": "c16", "order": 16, "area": "shogyo", "name": "決算整理・精算表・財務諸表", "examQ": [3] },
-    { "id": "c17", "order": 17, "area": "shogyo", "name": "連結会計：資本連結", "examQ": [2] },
-    { "id": "c18", "order": 18, "area": "shogyo", "name": "連結会計：成果連結・連結精算表", "examQ": [2] },
-    { "id": "k01", "order": 19, "area": "kogyo", "name": "工業簿記の基礎（勘定連絡・製造原価報告書）", "examQ": [4] },
-    { "id": "k02", "order": 20, "area": "kogyo", "name": "材料費", "examQ": [4] },
-    { "id": "k03", "order": 21, "area": "kogyo", "name": "労務費", "examQ": [4] },
-    { "id": "k04", "order": 22, "area": "kogyo", "name": "経費・製造間接費（予定配賦・差異）", "examQ": [4] },
-    { "id": "k05", "order": 23, "area": "kogyo", "name": "部門別計算", "examQ": [4] },
-    { "id": "k06", "order": 24, "area": "kogyo", "name": "個別原価計算", "examQ": [4] },
-    { "id": "k07", "order": 25, "area": "kogyo", "name": "総合原価計算（仕損・減損）", "examQ": [4] },
-    { "id": "k08", "order": 26, "area": "kogyo", "name": "総合原価計算（工程別・組別・等級別）", "examQ": [4] },
-    { "id": "k09", "order": 27, "area": "kogyo", "name": "標準原価計算", "examQ": [5] },
-    { "id": "k10", "order": 28, "area": "kogyo", "name": "直接原価計算", "examQ": [5] },
-    { "id": "k11", "order": 29, "area": "kogyo", "name": "CVP分析", "examQ": [5] },
-    { "id": "k12", "order": 30, "area": "kogyo", "name": "本社工場会計", "examQ": [4] }
+    {
+      "id": "c01",
+      "order": 1,
+      "area": "shogyo",
+      "name": "3級範囲の復習（仕訳・決算整理）",
+      "examQ": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "c02",
+      "order": 2,
+      "area": "shogyo",
+      "name": "商品売買",
+      "examQ": [
+        1
+      ]
+    },
+    {
+      "id": "c03",
+      "order": 3,
+      "area": "shogyo",
+      "name": "現金預金・銀行勘定調整表",
+      "examQ": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "c04",
+      "order": 4,
+      "area": "shogyo",
+      "name": "手形・電子記録債権債務",
+      "examQ": [
+        1
+      ],
+      "includes": [
+        "債務の保証"
+      ]
+    },
+    {
+      "id": "c05",
+      "order": 5,
+      "area": "shogyo",
+      "name": "有形固定資産（減価償却・売却・除却・買換・圧縮記帳）",
+      "examQ": [
+        1,
+        2
+      ],
+      "includes": [
+        "未決算"
+      ]
+    },
+    {
+      "id": "c06",
+      "order": 6,
+      "area": "shogyo",
+      "name": "リース取引",
+      "examQ": [
+        1
+      ],
+      "scopeNote": "2026年度は現行範囲（ファイナンス・リースの借手：利子込み法・利子抜き法（定額法）、オペレーティング・リースの借手）"
+    },
+    {
+      "id": "c07",
+      "order": 7,
+      "area": "shogyo",
+      "name": "無形固定資産・研究開発費",
+      "examQ": [
+        1
+      ],
+      "includes": [
+        "創立費・開業費"
+      ]
+    },
+    {
+      "id": "c08",
+      "order": 8,
+      "area": "shogyo",
+      "name": "有価証券",
+      "examQ": [
+        1,
+        2
+      ]
+    },
+    {
+      "id": "c09",
+      "order": 9,
+      "area": "shogyo",
+      "name": "引当金",
+      "examQ": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "c10",
+      "order": 10,
+      "area": "shogyo",
+      "name": "外貨建取引",
+      "examQ": [
+        1
+      ]
+    },
+    {
+      "id": "c11",
+      "order": 11,
+      "area": "shogyo",
+      "name": "税金・税効果会計",
+      "examQ": [
+        1,
+        3
+      ]
+    },
+    {
+      "id": "c12",
+      "order": 12,
+      "area": "shogyo",
+      "name": "株式の発行・合併・のれん",
+      "examQ": [
+        1
+      ],
+      "includes": [
+        "のれん（事業の譲受け）"
+      ]
+    },
+    {
+      "id": "c13",
+      "order": 13,
+      "area": "shogyo",
+      "name": "剰余金の配当・株主資本等変動計算書",
+      "examQ": [
+        1,
+        2
+      ],
+      "includes": [
+        "任意積立金",
+        "株主資本の計数の変動"
+      ]
+    },
+    {
+      "id": "c14",
+      "order": 14,
+      "area": "shogyo",
+      "name": "収益認識",
+      "examQ": [
+        1
+      ]
+    },
+    {
+      "id": "c15",
+      "order": 15,
+      "area": "shogyo",
+      "name": "本支店会計",
+      "examQ": [
+        3
+      ]
+    },
+    {
+      "id": "c16",
+      "order": 16,
+      "area": "shogyo",
+      "name": "決算整理・精算表・財務諸表",
+      "examQ": [
+        3
+      ]
+    },
+    {
+      "id": "c17",
+      "order": 17,
+      "area": "shogyo",
+      "name": "連結会計：資本連結",
+      "examQ": [
+        2
+      ]
+    },
+    {
+      "id": "c18",
+      "order": 18,
+      "area": "shogyo",
+      "name": "連結会計：成果連結・連結精算表",
+      "examQ": [
+        2
+      ]
+    },
+    {
+      "id": "k01",
+      "order": 19,
+      "area": "kogyo",
+      "name": "工業簿記の基礎（勘定連絡・製造原価報告書）",
+      "examQ": [
+        4
+      ],
+      "includes": [
+        "製品の受払い",
+        "営業費"
+      ]
+    },
+    {
+      "id": "k02",
+      "order": 20,
+      "area": "kogyo",
+      "name": "材料費",
+      "examQ": [
+        4
+      ]
+    },
+    {
+      "id": "k03",
+      "order": 21,
+      "area": "kogyo",
+      "name": "労務費",
+      "examQ": [
+        4
+      ]
+    },
+    {
+      "id": "k04",
+      "order": 22,
+      "area": "kogyo",
+      "name": "経費・製造間接費（予定配賦・差異）",
+      "examQ": [
+        4
+      ]
+    },
+    {
+      "id": "k05",
+      "order": 23,
+      "area": "kogyo",
+      "name": "部門別計算",
+      "examQ": [
+        4
+      ],
+      "scopeNote": "2級は直接配賦法と相互配賦法（簡便法）、実際配賦と予定配賦まで"
+    },
+    {
+      "id": "k06",
+      "order": 24,
+      "area": "kogyo",
+      "name": "個別原価計算",
+      "examQ": [
+        4
+      ],
+      "scopeNote": "2級の仕損は補修指図書を発行する場合で、当該指図書に賦課する方法まで"
+    },
+    {
+      "id": "k07",
+      "order": 25,
+      "area": "kogyo",
+      "name": "総合原価計算（仕損・減損）",
+      "examQ": [
+        4
+      ],
+      "scopeNote": "2級は正常仕損・正常減損の度外視法まで（異常仕損・非度外視法は1級）"
+    },
+    {
+      "id": "k08",
+      "order": 26,
+      "area": "kogyo",
+      "name": "総合原価計算（工程別・組別・等級別）",
+      "examQ": [
+        4
+      ]
+    },
+    {
+      "id": "k09",
+      "order": 27,
+      "area": "kogyo",
+      "name": "標準原価計算",
+      "examQ": [
+        5
+      ]
+    },
+    {
+      "id": "k10",
+      "order": 28,
+      "area": "kogyo",
+      "name": "直接原価計算",
+      "examQ": [
+        5
+      ]
+    },
+    {
+      "id": "k11",
+      "order": 29,
+      "area": "kogyo",
+      "name": "CVP分析",
+      "examQ": [
+        5
+      ],
+      "includes": [
+        "高低点法"
+      ]
+    },
+    {
+      "id": "k12",
+      "order": 30,
+      "area": "kogyo",
+      "name": "本社工場会計",
+      "examQ": [
+        4
+      ]
+    }
   ]
 }
