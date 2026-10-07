@@ -114,8 +114,10 @@ async function main() {
         h('button', { class: 'small primary', onclick: () => worker.postMessage({ type: 'SKIP_WAITING' }) }, '再読み込み')));
     };
     let reloading = false;
+    // 初回インストール時にも controllerchange は起きるので、すでに版が入っていた場合（＝更新）だけ再読み込みする
+    const hadController = !!navigator.serviceWorker.controller;
     navigator.serviceWorker.addEventListener('controllerchange', () => {
-      if (reloading) return;
+      if (reloading || !hadController) return;
       reloading = true;
       location.reload();
     });
