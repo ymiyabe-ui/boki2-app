@@ -10,18 +10,40 @@
 
 ```
 .
-├── index.html          … アプリ本体（Phase 0 は「準備中」画面）
-├── data/
-│   ├── topics.json     … 論点マップ（並び順＝学習順）
-│   ├── config.json     … プラン・受験日・目標時間・判定しきい値など
-│   └── plan.json       … 週ごとの論点の割り当て
-├── scripts/serve.mjs   … ローカル確認用の簡易サーバー（依存なし）
+├── index.html / manifest.webmanifest / sw.js   … 入口・PWAの設定・オフライン用Service Worker
+├── css/app.css
+├── js/
+│   ├── app.js          … 起動・画面切り替え・更新通知
+│   ├── dates.js        … 日付・週・平日／休日・目標時間
+│   ├── stats.js        … 勉強時間の集計（週・累計・計画の何週目か）
+│   ├── mastery.js      … 習熟度の判定・再挑戦リスト
+│   ├── store.js        … 端末内の保存・移行・バックアップ・タイマー
+│   ├── ui.js           … 画面の共通部品
+│   ├── version.js
+│   └── views/          … ホーム・時間・問題集・論点・設定の各画面
+├── data/               … topics / config / plan / holidays（静的データ）
+├── icons/              … ホーム画面用アイコン
+├── scripts/            … serve.mjs（確認用サーバー）、set-version.mjs、make-icons.mjs
 ├── test/               … node --test で動くテスト
 ├── private/            … 週次レポートの保存先（Gitに入れない）
-├── CLAUDE.md           … Claude Code 向けの決定事項と進捗
-├── CHANGELOG.md
-└── boki2-app-PROMPT.md … 作業指示書（Phaseごとの作業内容）
+├── CLAUDE.md / CHANGELOG.md / boki2-app-PROMPT.md
 ```
+
+## iPhone で使う
+
+1. Safari で公開URLを開く
+2. 共有ボタン →「ホーム画面に追加」
+3. 以降はホーム画面のアイコンから開く（ブラウザで開くより記録が消えにくい）
+4. 設定タブの「バックアップを書き出す」を週1回。共有メニューで「ファイルに保存」を選ぶ
+
+## 更新を出すとき
+
+```
+node scripts/set-version.mjs 0.2.0   # 版をそろえて変更
+node --test
+```
+
+commit・タグ・push のあと、スマホでアプリを開くと「新しいバージョンがあります」と出るので「再読み込み」を押す。
 
 ## PCで確認する
 
