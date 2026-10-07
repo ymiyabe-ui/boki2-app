@@ -1,0 +1,16 @@
+{
+  "name": "簿記2級 学習アプリ",
+  "short_name": "簿記2級",
+  "description": "日商簿記2級の合格に向けて、勉強時間と習熟度を管理する個人用アプリ",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#1f4e79",
+  "theme_color": "#1f4e79",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
