@@ -6,12 +6,28 @@
   "studyStart": "2026-10-05",
   "weekStartsOn": "monday",
   "targetMinutes": {
-    "weekday": { "morning": 120, "noon": 60, "night": 60 },
-    "holiday": { "total": 360 },
+    "weekday": {
+      "morning": 120,
+      "noon": 60,
+      "night": 60
+    },
+    "holiday": {
+      "total": 360
+    },
     "weekly": 1920
   },
-  "targetSec": { "journal": 180, "choice": 60, "numeric": 180 },
-  "expectedRateByLevel": [0, 0.2, 0.5, 0.75, 0.9],
+  "targetSec": {
+    "journal": 180,
+    "choice": 60,
+    "numeric": 180
+  },
+  "expectedRateByLevel": [
+    0,
+    0.2,
+    0.5,
+    0.75,
+    0.9
+  ],
   "mastery": {
     "recentN": 10,
     "level2Rate": 0.5,
@@ -22,18 +38,66 @@
     "level4MinGapDays": 7,
     "staleDays": 14
   },
-  "workbookScore": { "o": 1, "triangle": 0.5, "x": 0 },
-  "reviewIntervalsDays": [1, 3, 7],
-  "dailySet": { "planned": 5, "review": 3 },
-  "weeklyReview": { "total": 20, "currentWeekRatio": 0.6 },
-  "weeklyDecision": { "redoBelow": 0.7, "advanceAbove": 0.9 },
+  "workbookScore": {
+    "o": 1,
+    "triangle": 0.5,
+    "x": 0
+  },
+  "reviewIntervalsDays": [
+    1,
+    3,
+    7
+  ],
+  "dailySet": {
+    "planned": 5,
+    "review": 3
+  },
+  "weeklyReview": {
+    "total": 20,
+    "currentWeekRatio": 0.6
+  },
+  "weeklyDecision": {
+    "redoBelow": 0.7,
+    "advanceAbove": 0.9
+  },
   "examSections": [
-    { "q": 1, "area": "shogyo", "points": 20, "label": "仕訳5題" },
-    { "q": 2, "area": "shogyo", "points": 20, "label": "連結・株主資本等変動計算書・勘定記入など" },
-    { "q": 3, "area": "shogyo", "points": 20, "label": "財務諸表・精算表など" },
-    { "q": 4, "area": "kogyo", "points": 28, "label": "工業簿記の仕訳・費目別〜総合原価計算" },
-    { "q": 5, "area": "kogyo", "points": 12, "label": "標準・直接原価計算・CVP" }
+    {
+      "q": 1,
+      "area": "shogyo",
+      "points": 20,
+      "label": "仕訳5題"
+    },
+    {
+      "q": 2,
+      "area": "shogyo",
+      "points": 20,
+      "label": "連結・株主資本等変動計算書・勘定記入など"
+    },
+    {
+      "q": 3,
+      "area": "shogyo",
+      "points": 20,
+      "label": "財務諸表・精算表など"
+    },
+    {
+      "q": 4,
+      "area": "kogyo",
+      "points": 28,
+      "label": "工業簿記の仕訳・費目別〜総合原価計算"
+    },
+    {
+      "q": 5,
+      "area": "kogyo",
+      "points": 12,
+      "label": "標準・直接原価計算・CVP"
+    }
   ],
   "passScore": 70,
-  "books": []
+  "books": [],
+  "minAttempts": {
+    "level2": 3,
+    "level3": 5,
+    "level4": 5
+  },
+  "holidayDefinition": "土日と祝日（data/holidays.json）。祝日は休日の目標時間を適用する"
 }
