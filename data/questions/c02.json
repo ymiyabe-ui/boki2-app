@@ -36,7 +36,7 @@
    },
    "explanation": "仕入の返品は、仕入を取り消す（貸方に仕入）とともに、買掛金を減らす（借方に買掛金）。返品額は30,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c02-002",
@@ -84,7 +84,7 @@
    },
    "explanation": "売上原価対立法では、販売のつど「売上」と「売上原価」を同時に記帳する。商品（資産）を原価で減らし、売上原価に振り替える。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c02-003",
@@ -126,7 +126,7 @@
    },
    "explanation": "仕入にかかった引取運賃などの諸掛は仕入原価に含める。借方の仕入は800,000＋20,000＝820,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c02-004",
@@ -169,7 +169,7 @@
    },
    "explanation": "先方負担の運賃を立て替えたぶんは、後で回収するので売掛金に含める（借方1,012,000円）。当社が負担する運賃なら発送費になる点と区別する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c02-005",
@@ -213,7 +213,7 @@
    },
    "explanation": "棚卸減耗損＝(帳簿数量100−実地数量95)×原価＠1,200＝6,000円。商品評価損＝(原価＠1,200−正味売却価額＠1,000)×実地数量95＝19,000円。いずれも繰越商品の減額。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c02-006",
@@ -234,7 +234,7 @@
    },
    "explanation": "売上原価＝300,000＋1,900,000−400,000＝1,800,000円。売上総利益＝2,500,000−1,800,000＝700,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c02-007",
@@ -271,7 +271,7 @@
    },
    "explanation": "売上値引は売上を直接減らし（借方に売上）、売掛金も減らす（貸方に売掛金）。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c02-008",
@@ -292,7 +292,7 @@
    },
    "explanation": "先入先出法は古いものから払い出す。月初の100個（＠100円）＝10,000円と、次の仕入分から50個（＠110円）＝5,500円で、合計15,500円。",
    "source": "original",
-   "verified": false
+   "verified": true
   }
  ]
 }

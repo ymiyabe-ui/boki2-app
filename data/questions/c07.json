@@ -36,7 +36,7 @@
    },
    "explanation": "自社利用のソフトウェアの購入は、無形固定資産のソフトウェアとして資産計上する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c07-002",
@@ -74,7 +74,7 @@
    },
    "explanation": "無形固定資産は通常、直接法で償却する。2,000,000円÷5年＝400,000円をソフトウェア償却として費用にし、ソフトウェアから直接減らす。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c07-003",
@@ -111,7 +111,7 @@
    },
    "explanation": "特許権は無形固定資産。取得にかかった支出を取得原価として資産計上する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c07-004",
@@ -149,7 +149,7 @@
    },
    "explanation": "600,000円÷8年＝75,000円。無形固定資産なので直接法で、特許権を減額する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c07-005",
@@ -191,7 +191,7 @@
    },
    "explanation": "研究開発費は、発生時に全額を費用とする（資産計上しない）。貸方は支払方法に応じて当座預金500,000円と未払金450,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c07-006",
@@ -228,7 +228,7 @@
    },
    "explanation": "制作途中の支出は、完成するまで「ソフトウェア仮勘定」で処理する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c07-007",
@@ -270,7 +270,7 @@
    },
    "explanation": "完成したので、仮勘定800,000円を本勘定のソフトウェアに振り替え、新たに支払った400,000円も取得原価に含める。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c07-008",
@@ -312,7 +312,7 @@
    },
    "explanation": "設立登記などの設立のための費用は創立費、開業準備のための費用は開業費。どちらも支出時に費用として処理する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c07-009",
@@ -335,7 +335,7 @@
    },
    "explanation": "研究開発費は将来の収益獲得が不確実なので、発生したときに全額を費用処理する（研究開発費勘定）。",
    "source": "original",
-   "verified": false
+   "verified": true
   }
  ]
 }

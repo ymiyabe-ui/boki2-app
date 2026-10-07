@@ -37,7 +37,7 @@
    },
    "explanation": "1,000株×5,000円＝5,000,000円。払込金額の全額を資本金にする指示なので、貸方は資本金のみ。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c12-002",
@@ -81,7 +81,7 @@
    },
    "explanation": "払込金額は2,000×6,000＝12,000,000円。会社法では払込額の2分の1以上を資本金にすればよく、残りは資本準備金にできる。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c12-003",
@@ -118,7 +118,7 @@
    },
    "explanation": "新株の発行にかかる費用は株式交付費（費用）。設立時の費用の創立費と区別する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c12-004",
@@ -165,7 +165,7 @@
    },
    "explanation": "受け入れた純資産は8,000,000−5,000,000＝3,000,000円。対価4,000,000円との差額1,000,000円が、のれん（借方）。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c12-005",
@@ -212,7 +212,7 @@
    },
    "explanation": "受け入れた純資産は3,000,000円で、対価2,500,000円より大きい。差額500,000円は負ののれん発生益（収益）として貸方に計上する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c12-006",
@@ -250,7 +250,7 @@
    },
    "explanation": "のれんは20年以内に定額法などで償却する。1,000,000円÷20年＝50,000円。直接法で、のれんを減額する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c12-007",
@@ -297,7 +297,7 @@
    },
    "explanation": "譲り受けた純資産は3,000,000−1,200,000＝1,800,000円。対価2,000,000円との差額200,000円がのれん。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c12-008",
@@ -320,7 +320,7 @@
    },
    "explanation": "のれんは、その効果の及ぶ期間にわたって、20年以内に定額法などで規則的に償却する。",
    "source": "original",
-   "verified": false
+   "verified": true
   }
  ]
 }

@@ -37,7 +37,7 @@
    },
    "explanation": "利子込み法では、リース料総額（240,000×5年＝1,200,000円）でリース資産とリース債務を計上する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c06-002",
@@ -74,7 +74,7 @@
    },
    "explanation": "利子抜き法では、見積現金購入価額（利息相当額を除いた額）1,100,000円でリース資産とリース債務を計上する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c06-003",
@@ -111,7 +111,7 @@
    },
    "explanation": "利子込み法では、リース料の支払いはそのままリース債務の減少。利息は含まれていないので、支払利息は計上しない。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c06-004",
@@ -154,7 +154,7 @@
    },
    "explanation": "利息相当額の総額は1,200,000−1,100,000＝100,000円で、5年で定額配分すると年20,000円。支払額240,000円のうち、20,000円が支払利息、残り220,000円がリース債務の返済。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c06-005",
@@ -192,7 +192,7 @@
    },
    "explanation": "リース資産はリース期間を耐用年数として、残存価額ゼロで償却する。1,200,000円÷5年＝240,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c06-006",
@@ -229,7 +229,7 @@
    },
    "explanation": "オペレーティング・リース（借手）は、通常の賃貸借と同じ処理。支払ったリース料をそのまま費用（支払リース料）にする。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c06-007",
@@ -252,7 +252,7 @@
    },
    "explanation": "ファイナンス・リースは、中途解約不能（ノンキャンセラブル）で、物件の使用による経済的利益を享受し、費用も実質的に負担する（フルペイアウト）取引。実質は購入と同じなので売買に準じた処理をする。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c06-008",
@@ -273,7 +273,7 @@
    },
    "explanation": "利息相当額の総額＝1,800,000−1,650,000＝150,000円。5年で定額配分すると毎期150,000÷5＝30,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   }
  ]
 }

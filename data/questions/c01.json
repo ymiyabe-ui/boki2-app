@@ -37,7 +37,7 @@
    },
    "explanation": "設定額は3,000,000円×2%＝60,000円。すでに20,000円の残高があるので、差額の40,000円だけを繰り入れる（差額補充法）。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c01-002",
@@ -74,7 +74,7 @@
    },
    "explanation": "三分法では、決算で期首の繰越商品を仕入に振り替えて売上原価の計算に含める。借方が仕入、貸方が繰越商品。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c01-003",
@@ -112,7 +112,7 @@
    },
    "explanation": "定額法の年間償却額は600,000円÷5年＝120,000円。間接法なので貸方は備品減価償却累計額。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c01-004",
@@ -150,7 +150,7 @@
    },
    "explanation": "10/1〜3/31の6か月分は当期の費用。残る6か月分（144,000円÷12か月×6か月＝72,000円）が翌期分なので、前払保険料として資産に振り替える。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c01-005",
@@ -188,7 +188,7 @@
    },
    "explanation": "1,200,000円×2.5%×3か月／12か月＝7,500円。まだ受け取っていない収益なので、借方は未収利息、貸方は受取利息。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c01-006",
@@ -225,7 +225,7 @@
    },
    "explanation": "決算まで原因不明の現金不足（借方残高）は雑損として処理し、現金過不足勘定を消す。原因不明の過剰（貸方残高）なら雑益。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c01-007",
@@ -246,7 +246,7 @@
    },
    "explanation": "売上原価＝期首商品棚卸高＋当期仕入高−期末商品棚卸高＝200,000＋1,800,000−250,000＝1,750,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c01-008",
@@ -269,7 +269,7 @@
    },
    "explanation": "未使用の切手や収入印紙は、期末に費用から貯蔵品（資産）へ振り替える。借方が貯蔵品、貸方が通信費。",
    "source": "original",
-   "verified": false
+   "verified": true
   }
  ]
 }

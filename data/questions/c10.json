@@ -37,7 +37,7 @@
    },
    "explanation": "外貨建取引は取引時の為替相場で円に換算する。1,000ドル×110円＝110,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c10-002",
@@ -75,7 +75,7 @@
    },
    "explanation": "2,000ドル×112円＝224,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c10-003",
@@ -119,7 +119,7 @@
    },
    "explanation": "入金額は2,000×109＝218,000円。帳簿の売掛金224,000円との差額6,000円は、円高による為替差損（借方の為替差損益）。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c10-004",
@@ -163,7 +163,7 @@
    },
    "explanation": "支払額は1,000×108＝108,000円。買掛金110,000円との差額2,000円は、円高による為替差益（貸方の為替差損益）。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c10-005",
@@ -201,7 +201,7 @@
    },
    "explanation": "決算日の相場による売掛金の円貨は2,000×107＝214,000円。帳簿の224,000円との差額10,000円を為替差損として売掛金を減額する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c10-006",
@@ -239,7 +239,7 @@
    },
    "explanation": "決算日の相場による買掛金は1,000×113＝113,000円。帳簿の110,000円との差額3,000円は円安による為替差損で、買掛金を増額する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c10-007",
@@ -282,7 +282,7 @@
    },
    "explanation": "前払金は支払時のレートのままで充当する（換算替えしない）。仕入は前払金54,000円＋掛け分500ドル×110円＝55,000円で109,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c10-008",
@@ -305,7 +305,7 @@
    },
    "explanation": "決算では、金銭債権債務などの貨幣項目（売掛金・買掛金・貸付金）を決算日の相場で換算替えする。前払金のような非貨幣項目は取得時の相場のまま。",
    "source": "original",
-   "verified": false
+   "verified": true
   }
  ]
 }

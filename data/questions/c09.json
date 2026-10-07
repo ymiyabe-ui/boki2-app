@@ -36,7 +36,7 @@
    },
    "explanation": "前期以前の売上から生じた債権の貸倒れは、貸倒引当金の残高の範囲で貸倒引当金を取り崩す。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c09-002",
@@ -73,7 +73,7 @@
    },
    "explanation": "当期発生の債権は、前期末に設定した貸倒引当金の対象ではないので、全額を貸倒損失とする。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c09-003",
@@ -111,7 +111,7 @@
    },
    "explanation": "設定額は(4,000,000＋1,000,000)×2%＝100,000円。残高70,000円との差額30,000円を繰り入れる。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c09-004",
@@ -148,7 +148,7 @@
    },
    "explanation": "残高が設定額を上回るので、差額30,000円を取り崩す（借方は貸倒引当金、貸方は貸倒引当金戻入）。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c09-005",
@@ -186,7 +186,7 @@
    },
    "explanation": "当期に負担する分は支給見込額×4か月/6か月＝1,200,000円。借方は賞与引当金繰入（費用）、貸方は賞与引当金（負債）。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c09-006",
@@ -234,7 +234,7 @@
    },
    "explanation": "引当金の残高1,200,000円を取り崩し、不足分600,000円を賞与（費用）とする。差し引いた源泉所得税等は預り金、現金の支払額は1,800,000−180,000＝1,620,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c09-007",
@@ -271,7 +271,7 @@
    },
    "explanation": "退職給付の当期負担分は、退職給付費用（費用）と退職給付引当金（負債）で計上する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c09-008",
@@ -308,7 +308,7 @@
    },
    "explanation": "退職金の支払いは、すでに引き当ててある退職給付引当金を取り崩して充てる。",
    "source": "original",
-   "verified": false
+   "verified": true
   }
  ]
 }

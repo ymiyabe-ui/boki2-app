@@ -41,7 +41,7 @@
    },
    "explanation": "当座預金の残高100,000円を超える分（350,000−100,000＝250,000円）は当座借越（負債）で処理する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c03-002",
@@ -78,7 +78,7 @@
    },
    "explanation": "配当金領収証は通貨代用証券なので現金で処理する。貸方は受取配当金。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c03-003",
@@ -99,7 +99,7 @@
    },
    "explanation": "両方を修正後の同じ残高にそろえる。当社側の修正後残高＝520,000＋10,000＝530,000円。銀行側は「残高−未取付小切手＋時間外預入」が530,000円になるので、残高＝530,000＋90,000−40,000＝580,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c03-004",
@@ -136,7 +136,7 @@
    },
    "explanation": "当社の帳簿に未記帳の入金は、当社側で修正仕訳が必要。借方は当座預金、貸方は売掛金。未取付小切手や時間外預入は銀行側の事情なので仕訳不要。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c03-005",
@@ -173,7 +173,7 @@
    },
    "explanation": "判明した2,000円だけを正しい費用（通信費）に振り替える。残りの1,000円は決算まで原因が分からなければ雑損にする。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c03-006",
@@ -215,7 +215,7 @@
    },
    "explanation": "報告（費用／小口現金）と補給（小口現金／当座預金）を1つにまとめると、小口現金が相殺されて「費用／当座預金」になる。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c03-007",
@@ -252,7 +252,7 @@
    },
    "explanation": "銀行手数料の引落しは、当社の帳簿に未記帳なら当社側で修正する。借方は支払手数料、貸方は当座預金。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c03-008",
@@ -275,7 +275,7 @@
    },
    "explanation": "未取付小切手と時間外預入は、銀行に反映されるのが遅れているだけで、当社の帳簿は正しい。銀行の記帳誤りは銀行が直す。当社の未記帳（連絡未達）は当社で仕訳が必要。",
    "source": "original",
-   "verified": false
+   "verified": true
   }
  ]
 }

@@ -36,7 +36,7 @@
    },
    "explanation": "中間納付は、確定する前の仮払いなので仮払法人税等で処理する。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c11-002",
@@ -78,7 +78,7 @@
    },
    "explanation": "納付すべき税額の全額を費用とし、中間納付分（仮払法人税等）を取り崩し、残り900,000円が未払法人税等。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c11-003",
@@ -121,7 +121,7 @@
    },
    "explanation": "税抜方式では、消費税部分は仕入に含めず仮払消費税（資産）で処理する。買掛金は税込の1,100,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c11-004",
@@ -164,7 +164,7 @@
    },
    "explanation": "消費税部分は売上に含めず、仮受消費税（負債）。売掛金は税込の2,200,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c11-005",
@@ -206,7 +206,7 @@
    },
    "explanation": "仮受消費税（預かった分）から仮払消費税（支払った分）を引いた差額300,000円が、納付すべき未払消費税。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c11-006",
@@ -244,7 +244,7 @@
    },
    "explanation": "損金に認められなかった超過額100,000円は、将来の税金を減らす効果があるので、税率30%を乗じた30,000円を繰延税金資産（借方）とし、法人税等調整額（貸方）で費用を減らす。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c11-007",
@@ -281,7 +281,7 @@
    },
    "explanation": "一時差異が解消したので、前期に計上した繰延税金資産を取り崩す。借方は法人税等調整額（費用の増加）。",
    "source": "original",
-   "verified": false
+   "verified": true
   },
   {
    "id": "c11-008",
@@ -302,7 +302,7 @@
    },
    "explanation": "課税所得＝税引前当期純利益5,000,000円＋損金不算入額200,000円＝5,200,000円。納付する法人税等＝5,200,000×30%＝1,560,000円。",
    "source": "original",
-   "verified": false
+   "verified": true
   }
  ]
 }
