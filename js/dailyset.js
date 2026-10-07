@@ -8,6 +8,29 @@ const hash = (s) => {
   return x >>> 0;
 };
 
+/** 問題の優先順：未解答 → 直近で間違えた → 解いてから時間がたったもの。同順位は seed で日替わりにする */
+export function makeRanker(data, seedStr) {
+  const tries = new Map();
+  for (const a of data.attempts || []) {
+    if (!a.questionId) continue;
+    const t = tries.get(a.questionId) || { n: 0, last: '', lastScore: 1 };
+    t.n += 1;
+    if (a.ts >= t.last) { t.last = a.ts; t.lastScore = a.score; }
+    tries.set(a.questionId, t);
+  }
+  const rank = (q) => {
+    const t = tries.get(q.id);
+    return [t ? 1 : 0, t ? t.lastScore : 0, t ? t.last : '', hash(`${seedStr}:${q.id}`)];
+  };
+  const cmp = (a, b) => {
+    const ra = rank(a);
+    const rb = rank(b);
+    for (let i = 0; i < ra.length; i++) if (ra[i] !== rb[i]) return ra[i] < rb[i] ? -1 : 1;
+    return 0;
+  };
+  return { tries, cmp };
+}
+
 /**
  * @param {object} p
  * @param {object[]} p.questions 全問題
@@ -27,27 +50,7 @@ export function buildSet({ questions, weekTopicIds, mastery, data, config, today
   const levelOf = (id) => (mastery[id] ? mastery[id].level : 0);
   const lowFirst = [...topicsWithQ].sort((a, b) => levelOf(a) - levelOf(b) || (a < b ? -1 : 1));
 
-  // 問題ごとの解答履歴
-  const tries = new Map();
-  for (const a of data.attempts || []) {
-    if (!a.questionId) continue;
-    const t = tries.get(a.questionId) || { n: 0, last: '', lastScore: 1 };
-    t.n += 1;
-    if (a.ts >= t.last) { t.last = a.ts; t.lastScore = a.score; }
-    tries.set(a.questionId, t);
-  }
-  const seed = (id) => hash(`${today}:${setNo}:${id}`);
-  // 未解答 → 直近で間違えた → 解いてから時間がたったもの の順に、日替わりで並べる
-  const rank = (q) => {
-    const t = tries.get(q.id);
-    return [t ? 1 : 0, t ? t.lastScore : 0, t ? t.last : '', seed(q.id)];
-  };
-  const cmp = (a, b) => {
-    const ra = rank(a);
-    const rb = rank(b);
-    for (let i = 0; i < ra.length; i++) if (ra[i] !== rb[i]) return ra[i] < rb[i] ? -1 : 1;
-    return 0;
-  };
+  const { tries, cmp } = makeRanker(data, `${today}:${setNo}`);
 
   const used = new Set(exclude);
   const out = [];

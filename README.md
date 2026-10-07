@@ -21,9 +21,12 @@
 │   ├── grade.js        … 採点（仕訳は順番不問・同じ科目は合算）
 │   ├── review.js       … 再出題の予定（1日後・3日後・7日後で卒業）
 │   ├── dailyset.js     … 毎日のセット（5問＋再出題3問）の組み立て
+│   ├── forecast.js     … 合格見込み点・模試と予測の差
+│   ├── weekly.js       … 週末の総復習（セット・集計・来週の推奨）
+│   ├── report.js       … 週次レポート（JSON）の組み立て
 │   ├── ui.js           … 画面の共通部品
 │   ├── version.js
-│   └── views/          … ホーム・時間・ミニテスト・問題集・論点・設定の各画面
+│   └── views/          … ホーム・時間・ミニテスト・週末の総復習・問題集・論点・設定の各画面
 ├── data/               … topics / config / plan / holidays / accounts（静的データ）
 │   └── questions/      … 論点ごとの問題（c01.json …）と索引 index.json
 ├── icons/              … ホーム画面用アイコン

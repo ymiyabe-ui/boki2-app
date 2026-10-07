@@ -6,6 +6,7 @@ import { renderHome } from './views/home.js';
 import { renderRecord } from './views/record.js';
 import { renderWorkbook } from './views/workbook.js';
 import { renderQuiz } from './views/quiz.js';
+import { renderWeekly } from './views/weekly.js';
 import { renderTopics, renderTopicDetail } from './views/topics.js';
 import { renderSettings } from './views/settings.js';
 
@@ -82,6 +83,7 @@ async function main() {
     if (m) return { tab: '#/topics', view: () => renderTopicDetail(ctx, m[1]) };
     switch (hash) {
       case '#/record': return { tab: hash, view: () => renderRecord(ctx) };
+      case '#/weekly': return { tab: '#/quiz', view: () => renderWeekly(ctx) };
       case '#/quiz': return { tab: hash, view: () => renderQuiz(ctx) };
       case '#/workbook': return { tab: hash, view: () => renderWorkbook(ctx) };
       case '#/topics': return { tab: hash, view: () => renderTopics(ctx) };

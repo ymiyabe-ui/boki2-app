@@ -3,7 +3,7 @@ import { h, toast, fmtDate } from '../ui.js';
 import { toYmd } from '../dates.js';
 import { VERSION } from '../version.js';
 
-async function saveFile(text, name) {
+export async function saveFile(text, name) {
   const file = new File([text], name, { type: 'application/json' });
   // iPhone：共有シートから「ファイルに保存」へ。使えない環境ではダウンロードにする
   if (navigator.canShare && navigator.canShare({ files: [file] })) {

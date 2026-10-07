@@ -221,6 +221,30 @@ export function createStore(storage, opts = {}) {
       this.save();
     },
 
+    // ---- 週末の総復習・模試 ----
+    /** 同じ週の総復習は最新の1件に置き換える（週次の連続判定が二重に数えないように） */
+    addWeeklyReview(review) {
+      const r = { id: uid(), ts: now().toISOString(), ...review };
+      this.data.weeklyReviews = [...this.data.weeklyReviews.filter((w) => w.weekStart !== review.weekStart), r];
+      this.save();
+      return r;
+    },
+    /** scores は { 1: 得点, … 5: 得点 }。forecast は記録時点の予測（{ total, sections:[{q, score}] }） */
+    addMock({ date, scores, total, minutes = null, forecast = null }) {
+      const m = {
+        id: uid(), ts: now().toISOString(), date, scores, total, minutes,
+        forecastTotal: forecast ? forecast.total : null,
+        forecastBySection: forecast ? Object.fromEntries(forecast.sections.map((s) => [s.q, s.score])) : null,
+      };
+      this.data.mocks.push(m);
+      this.save();
+      return m;
+    },
+    deleteMock(id) {
+      this.data.mocks = this.data.mocks.filter((m) => m.id !== id);
+      this.save();
+    },
+
     // ---- 「テキストを読んだ」----
     setTopicRead(topicId, read) {
       if (read) this.data.topicMarks[topicId] = { readAt: now().toISOString(), readDate: toYmd(now()) };

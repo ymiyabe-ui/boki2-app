@@ -6,6 +6,7 @@ import { masteryAll } from '../mastery.js';
 import { backupDueDays } from '../store.js';
 import { topicMap, topicName } from './parts.js';
 import { answeredToday, dueCount } from './quiz.js';
+import { forecast } from '../forecast.js';
 
 const SVG = 'http://www.w3.org/2000/svg';
 const s = (tag, attrs) => {
@@ -82,6 +83,14 @@ export function renderHome(ctx) {
           h('span', { class: 'small muted' }, `再出題 ${due}問／今日解いた ${doneToday}問`)),
         h('span', { class: 'btn small primary' }, doneToday ? 'もう1セット' : '始める'))));
   }
+
+  // --- 週末の総復習・合格見込み点 ---
+  const fc = forecast(ctx.topics, mastery, config);
+  root.append(h('a', { class: 'card', href: '#/weekly', style: 'text-decoration:none;color:inherit;display:block' },
+    h('div', { class: 'row' },
+      h('div', { class: 'grow' }, h('h2', { style: 'margin:0' }, '📊 週末の総復習'),
+        h('span', { class: 'small muted' }, `合格見込み ${(Math.round(fc.total * 10) / 10).toFixed(1)}点／合格${config.passScore}点・週次レポート`)),
+      h('span', { class: 'btn small' }, '開く'))));
 
   // --- 今週の論点 ---
   const weekCard = h('div', { class: 'card' });

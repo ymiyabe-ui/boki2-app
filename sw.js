@@ -1,7 +1,7 @@
 // Service Worker：アプリ一式を端末に保存してオフラインでも動かす。
 // 更新の流れ：VERSION を上げる → 新しいキャッシュを作って待機 → アプリ上の「再読み込み」で切り替え。
 // VERSION は package.json・js/version.js と同じ値（scripts/set-version.mjs で一括変更）
-const VERSION = '0.2.1';
+const VERSION = '0.3.0';
 const CACHE = `boki2-app-v${VERSION}`;
 
 const ASSETS = [
@@ -21,6 +21,11 @@ const ASSETS = [
   './js/review.js',
   './js/dailyset.js',
   './js/views/quiz.js',
+  './js/views/weekly.js',
+  './js/views/weekly-parts.js',
+  './js/forecast.js',
+  './js/weekly.js',
+  './js/report.js',
   './js/views/parts.js',
   './js/views/home.js',
   './js/views/record.js',
