@@ -129,3 +129,11 @@ test('同じ問題の判定は全角・半角や大文字小文字の違いを�
 test('得点の記号', () => {
   assert.deepEqual([1, 0.5, 0].map(scoreMark), ['○', '△', '×']);
 });
+
+test('同じ時刻の記録は、後から追加した方を新しいとみなす（×のあとに同時刻で○なら再挑戦リストから外れる）', () => {
+  const ts = '2026-10-10T10:00:00.000Z';
+  const x = { ...att('c05', 0, { no: '9' }), ts };
+  const o = { ...att('c05', 1, { no: '9' }), ts };
+  assert.equal(retryList([x, o]).length, 0);
+  assert.equal(retryList([o, x]).length, 1);
+});

@@ -6,7 +6,12 @@ export const LEVEL_NAMES = ['未学習', '読んだ', '例題が解ける', '時
 /** 得点（1 / 0.5 / 0）を記号にする */
 export const scoreMark = (s) => (s >= 1 ? '○' : s > 0 ? '△' : '×');
 
-const byTsDesc = (a, b) => (a.ts < b.ts ? 1 : a.ts > b.ts ? -1 : 0);
+// 新しい順。同じ時刻なら、配列の後ろ（後から追加した方）を新しいとみなす
+const newestFirst = (attempts) =>
+  attempts
+    .map((a, i) => [a, i])
+    .sort(([a, i], [b, j]) => (a.ts < b.ts ? 1 : a.ts > b.ts ? -1 : j - i))
+    .map(([a]) => a);
 const norm = (s) => String(s ?? '').trim().normalize('NFKC').toLowerCase();
 
 /** 同じ問題かどうかの判定キー。ミニテストは問題ID、問題集は書名・ページ・番号 */
@@ -57,7 +62,7 @@ export function computeMastery(topicId, data, config, today) {
   const m = config.mastery;
   const min = config.minAttempts || { level2: 1, level3: 1, level4: 1 };
   const all = (data.attempts || []).filter((a) => a.topicId === topicId);
-  const recent = [...all].sort(byTsDesc).slice(0, m.recentN);
+  const recent = newestFirst(all).slice(0, m.recentN);
   const n = recent.length;
   const rate = n ? recent.reduce((s, a) => s + a.score, 0) / n : null;
   const inTimeRatio = n ? recent.filter((a) => a.inTime === true).length / n : null;
@@ -94,7 +99,7 @@ export function masteryAll(topics, data, config, today) {
 export function retryList(attempts) {
   const latest = new Map();
   const tries = new Map();
-  for (const a of [...attempts].sort(byTsDesc)) {
+  for (const a of newestFirst(attempts)) {
     const k = refKey(a);
     tries.set(k, (tries.get(k) || 0) + 1);
     if (!latest.has(k)) latest.set(k, a);
