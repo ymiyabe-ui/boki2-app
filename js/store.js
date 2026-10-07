@@ -1,6 +1,7 @@
 // 学習データの保存（localStorage）。storage を差し替えられるので Node のテストでも動く。
 // 方針：読み込めないデータは絶対に上書きしない。移行・取り込みの前には元データを別キーに残す。
 import { toYmd, diffDays } from './dates.js';
+import { applyAnswer } from './review.js';
 
 export const STORAGE_KEY = 'boki2-app:data';
 export const CURRENT_VERSION = 1;
@@ -191,6 +192,32 @@ export function createStore(storage, opts = {}) {
     },
     deleteAttempt(id) {
       this.data.attempts = this.data.attempts.filter((a) => a.id !== id);
+      this.save();
+    },
+
+    // ---- ミニテスト ----
+    /** ミニテストの解答を記録し、再出題の予定も更新する（保存は1回）。q は問題、intervals は config.reviewIntervalsDays */
+    recordAnswer({ q, correct, sec, intervals, mode = 'minitest' }) {
+      const t = now();
+      const date = toYmd(t);
+      const a = {
+        id: uid(), ts: t.toISOString(), date, topicId: q.topicId, mode, ref: null, questionId: q.id, qrev: q.rev,
+        score: correct ? 1 : 0, inTime: sec == null ? null : sec <= q.targetSec, sec,
+      };
+      this.data.attempts.push(a);
+      this.data.reviewQueue = applyAnswer(this.data.reviewQueue, { questionId: q.id, topicId: q.topicId, correct, date }, intervals);
+      this.save();
+      return a;
+    },
+    addErrorReport({ q, note }) {
+      const t = now();
+      const r = { id: uid(), ts: t.toISOString(), date: toYmd(t), questionId: q.id, rev: q.rev, topicId: q.topicId, note: String(note || '').trim() };
+      this.data.errorReports.push(r);
+      this.save();
+      return r;
+    },
+    deleteErrorReport(id) {
+      this.data.errorReports = this.data.errorReports.filter((r) => r.id !== id);
       this.save();
     },
 

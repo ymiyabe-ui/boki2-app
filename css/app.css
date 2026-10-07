@@ -146,10 +146,23 @@ input[type=checkbox], input[type=radio] { width: 22px; height: 22px; min-height:
 .chart text { fill: var(--muted); font-size: 10px; }
 
 /* 下部タブ */
-.tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; display: grid; grid-template-columns: repeat(5, 1fr); background: var(--card); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
+.tabs { position: fixed; left: 0; right: 0; bottom: 0; z-index: 10; display: grid; grid-template-columns: repeat(6, 1fr); background: var(--card); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom); }
 .tabs a { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: var(--tab-h); text-decoration: none; color: var(--muted); font-size: .72rem; gap: 2px; }
 .tabs a .ico { font-size: 1.25rem; line-height: 1; }
 .tabs a[aria-current=page] { color: var(--accent); font-weight: 700; }
 
 .toast { position: fixed; left: 50%; bottom: calc(var(--tab-h) + env(safe-area-inset-bottom) + 20px); transform: translate(-50%, 10px); background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: 10px; opacity: 0; transition: .25s; z-index: 20; max-width: 90%; }
 .toast.show { opacity: 1; transform: translate(-50%, 0); }
+
+/* ミニテスト */
+.prompt { margin: 0; font-size: 1.02rem; line-height: 1.75; }
+.jrows { display: grid; gap: 8px; margin-bottom: 8px; }
+.jrow { display: grid; grid-template-columns: 1fr 7.5em; gap: 8px; }
+.choices { display: grid; gap: 8px; }
+button.choice { text-align: left; min-height: 52px; }
+button.choice.picked { background: var(--accent-soft); border-color: var(--accent); font-weight: 600; }
+.banner.ok { background: var(--accent-soft); border-color: var(--good); }
+.jtable { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.jline { display: flex; justify-content: space-between; gap: 6px; padding: 3px 0; border-top: 1px solid var(--line); }
+.jline .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
+.big-ans { font-size: 1.25rem; font-weight: 700; margin: 4px 0; }

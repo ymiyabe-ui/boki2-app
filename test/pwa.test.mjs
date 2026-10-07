@@ -32,7 +32,7 @@ test('Service Worker の保存対象がすべて実在する', () => {
 });
 
 test('アプリのコード・データ・画像はすべて Service Worker の保存対象に入っている（オフラインで欠けない）', () => {
-  const need = [...walk('js'), ...walk('css'), ...walk('icons'), 'data/topics.json', 'data/config.json', 'data/plan.json', 'data/holidays.json', 'index.html', 'manifest.webmanifest'];
+  const need = [...walk('js'), ...walk('css'), ...walk('icons'), ...walk('data'), 'index.html', 'manifest.webmanifest'];
   for (const f of need) assert.ok(assets.includes(`./${f}`), `${f} が sw.js の ASSETS にありません`);
 });
 

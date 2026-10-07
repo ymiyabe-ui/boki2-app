@@ -5,6 +5,7 @@ import { cumulativeSeries, minutesOnDate, planWeekFor, weekSummary } from '../st
 import { masteryAll } from '../mastery.js';
 import { backupDueDays } from '../store.js';
 import { topicMap, topicName } from './parts.js';
+import { answeredToday, dueCount } from './quiz.js';
 
 const SVG = 'http://www.w3.org/2000/svg';
 const s = (tag, attrs) => {
@@ -70,6 +71,17 @@ export function renderHome(ctx) {
   root.append(h('div', { class: 'head' },
     h('h1', null, '簿記2級'),
     h('span', { class: 'sub' }, daysToExam >= 0 ? `受験予定（${fmtDate(config.examDate)}）まであと${daysToExam}日` : '受験予定日を過ぎています')));
+
+  // --- 今日のミニテスト ---
+  if (ctx.questions.length) {
+    const due = dueCount(ctx);
+    const doneToday = answeredToday(data, today).length;
+    root.append(h('a', { class: 'card', href: '#/quiz', style: 'text-decoration:none;color:inherit;display:block' },
+      h('div', { class: 'row' },
+        h('div', { class: 'grow' }, h('h2', { style: 'margin:0' }, '✏️ 今日のミニテスト'),
+          h('span', { class: 'small muted' }, `再出題 ${due}問／今日解いた ${doneToday}問`)),
+        h('span', { class: 'btn small primary' }, doneToday ? 'もう1セット' : '始める'))));
+  }
 
   // --- 今週の論点 ---
   const weekCard = h('div', { class: 'card' });

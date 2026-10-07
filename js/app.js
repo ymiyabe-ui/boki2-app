@@ -5,12 +5,14 @@ import { h } from './ui.js';
 import { renderHome } from './views/home.js';
 import { renderRecord } from './views/record.js';
 import { renderWorkbook } from './views/workbook.js';
+import { renderQuiz } from './views/quiz.js';
 import { renderTopics, renderTopicDetail } from './views/topics.js';
 import { renderSettings } from './views/settings.js';
 
 const TABS = [
   ['#/', 'ホーム', '🏠'],
   ['#/record', '時間', '⏱'],
+  ['#/quiz', 'テスト', '✏️'],
   ['#/workbook', '問題集', '📝'],
   ['#/topics', '論点', '🗺'],
   ['#/settings', '設定', '⚙'],
@@ -47,6 +49,16 @@ async function main() {
     return;
   }
 
+  // 問題データ。読み込めなくても他の画面は使えるよう、失敗しても止めない
+  let questions = [];
+  try {
+    const { files } = await getJson('./data/questions/index.json');
+    const bodies = await Promise.all(files.map((f) => getJson(`./data/questions/${f}`)));
+    questions = bodies.flatMap((b) => b.questions);
+  } catch (e) {
+    console.warn('問題データを読み込めませんでした', e);
+  }
+
   const { storage, ok } = pickStorage();
   const store = createStore(storage).load();
   if (!ok) store.message = 'この端末では記録を保存できません（プライベートブラウズなど）。通常のタブで開いてください。';
@@ -54,7 +66,7 @@ async function main() {
   if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
 
   const ctx = {
-    store, topics, config, plan, holidays,
+    store, topics, config, plan, holidays, questions, quiz: null,
     now: () => new Date(),
     today: () => toYmd(new Date()),
     refresh: () => render(),
@@ -70,6 +82,7 @@ async function main() {
     if (m) return { tab: '#/topics', view: () => renderTopicDetail(ctx, m[1]) };
     switch (hash) {
       case '#/record': return { tab: hash, view: () => renderRecord(ctx) };
+      case '#/quiz': return { tab: hash, view: () => renderQuiz(ctx) };
       case '#/workbook': return { tab: hash, view: () => renderWorkbook(ctx) };
       case '#/topics': return { tab: hash, view: () => renderTopics(ctx) };
       case '#/settings': return { tab: hash, view: () => renderSettings(ctx) };
