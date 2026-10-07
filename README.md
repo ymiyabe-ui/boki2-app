@@ -18,10 +18,14 @@
 │   ├── stats.js        … 勉強時間の集計（週・累計・計画の何週目か）
 │   ├── mastery.js      … 習熟度の判定・再挑戦リスト
 │   ├── store.js        … 端末内の保存・移行・バックアップ・タイマー
+│   ├── grade.js        … 採点（仕訳は順番不問・同じ科目は合算）
+│   ├── review.js       … 再出題の予定（1日後・3日後・7日後で卒業）
+│   ├── dailyset.js     … 毎日のセット（5問＋再出題3問）の組み立て
 │   ├── ui.js           … 画面の共通部品
 │   ├── version.js
-│   └── views/          … ホーム・時間・問題集・論点・設定の各画面
-├── data/               … topics / config / plan / holidays（静的データ）
+│   └── views/          … ホーム・時間・ミニテスト・問題集・論点・設定の各画面
+├── data/               … topics / config / plan / holidays / accounts（静的データ）
+│   └── questions/      … 論点ごとの問題（c01.json …）と索引 index.json
 ├── icons/              … ホーム画面用アイコン
 ├── scripts/            … serve.mjs（確認用サーバー）、set-version.mjs、make-icons.mjs
 ├── test/               … node --test で動くテスト
@@ -36,10 +40,18 @@
 3. 以降はホーム画面のアイコンから開く（ブラウザで開くより記録が消えにくい）
 4. 設定タブの「バックアップを書き出す」を週1回。共有メニューで「ファイルに保存」を選ぶ
 
+## 問題を追加・直すとき
+
+1. `data/questions/<論点ID>.json` に追加する（形式は boki2-app-PROMPT.md の「5. データ設計」）。新しいファイルなら `index.json` と `sw.js` の保存対象にも足す
+2. 金額を含む問題は `checks` に計算式を書く。AIが作った問題は `verified: false`
+3. `node scripts/validate-questions.mjs` で検証する（必須項目・論点ID・勘定科目・貸借の一致・計算式の再計算・ID重複）
+4. 問題を修正したら `rev` を1上げる（IDは変えない・再利用しない）
+
 ## 更新を出すとき
 
 ```
 node scripts/set-version.mjs 0.2.0   # 版をそろえて変更
+node scripts/validate-questions.mjs   # 問題データの検証
 node --test
 ```
 
