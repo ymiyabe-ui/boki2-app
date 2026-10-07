@@ -1,0 +1,275 @@
+{
+ "topicId": "c01",
+ "questions": [
+  {
+   "id": "c01-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c01",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "決算にあたり、売掛金の期末残高3,000,000円に対して2%の貸倒れを見積もり、差額補充法により貸倒引当金を設定する。貸倒引当金の残高は20,000円である。",
+   "choices": [
+    "貸倒引当金",
+    "貸倒引当金戻入",
+    "貸倒引当金繰入",
+    "貸倒損失"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "貸倒引当金繰入",
+      "amount": 40000
+     }
+    ],
+    "credit": [
+     {
+      "account": "貸倒引当金",
+      "amount": 40000
+     }
+    ]
+   },
+   "checks": {
+    "貸倒引当金繰入": "3000000 * 2 / 100 - 20000",
+    "貸倒引当金": "3000000 * 2 / 100 - 20000"
+   },
+   "explanation": "設定額は3,000,000円×2%＝60,000円。すでに20,000円の残高があるので、差額の40,000円だけを繰り入れる（差額補充法）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c01-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c01",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "決算整理として、期首商品棚卸高300,000円を売上原価の計算のために仕入勘定へ振り替える（三分法）。",
+   "choices": [
+    "繰越商品",
+    "商品",
+    "仕入",
+    "売上原価"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕入",
+      "amount": 300000
+     }
+    ],
+    "credit": [
+     {
+      "account": "繰越商品",
+      "amount": 300000
+     }
+    ]
+   },
+   "checks": {
+    "仕入": "300000"
+   },
+   "explanation": "三分法では、決算で期首の繰越商品を仕入に振り替えて売上原価の計算に含める。借方が仕入、貸方が繰越商品。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c01-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c01",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "決算にあたり、備品（取得原価600,000円、残存価額ゼロ、耐用年数5年）について定額法により減価償却を行う。記帳方法は間接法とする。",
+   "choices": [
+    "備品",
+    "建物減価償却累計額",
+    "備品減価償却累計額",
+    "減価償却費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "減価償却費",
+      "amount": 120000
+     }
+    ],
+    "credit": [
+     {
+      "account": "備品減価償却累計額",
+      "amount": 120000
+     }
+    ]
+   },
+   "checks": {
+    "減価償却費": "600000 / 5",
+    "備品減価償却累計額": "600000 / 5"
+   },
+   "explanation": "定額法の年間償却額は600,000円÷5年＝120,000円。間接法なので貸方は備品減価償却累計額。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c01-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c01",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "決算にあたり、×1年10月1日に支払った1年分の保険料144,000円（全額を保険料として費用処理済み）のうち、翌期分を繰り延べる。決算日は×2年3月31日である。",
+   "choices": [
+    "前払保険料",
+    "未払金",
+    "支払手数料",
+    "保険料"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "前払保険料",
+      "amount": 72000
+     }
+    ],
+    "credit": [
+     {
+      "account": "保険料",
+      "amount": 72000
+     }
+    ]
+   },
+   "checks": {
+    "前払保険料": "144000 / 12 * 6",
+    "保険料": "144000 / 12 * 6"
+   },
+   "explanation": "10/1〜3/31の6か月分は当期の費用。残る6か月分（144,000円÷12か月×6か月＝72,000円）が翌期分なので、前払保険料として資産に振り替える。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c01-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c01",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "決算にあたり、貸付金1,200,000円（年利率2.5%、利息は後払い）について、当期の3か月分の利息を未収として計上する。",
+   "choices": [
+    "現金",
+    "未収利息",
+    "前受金",
+    "受取利息"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "未収利息",
+      "amount": 7500
+     }
+    ],
+    "credit": [
+     {
+      "account": "受取利息",
+      "amount": 7500
+     }
+    ]
+   },
+   "checks": {
+    "未収利息": "1200000 * 25 / 1000 * 3 / 12",
+    "受取利息": "1200000 * 25 / 1000 * 3 / 12"
+   },
+   "explanation": "1,200,000円×2.5%×3か月／12か月＝7,500円。まだ受け取っていない収益なので、借方は未収利息、貸方は受取利息。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c01-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c01",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "現金過不足勘定が借方残高5,000円となっていたが、決算日まで原因が判明しなかったため、適切に処理する。",
+   "choices": [
+    "現金",
+    "現金過不足",
+    "通信費",
+    "雑損"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "雑損",
+      "amount": 5000
+     }
+    ],
+    "credit": [
+     {
+      "account": "現金過不足",
+      "amount": 5000
+     }
+    ]
+   },
+   "checks": {
+    "雑損": "5000"
+   },
+   "explanation": "決算まで原因不明の現金不足（借方残高）は雑損として処理し、現金過不足勘定を消す。原因不明の過剰（貸方残高）なら雑益。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c01-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c01",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "当期の期首商品棚卸高は200,000円、当期商品仕入高は1,800,000円、期末商品棚卸高は250,000円である。売上原価はいくらか（棚卸減耗等は考えない）。",
+   "answer": {
+    "value": 1750000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "200000 + 1800000 - 250000"
+   },
+   "explanation": "売上原価＝期首商品棚卸高＋当期仕入高−期末商品棚卸高＝200,000＋1,800,000−250,000＝1,750,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c01-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c01",
+   "type": "choice",
+   "difficulty": 1,
+   "targetSec": 60,
+   "prompt": "通信費として処理していた郵便切手のうち、決算日に未使用のものがある。この決算整理仕訳で借方に記入する勘定科目はどれか。",
+   "choices": [
+    "貯蔵品",
+    "前払金",
+    "未収入金",
+    "仮払金"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "未使用の切手や収入印紙は、期末に費用から貯蔵品（資産）へ振り替える。借方が貯蔵品、貸方が通信費。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

@@ -1,0 +1,314 @@
+{
+ "topicId": "c09",
+ "questions": [
+  {
+   "id": "c09-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c09",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "前期に販売した商品の売掛金150,000円が貸倒れとなった。貸倒引当金の残高は200,000円である。",
+   "choices": [
+    "売掛金",
+    "貸倒引当金",
+    "貸倒引当金繰入",
+    "貸倒損失"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "貸倒引当金",
+      "amount": 150000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売掛金",
+      "amount": 150000
+     }
+    ]
+   },
+   "checks": {
+    "貸倒引当金": "150000"
+   },
+   "explanation": "前期以前の売上から生じた債権の貸倒れは、貸倒引当金の残高の範囲で貸倒引当金を取り崩す。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c09-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c09",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "当期に販売した商品の売掛金80,000円が貸倒れとなった。貸倒引当金の残高は200,000円ある（前期末に設定したもの）。",
+   "choices": [
+    "売掛金",
+    "貸倒引当金",
+    "貸倒引当金繰入",
+    "貸倒損失"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "貸倒損失",
+      "amount": 80000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売掛金",
+      "amount": 80000
+     }
+    ]
+   },
+   "checks": {
+    "貸倒損失": "80000"
+   },
+   "explanation": "当期発生の債権は、前期末に設定した貸倒引当金の対象ではないので、全額を貸倒損失とする。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c09-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c09",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "決算にあたり、売掛金4,000,000円と受取手形1,000,000円に対して2%の貸倒れを見積もり、差額補充法により貸倒引当金を設定する。貸倒引当金の残高は70,000円である。",
+   "choices": [
+    "貸倒引当金",
+    "貸倒引当金戻入",
+    "貸倒引当金繰入",
+    "貸倒損失"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "貸倒引当金繰入",
+      "amount": 30000
+     }
+    ],
+    "credit": [
+     {
+      "account": "貸倒引当金",
+      "amount": 30000
+     }
+    ]
+   },
+   "checks": {
+    "貸倒引当金繰入": "(4000000 + 1000000) * 2 / 100 - 70000",
+    "貸倒引当金": "(4000000 + 1000000) * 2 / 100 - 70000"
+   },
+   "explanation": "設定額は(4,000,000＋1,000,000)×2%＝100,000円。残高70,000円との差額30,000円を繰り入れる。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c09-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c09",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "決算にあたり、貸倒引当金の設定額が100,000円と計算された。貸倒引当金の残高は130,000円である。差額補充法で処理する。",
+   "choices": [
+    "貸倒引当金",
+    "貸倒引当金戻入",
+    "貸倒引当金繰入",
+    "貸倒損失"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "貸倒引当金",
+      "amount": 30000
+     }
+    ],
+    "credit": [
+     {
+      "account": "貸倒引当金戻入",
+      "amount": 30000
+     }
+    ]
+   },
+   "checks": {
+    "貸倒引当金": "130000 - 100000"
+   },
+   "explanation": "残高が設定額を上回るので、差額30,000円を取り崩す（借方は貸倒引当金、貸方は貸倒引当金戻入）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c09-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c09",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "決算にあたり、従業員に6月に支給する賞与の支給見込額は全額で1,800,000円で、その算定対象期間は前年12月から当年5月までの6か月である。当期の決算日は3月31日（対象期間のうち当期分は4か月）である。賞与引当金を設定する。",
+   "choices": [
+    "未払金",
+    "賞与引当金",
+    "賞与引当金繰入",
+    "賞与"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "賞与引当金繰入",
+      "amount": 1200000
+     }
+    ],
+    "credit": [
+     {
+      "account": "賞与引当金",
+      "amount": 1200000
+     }
+    ]
+   },
+   "checks": {
+    "賞与引当金繰入": "1800000 * 4 / 6",
+    "賞与引当金": "1800000 * 4 / 6"
+   },
+   "explanation": "当期に負担する分は支給見込額×4か月/6か月＝1,200,000円。借方は賞与引当金繰入（費用）、貸方は賞与引当金（負債）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c09-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c09",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 240,
+   "prompt": "賞与1,800,000円を支給した。源泉所得税等180,000円を差し引き、残額は現金で支払った。賞与引当金の残高は1,200,000円ある。",
+   "choices": [
+    "現金",
+    "未払金",
+    "預り金",
+    "賞与引当金",
+    "賞与引当金繰入",
+    "賞与"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "賞与引当金",
+      "amount": 1200000
+     },
+     {
+      "account": "賞与",
+      "amount": 600000
+     }
+    ],
+    "credit": [
+     {
+      "account": "預り金",
+      "amount": 180000
+     },
+     {
+      "account": "現金",
+      "amount": 1620000
+     }
+    ]
+   },
+   "checks": {
+    "賞与": "1800000 - 1200000",
+    "現金": "1800000 - 180000"
+   },
+   "explanation": "引当金の残高1,200,000円を取り崩し、不足分600,000円を賞与（費用）とする。差し引いた源泉所得税等は預り金、現金の支払額は1,800,000−180,000＝1,620,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c09-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c09",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "決算にあたり、当期の退職給付費用として900,000円を計上する。",
+   "choices": [
+    "賞与引当金",
+    "退職給付引当金",
+    "賞与",
+    "退職給付費用"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "退職給付費用",
+      "amount": 900000
+     }
+    ],
+    "credit": [
+     {
+      "account": "退職給付引当金",
+      "amount": 900000
+     }
+    ]
+   },
+   "checks": {
+    "退職給付費用": "900000"
+   },
+   "explanation": "退職給付の当期負担分は、退職給付費用（費用）と退職給付引当金（負債）で計上する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c09-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c09",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "従業員が退職し、退職一時金1,500,000円を小切手を振り出して支払った。退職給付引当金の残高は10,000,000円ある。",
+   "choices": [
+    "当座預金",
+    "賞与引当金",
+    "退職給付引当金",
+    "退職給付費用"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "退職給付引当金",
+      "amount": 1500000
+     }
+    ],
+    "credit": [
+     {
+      "account": "当座預金",
+      "amount": 1500000
+     }
+    ]
+   },
+   "checks": {
+    "退職給付引当金": "1500000"
+   },
+   "explanation": "退職金の支払いは、すでに引き当ててある退職給付引当金を取り崩して充てる。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

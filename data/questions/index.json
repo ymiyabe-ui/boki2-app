@@ -1,0 +1,18 @@
+{
+ "note": "問題ファイルの一覧。問題を増やしたらここにも足す（検証スクリプトが食い違いを検出する）",
+ "files": [
+  "c01.json",
+  "c02.json",
+  "c03.json",
+  "c04.json",
+  "c05.json",
+  "c06.json",
+  "c07.json",
+  "c08.json",
+  "c09.json",
+  "c10.json",
+  "c11.json",
+  "c12.json",
+  "c13.json"
+ ]
+}

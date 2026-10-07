@@ -1,0 +1,298 @@
+{
+ "topicId": "c02",
+ "questions": [
+  {
+   "id": "c02-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c02",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "掛けで仕入れた商品500,000円のうち、品違いのため30,000円分を返品した（三分法）。",
+   "choices": [
+    "売掛金",
+    "買掛金",
+    "売上",
+    "仕入"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "買掛金",
+      "amount": 30000
+     }
+    ],
+    "credit": [
+     {
+      "account": "仕入",
+      "amount": 30000
+     }
+    ]
+   },
+   "checks": {
+    "買掛金": "30000"
+   },
+   "explanation": "仕入の返品は、仕入を取り消す（貸方に仕入）とともに、買掛金を減らす（借方に買掛金）。返品額は30,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c02-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c02",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "原価400,000円の商品を600,000円で掛け売りした。売上原価対立法で記帳する。",
+   "choices": [
+    "売掛金",
+    "繰越商品",
+    "商品",
+    "売上",
+    "仕入",
+    "売上原価"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "売掛金",
+      "amount": 600000
+     },
+     {
+      "account": "売上原価",
+      "amount": 400000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売上",
+      "amount": 600000
+     },
+     {
+      "account": "商品",
+      "amount": 400000
+     }
+    ]
+   },
+   "checks": {
+    "売上原価": "400000",
+    "売掛金": "600000"
+   },
+   "explanation": "売上原価対立法では、販売のつど「売上」と「売上原価」を同時に記帳する。商品（資産）を原価で減らし、売上原価に振り替える。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c02-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c02",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "商品800,000円を掛けで仕入れた。引取運賃20,000円は現金で支払った（仕入諸掛は仕入原価に含める）。",
+   "choices": [
+    "現金",
+    "当座預金",
+    "買掛金",
+    "仕入",
+    "発送費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕入",
+      "amount": 820000
+     }
+    ],
+    "credit": [
+     {
+      "account": "買掛金",
+      "amount": 800000
+     },
+     {
+      "account": "現金",
+      "amount": 20000
+     }
+    ]
+   },
+   "checks": {
+    "仕入": "800000 + 20000"
+   },
+   "explanation": "仕入にかかった引取運賃などの諸掛は仕入原価に含める。借方の仕入は800,000＋20,000＝820,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c02-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c02",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "商品1,000,000円を掛けで販売し、先方負担の発送運賃12,000円を当社が現金で立て替えた。立替分は売掛金に含めて処理する。",
+   "choices": [
+    "現金",
+    "売掛金",
+    "未収入金",
+    "買掛金",
+    "売上",
+    "発送費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "売掛金",
+      "amount": 1012000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売上",
+      "amount": 1000000
+     },
+     {
+      "account": "現金",
+      "amount": 12000
+     }
+    ]
+   },
+   "checks": {
+    "売掛金": "1000000 + 12000"
+   },
+   "explanation": "先方負担の運賃を立て替えたぶんは、後で回収するので売掛金に含める（借方1,012,000円）。当社が負担する運賃なら発送費になる点と区別する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c02-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c02",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 240,
+   "prompt": "期末の商品の帳簿棚卸数量は100個（原価＠1,200円）、実地棚卸数量は95個で、その正味売却価額は＠1,000円であった。棚卸減耗損と商品評価損を計上する（それぞれ独立の勘定で処理）。",
+   "choices": [
+    "繰越商品",
+    "仕入",
+    "売上原価",
+    "棚卸減耗損",
+    "商品評価損"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "棚卸減耗損",
+      "amount": 6000
+     },
+     {
+      "account": "商品評価損",
+      "amount": 19000
+     }
+    ],
+    "credit": [
+     {
+      "account": "繰越商品",
+      "amount": 25000
+     }
+    ]
+   },
+   "checks": {
+    "棚卸減耗損": "(100 - 95) * 1200",
+    "商品評価損": "(1200 - 1000) * 95",
+    "繰越商品": "(100 - 95) * 1200 + (1200 - 1000) * 95"
+   },
+   "explanation": "棚卸減耗損＝(帳簿数量100−実地数量95)×原価＠1,200＝6,000円。商品評価損＝(原価＠1,200−正味売却価額＠1,000)×実地数量95＝19,000円。いずれも繰越商品の減額。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c02-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c02",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "売上は2,500,000円、期首商品棚卸高は300,000円、当期仕入高は1,900,000円、期末商品棚卸高は400,000円である。売上総利益はいくらか。",
+   "answer": {
+    "value": 700000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "2500000 - (300000 + 1900000 - 400000)"
+   },
+   "explanation": "売上原価＝300,000＋1,900,000−400,000＝1,800,000円。売上総利益＝2,500,000−1,800,000＝700,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c02-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c02",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "掛けで販売した商品について、品質不良のため売上代金から25,000円の値引きを行った（三分法）。",
+   "choices": [
+    "売掛金",
+    "買掛金",
+    "売上",
+    "仕入"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "売上",
+      "amount": 25000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売掛金",
+      "amount": 25000
+     }
+    ]
+   },
+   "checks": {
+    "売上": "25000"
+   },
+   "explanation": "売上値引は売上を直接減らし（借方に売上）、売掛金も減らす（貸方に売掛金）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c02-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c02",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "商品有高帳（先入先出法）。月初に100個（＠100円）、その後200個（＠110円）を仕入れ、150個を払い出した。払出原価はいくらか。",
+   "answer": {
+    "value": 15500,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "100 * 100 + 50 * 110"
+   },
+   "explanation": "先入先出法は古いものから払い出す。月初の100個（＠100円）＝10,000円と、次の仕入分から50個（＠110円）＝5,500円で、合計15,500円。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

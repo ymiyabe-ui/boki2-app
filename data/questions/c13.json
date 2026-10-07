@@ -1,0 +1,299 @@
+{
+ "topicId": "c13",
+ "questions": [
+  {
+   "id": "c13-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c13",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 240,
+   "prompt": "株主総会で、繰越利益剰余金を財源に2,000,000円の配当を決議した。会社法の定めにより、配当額の10分の1を利益準備金として積み立てる（積立ての上限には達していない）。",
+   "choices": [
+    "未払金",
+    "未払配当金",
+    "資本準備金",
+    "利益準備金",
+    "繰越利益剰余金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "繰越利益剰余金",
+      "amount": 2200000
+     }
+    ],
+    "credit": [
+     {
+      "account": "未払配当金",
+      "amount": 2000000
+     },
+     {
+      "account": "利益準備金",
+      "amount": 200000
+     }
+    ]
+   },
+   "checks": {
+    "利益準備金": "2000000 / 10",
+    "繰越利益剰余金": "2000000 + 2000000 / 10"
+   },
+   "explanation": "利益準備金の積立額は配当額の10分の1＝200,000円。繰越利益剰余金から減らす額は配当2,000,000＋準備金200,000＝2,200,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c13-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c13",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 90,
+   "prompt": "前問で決議した配当金2,000,000円を、当座預金から支払った。",
+   "choices": [
+    "現金",
+    "当座預金",
+    "未払金",
+    "未払配当金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "未払配当金",
+      "amount": 2000000
+     }
+    ],
+    "credit": [
+     {
+      "account": "当座預金",
+      "amount": 2000000
+     }
+    ]
+   },
+   "checks": {
+    "未払配当金": "2000000"
+   },
+   "explanation": "決議のときに計上した未払配当金を、支払いにより取り崩す。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c13-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c13",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 240,
+   "prompt": "株主総会で、その他資本剰余金を財源に1,000,000円の配当を決議した。会社法の定めにより、配当額の10分の1を資本準備金として積み立てる（積立ての上限には達していない）。",
+   "choices": [
+    "未払配当金",
+    "資本準備金",
+    "利益準備金",
+    "その他資本剰余金",
+    "繰越利益剰余金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "その他資本剰余金",
+      "amount": 1100000
+     }
+    ],
+    "credit": [
+     {
+      "account": "未払配当金",
+      "amount": 1000000
+     },
+     {
+      "account": "資本準備金",
+      "amount": 100000
+     }
+    ]
+   },
+   "checks": {
+    "資本準備金": "1000000 / 10",
+    "その他資本剰余金": "1000000 + 1000000 / 10"
+   },
+   "explanation": "その他資本剰余金から配当するときは、配当額の10分の1を資本準備金に積み立てる（利益剰余金からの配当なら利益準備金）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c13-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c13",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 90,
+   "prompt": "決算にあたり、当期純利益3,500,000円を損益勘定から繰越利益剰余金勘定に振り替える。",
+   "choices": [
+    "資本金",
+    "利益準備金",
+    "繰越利益剰余金",
+    "損益"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "損益",
+      "amount": 3500000
+     }
+    ],
+    "credit": [
+     {
+      "account": "繰越利益剰余金",
+      "amount": 3500000
+     }
+    ]
+   },
+   "checks": {
+    "損益": "3500000"
+   },
+   "explanation": "当期純利益は、損益勘定の貸方残高を借方に振り替えて、繰越利益剰余金（貸方）に加える。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c13-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c13",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "株主総会で、繰越利益剰余金の借方残高（損失）2,000,000円を填補するため、資本準備金2,000,000円を取り崩すことを決議した。",
+   "choices": [
+    "資本金",
+    "資本準備金",
+    "利益準備金",
+    "繰越利益剰余金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "資本準備金",
+      "amount": 2000000
+     }
+    ],
+    "credit": [
+     {
+      "account": "繰越利益剰余金",
+      "amount": 2000000
+     }
+    ]
+   },
+   "checks": {
+    "資本準備金": "2000000"
+   },
+   "explanation": "損失の填補のために準備金を取り崩すときは、準備金を減らし（借方）、繰越利益剰余金の借方残高を減らす（貸方）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c13-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c13",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "株主総会で、繰越利益剰余金から新築積立金500,000円を積み立てることを決議した。",
+   "choices": [
+    "未払配当金",
+    "資本準備金",
+    "繰越利益剰余金",
+    "新築積立金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "繰越利益剰余金",
+      "amount": 500000
+     }
+    ],
+    "credit": [
+     {
+      "account": "新築積立金",
+      "amount": 500000
+     }
+    ]
+   },
+   "checks": {
+    "新築積立金": "500000"
+   },
+   "explanation": "任意積立金の積立ては、繰越利益剰余金を減らして（借方）、積立金（貸方）を増やす。純資産の内訳の振替えで、総額は変わらない。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c13-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c13",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 150,
+   "prompt": "株主総会の決議により、資本金1,000,000円を減少させて、資本準備金に振り替えた。",
+   "choices": [
+    "資本金",
+    "資本準備金",
+    "利益準備金",
+    "その他資本剰余金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "資本金",
+      "amount": 1000000
+     }
+    ],
+    "credit": [
+     {
+      "account": "資本準備金",
+      "amount": 1000000
+     }
+    ]
+   },
+   "checks": {
+    "資本金": "1000000"
+   },
+   "explanation": "株主資本の計数の変動。資本金から資本準備金への振替えは、純資産の合計額は変わらない。借方が資本金、貸方が資本準備金。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c13-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c13",
+   "type": "choice",
+   "difficulty": 2,
+   "targetSec": 60,
+   "prompt": "剰余金の配当をする場合の利益準備金（または資本準備金）の積立ての上限として、会社法が定めているものはどれか。",
+   "choices": [
+    "準備金の合計が資本金の4分の1に達するまで",
+    "準備金の合計が資本金の2分の1に達するまで",
+    "準備金の合計が資本金と同額に達するまで",
+    "純資産の合計の4分の1に達するまで"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "配当額の10分の1を準備金に積み立てるが、資本準備金と利益準備金の合計が資本金の4分の1に達していれば、それ以上の積立ては要らない。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

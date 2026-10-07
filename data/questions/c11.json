@@ -1,0 +1,308 @@
+{
+ "topicId": "c11",
+ "questions": [
+  {
+   "id": "c11-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c11",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 90,
+   "prompt": "法人税等の中間申告を行い、中間納付額600,000円を小切手を振り出して納付した。",
+   "choices": [
+    "当座預金",
+    "仮払法人税等",
+    "未払法人税等",
+    "租税公課"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仮払法人税等",
+      "amount": 600000
+     }
+    ],
+    "credit": [
+     {
+      "account": "当座預金",
+      "amount": 600000
+     }
+    ]
+   },
+   "checks": {
+    "仮払法人税等": "600000"
+   },
+   "explanation": "中間納付は、確定する前の仮払いなので仮払法人税等で処理する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c11-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c11",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "決算にあたり、当期の法人税、住民税及び事業税を1,500,000円と計算した。中間納付額は600,000円である。",
+   "choices": [
+    "仮払法人税等",
+    "預り金",
+    "未払法人税等",
+    "法人税、住民税及び事業税",
+    "租税公課"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "法人税、住民税及び事業税",
+      "amount": 1500000
+     }
+    ],
+    "credit": [
+     {
+      "account": "仮払法人税等",
+      "amount": 600000
+     },
+     {
+      "account": "未払法人税等",
+      "amount": 900000
+     }
+    ]
+   },
+   "checks": {
+    "未払法人税等": "1500000 - 600000"
+   },
+   "explanation": "納付すべき税額の全額を費用とし、中間納付分（仮払法人税等）を取り崩し、残り900,000円が未払法人税等。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c11-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c11",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "商品1,000,000円（税抜）を掛けで仕入れた。消費税は10%で、税抜方式で処理する。",
+   "choices": [
+    "仮払消費税",
+    "買掛金",
+    "仮受消費税",
+    "未払消費税",
+    "仕入"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕入",
+      "amount": 1000000
+     },
+     {
+      "account": "仮払消費税",
+      "amount": 100000
+     }
+    ],
+    "credit": [
+     {
+      "account": "買掛金",
+      "amount": 1100000
+     }
+    ]
+   },
+   "checks": {
+    "仮払消費税": "1000000 * 10 / 100",
+    "買掛金": "1000000 * 110 / 100"
+   },
+   "explanation": "税抜方式では、消費税部分は仕入に含めず仮払消費税（資産）で処理する。買掛金は税込の1,100,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c11-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c11",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "商品2,000,000円（税抜）を掛けで販売した。消費税は10%で、税抜方式で処理する。",
+   "choices": [
+    "売掛金",
+    "仮払消費税",
+    "仮受消費税",
+    "未払消費税",
+    "売上"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "売掛金",
+      "amount": 2200000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売上",
+      "amount": 2000000
+     },
+     {
+      "account": "仮受消費税",
+      "amount": 200000
+     }
+    ]
+   },
+   "checks": {
+    "仮受消費税": "2000000 * 10 / 100",
+    "売掛金": "2000000 * 110 / 100"
+   },
+   "explanation": "消費税部分は売上に含めず、仮受消費税（負債）。売掛金は税込の2,200,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c11-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c11",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "決算にあたり、仮受消費税800,000円と仮払消費税500,000円を相殺し、納付額を未払消費税として計上する。",
+   "choices": [
+    "未収入金",
+    "仮払消費税",
+    "仮受消費税",
+    "未払消費税",
+    "租税公課"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仮受消費税",
+      "amount": 800000
+     }
+    ],
+    "credit": [
+     {
+      "account": "仮払消費税",
+      "amount": 500000
+     },
+     {
+      "account": "未払消費税",
+      "amount": 300000
+     }
+    ]
+   },
+   "checks": {
+    "未払消費税": "800000 - 500000"
+   },
+   "explanation": "仮受消費税（預かった分）から仮払消費税（支払った分）を引いた差額300,000円が、納付すべき未払消費税。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c11-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c11",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "決算にあたり、貸倒引当金の繰入限度超過額100,000円について税効果会計を適用する。法定実効税率は30%である。",
+   "choices": [
+    "仮払法人税等",
+    "繰延税金資産",
+    "未払法人税等",
+    "法人税等調整額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "繰延税金資産",
+      "amount": 30000
+     }
+    ],
+    "credit": [
+     {
+      "account": "法人税等調整額",
+      "amount": 30000
+     }
+    ]
+   },
+   "checks": {
+    "繰延税金資産": "100000 * 30 / 100",
+    "法人税等調整額": "100000 * 30 / 100"
+   },
+   "explanation": "損金に認められなかった超過額100,000円は、将来の税金を減らす効果があるので、税率30%を乗じた30,000円を繰延税金資産（借方）とし、法人税等調整額（貸方）で費用を減らす。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c11-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c11",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 150,
+   "prompt": "前期に計上した貸倒引当金に係る繰延税金資産30,000円について、当期に損金算入が認められたため、取り崩した。",
+   "choices": [
+    "仮払法人税等",
+    "繰延税金資産",
+    "未払法人税等",
+    "法人税等調整額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "法人税等調整額",
+      "amount": 30000
+     }
+    ],
+    "credit": [
+     {
+      "account": "繰延税金資産",
+      "amount": 30000
+     }
+    ]
+   },
+   "checks": {
+    "法人税等調整額": "30000"
+   },
+   "explanation": "一時差異が解消したので、前期に計上した繰延税金資産を取り崩す。借方は法人税等調整額（費用の増加）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c11-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c11",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "税引前当期純利益は5,000,000円である。このうち、賞与引当金の繰入額200,000円は税法上損金に認められない。法定実効税率が30%のとき、当期に納付する法人税等はいくらか（他の調整項目はない）。",
+   "answer": {
+    "value": 1560000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "(5000000 + 200000) * 30 / 100"
+   },
+   "explanation": "課税所得＝税引前当期純利益5,000,000円＋損金不算入額200,000円＝5,200,000円。納付する法人税等＝5,200,000×30%＝1,560,000円。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

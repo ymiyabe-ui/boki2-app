@@ -1,0 +1,311 @@
+{
+ "topicId": "c10",
+ "questions": [
+  {
+   "id": "c10-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c10",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 90,
+   "prompt": "米国から商品1,000ドルを掛けで輸入した。取引時の為替相場は1ドル＝110円である。",
+   "choices": [
+    "買掛金",
+    "未払金",
+    "売上",
+    "仕入"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕入",
+      "amount": 110000
+     }
+    ],
+    "credit": [
+     {
+      "account": "買掛金",
+      "amount": 110000
+     }
+    ]
+   },
+   "checks": {
+    "仕入": "1000 * 110",
+    "買掛金": "1000 * 110"
+   },
+   "explanation": "外貨建取引は取引時の為替相場で円に換算する。1,000ドル×110円＝110,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c10-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c10",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 90,
+   "prompt": "米国の得意先へ商品2,000ドルを掛けで販売した。取引時の為替相場は1ドル＝112円である。",
+   "choices": [
+    "売掛金",
+    "未収入金",
+    "売上",
+    "仕入"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "売掛金",
+      "amount": 224000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売上",
+      "amount": 224000
+     }
+    ]
+   },
+   "checks": {
+    "売掛金": "2000 * 112",
+    "売上": "2000 * 112"
+   },
+   "explanation": "2,000ドル×112円＝224,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c10-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c10",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "輸出で生じた売掛金2,000ドル（発生時の為替相場は1ドル＝112円）が当座預金に入金された。決済時の為替相場は1ドル＝109円である。",
+   "choices": [
+    "当座預金",
+    "売掛金",
+    "売上",
+    "貸倒損失",
+    "為替差損益"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "当座預金",
+      "amount": 218000
+     },
+     {
+      "account": "為替差損益",
+      "amount": 6000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売掛金",
+      "amount": 224000
+     }
+    ]
+   },
+   "checks": {
+    "当座預金": "2000 * 109",
+    "為替差損益": "2000 * (112 - 109)",
+    "売掛金": "2000 * 112"
+   },
+   "explanation": "入金額は2,000×109＝218,000円。帳簿の売掛金224,000円との差額6,000円は、円高による為替差損（借方の為替差損益）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c10-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c10",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "輸入で生じた買掛金1,000ドル（発生時の為替相場は1ドル＝110円）を当座預金から支払った。決済時の為替相場は1ドル＝108円である。",
+   "choices": [
+    "当座預金",
+    "売掛金",
+    "未収入金",
+    "買掛金",
+    "為替差損益"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "買掛金",
+      "amount": 110000
+     }
+    ],
+    "credit": [
+     {
+      "account": "当座預金",
+      "amount": 108000
+     },
+     {
+      "account": "為替差損益",
+      "amount": 2000
+     }
+    ]
+   },
+   "checks": {
+    "当座預金": "1000 * 108",
+    "為替差損益": "1000 * (110 - 108)",
+    "買掛金": "1000 * 110"
+   },
+   "explanation": "支払額は1,000×108＝108,000円。買掛金110,000円との差額2,000円は、円高による為替差益（貸方の為替差損益）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c10-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c10",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "決算にあたり、売掛金2,000ドル（発生時の為替相場は1ドル＝112円）を決算日の為替相場1ドル＝107円で換算替えする。",
+   "choices": [
+    "売掛金",
+    "売上",
+    "貸倒引当金繰入",
+    "為替差損益"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "為替差損益",
+      "amount": 10000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売掛金",
+      "amount": 10000
+     }
+    ]
+   },
+   "checks": {
+    "為替差損益": "2000 * (112 - 107)",
+    "売掛金": "2000 * (112 - 107)"
+   },
+   "explanation": "決算日の相場による売掛金の円貨は2,000×107＝214,000円。帳簿の224,000円との差額10,000円を為替差損として売掛金を減額する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c10-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c10",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "決算にあたり、買掛金1,000ドル（発生時の為替相場は1ドル＝110円）を決算日の為替相場1ドル＝113円で換算替えする。",
+   "choices": [
+    "売掛金",
+    "買掛金",
+    "仕入",
+    "為替差損益"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "為替差損益",
+      "amount": 3000
+     }
+    ],
+    "credit": [
+     {
+      "account": "買掛金",
+      "amount": 3000
+     }
+    ]
+   },
+   "checks": {
+    "為替差損益": "1000 * (113 - 110)",
+    "買掛金": "1000 * (113 - 110)"
+   },
+   "explanation": "決算日の相場による買掛金は1,000×113＝113,000円。帳簿の110,000円との差額3,000円は円安による為替差損で、買掛金を増額する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c10-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c10",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 240,
+   "prompt": "米国から商品1,000ドルを輸入した。このうち500ドルは、前に手付金として支払った前払金54,000円（支払時の為替相場は1ドル＝108円）で充当し、残り500ドルは掛けとした。仕入時の為替相場は1ドル＝110円である。",
+   "choices": [
+    "当座預金",
+    "前払金",
+    "買掛金",
+    "仕入",
+    "為替差損益"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕入",
+      "amount": 109000
+     }
+    ],
+    "credit": [
+     {
+      "account": "前払金",
+      "amount": 54000
+     },
+     {
+      "account": "買掛金",
+      "amount": 55000
+     }
+    ]
+   },
+   "checks": {
+    "仕入": "54000 + 500 * 110",
+    "買掛金": "500 * 110"
+   },
+   "explanation": "前払金は支払時のレートのままで充当する（換算替えしない）。仕入は前払金54,000円＋掛け分500ドル×110円＝55,000円で109,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c10-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c10",
+   "type": "choice",
+   "difficulty": 2,
+   "targetSec": 60,
+   "prompt": "決算にあたり、決算日の為替相場で換算替えをしないものはどれか（取得時の為替相場のまま据え置く項目）。",
+   "choices": [
+    "売掛金",
+    "買掛金",
+    "前払金",
+    "外貨建ての貸付金"
+   ],
+   "answer": {
+    "index": 2
+   },
+   "explanation": "決算では、金銭債権債務などの貨幣項目（売掛金・買掛金・貸付金）を決算日の相場で換算替えする。前払金のような非貨幣項目は取得時の相場のまま。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

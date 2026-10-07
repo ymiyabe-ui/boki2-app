@@ -1,0 +1,318 @@
+{
+ "topicId": "c04",
+ "questions": [
+  {
+   "id": "c04-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c04",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 90,
+   "prompt": "買掛金400,000円の支払いのため、約束手形を振り出した。",
+   "choices": [
+    "当座預金",
+    "受取手形",
+    "買掛金",
+    "支払手形"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "買掛金",
+      "amount": 400000
+     }
+    ],
+    "credit": [
+     {
+      "account": "支払手形",
+      "amount": 400000
+     }
+    ]
+   },
+   "checks": {
+    "買掛金": "400000"
+   },
+   "explanation": "自社が振り出した約束手形は支払手形（負債）。買掛金が減るので借方は買掛金。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c04-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c04",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 90,
+   "prompt": "買掛金250,000円の支払いのため、得意先から受け取っていた約束手形を裏書譲渡した。",
+   "choices": [
+    "受取手形",
+    "売掛金",
+    "買掛金",
+    "支払手形"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "買掛金",
+      "amount": 250000
+     }
+    ],
+    "credit": [
+     {
+      "account": "受取手形",
+      "amount": 250000
+     }
+    ]
+   },
+   "checks": {
+    "買掛金": "250000"
+   },
+   "explanation": "受取手形を裏書して渡したので、受取手形が減る（貸方）。支払先への買掛金も減る（借方）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c04-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c04",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "保有する約束手形600,000円を銀行で割り引き、割引料9,000円を差し引かれた手取額が当座預金に入金された。",
+   "choices": [
+    "当座預金",
+    "受取手形",
+    "支払利息",
+    "手形売却損",
+    "電子記録債権売却損"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "当座預金",
+      "amount": 591000
+     },
+     {
+      "account": "手形売却損",
+      "amount": 9000
+     }
+    ],
+    "credit": [
+     {
+      "account": "受取手形",
+      "amount": 600000
+     }
+    ]
+   },
+   "checks": {
+    "当座預金": "600000 - 9000",
+    "手形売却損": "9000"
+   },
+   "explanation": "手形割引は受取手形の減少。差し引かれた割引料は手形売却損（費用）。当座預金への入金は600,000−9,000＝591,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c04-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c04",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "得意先から受け取っていた約束手形300,000円が不渡りとなったため、償還請求した。このとき請求費用5,000円を現金で支払った。",
+   "choices": [
+    "現金",
+    "受取手形",
+    "売掛金",
+    "不渡手形",
+    "貸倒損失"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "不渡手形",
+      "amount": 305000
+     }
+    ],
+    "credit": [
+     {
+      "account": "受取手形",
+      "amount": 300000
+     },
+     {
+      "account": "現金",
+      "amount": 5000
+     }
+    ]
+   },
+   "checks": {
+    "不渡手形": "300000 + 5000"
+   },
+   "explanation": "不渡りになった手形は不渡手形（資産）に振り替え、償還請求にかかった費用も含めて請求額とする。305,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c04-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c04",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 90,
+   "prompt": "売掛金700,000円について、取引先との合意により電子記録債権の発生記録を行った。",
+   "choices": [
+    "受取手形",
+    "売掛金",
+    "電子記録債権",
+    "買掛金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "電子記録債権",
+      "amount": 700000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売掛金",
+      "amount": 700000
+     }
+    ]
+   },
+   "checks": {
+    "電子記録債権": "700000"
+   },
+   "explanation": "売掛金が電子記録債権に代わる。借方が電子記録債権、貸方が売掛金。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c04-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c04",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "保有する電子記録債権400,000円を取引銀行で割り引き、手数料4,000円を差し引かれた手取額が当座預金に入金された。",
+   "choices": [
+    "当座預金",
+    "電子記録債権",
+    "支払手数料",
+    "手形売却損",
+    "電子記録債権売却損"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "当座預金",
+      "amount": 396000
+     },
+     {
+      "account": "電子記録債権売却損",
+      "amount": 4000
+     }
+    ],
+    "credit": [
+     {
+      "account": "電子記録債権",
+      "amount": 400000
+     }
+    ]
+   },
+   "checks": {
+    "当座預金": "400000 - 4000",
+    "電子記録債権売却損": "4000"
+   },
+   "explanation": "電子記録債権の割引は、手形の割引と同じ考え方で、差し引かれた手数料を電子記録債権売却損として処理する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c04-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c04",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "取引先の借入金1,000,000円について、銀行に対する債務の保証を行った。対照勘定を用いて処理する。",
+   "choices": [
+    "貸付金",
+    "保証債務見返",
+    "買掛金",
+    "保証債務"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "保証債務見返",
+      "amount": 1000000
+     }
+    ],
+    "credit": [
+     {
+      "account": "保証債務",
+      "amount": 1000000
+     }
+    ]
+   },
+   "checks": {
+    "保証債務": "1000000"
+   },
+   "explanation": "債務保証をしたときは、将来の支払義務の可能性を記録するため、保証債務（貸方）と見返りの対照勘定（借方の保証債務見返）を同額で記帳する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c04-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c04",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "前問で保証していた取引先の借入金1,000,000円を、取引先自身が返済し、保証債務が消滅した。対照勘定を用いて処理する。",
+   "choices": [
+    "貸付金",
+    "保証債務見返",
+    "買掛金",
+    "保証債務"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "保証債務",
+      "amount": 1000000
+     }
+    ],
+    "credit": [
+     {
+      "account": "保証債務見返",
+      "amount": 1000000
+     }
+    ]
+   },
+   "checks": {
+    "保証債務": "1000000"
+   },
+   "explanation": "保証債務が消滅したので、保証をしたときの仕訳を逆にして両方の勘定を消す。借方が保証債務、貸方が保証債務見返。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

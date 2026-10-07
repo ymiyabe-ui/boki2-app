@@ -1,0 +1,453 @@
+{
+ "note": "勘定科目マスタ。kind は asset・contra・liability・equity・revenue・expense・pl（損益にまたがるもの）。並び順は選択肢の並び順にも使う",
+ "accounts": [
+  {
+   "name": "現金",
+   "kind": "asset"
+  },
+  {
+   "name": "当座預金",
+   "kind": "asset"
+  },
+  {
+   "name": "普通預金",
+   "kind": "asset"
+  },
+  {
+   "name": "小口現金",
+   "kind": "asset"
+  },
+  {
+   "name": "現金過不足",
+   "kind": "asset"
+  },
+  {
+   "name": "受取手形",
+   "kind": "asset"
+  },
+  {
+   "name": "売掛金",
+   "kind": "asset"
+  },
+  {
+   "name": "電子記録債権",
+   "kind": "asset"
+  },
+  {
+   "name": "不渡手形",
+   "kind": "asset"
+  },
+  {
+   "name": "未収入金",
+   "kind": "asset"
+  },
+  {
+   "name": "未収利息",
+   "kind": "asset"
+  },
+  {
+   "name": "前払金",
+   "kind": "asset"
+  },
+  {
+   "name": "前払保険料",
+   "kind": "asset"
+  },
+  {
+   "name": "貸付金",
+   "kind": "asset"
+  },
+  {
+   "name": "繰越商品",
+   "kind": "asset"
+  },
+  {
+   "name": "商品",
+   "kind": "asset"
+  },
+  {
+   "name": "貯蔵品",
+   "kind": "asset"
+  },
+  {
+   "name": "売買目的有価証券",
+   "kind": "asset"
+  },
+  {
+   "name": "満期保有目的債券",
+   "kind": "asset"
+  },
+  {
+   "name": "その他有価証券",
+   "kind": "asset"
+  },
+  {
+   "name": "建物",
+   "kind": "asset"
+  },
+  {
+   "name": "備品",
+   "kind": "asset"
+  },
+  {
+   "name": "車両運搬具",
+   "kind": "asset"
+  },
+  {
+   "name": "機械装置",
+   "kind": "asset"
+  },
+  {
+   "name": "リース資産",
+   "kind": "asset"
+  },
+  {
+   "name": "ソフトウェア",
+   "kind": "asset"
+  },
+  {
+   "name": "ソフトウェア仮勘定",
+   "kind": "asset"
+  },
+  {
+   "name": "特許権",
+   "kind": "asset"
+  },
+  {
+   "name": "のれん",
+   "kind": "asset"
+  },
+  {
+   "name": "仮払金",
+   "kind": "asset"
+  },
+  {
+   "name": "仮払消費税",
+   "kind": "asset"
+  },
+  {
+   "name": "仮払法人税等",
+   "kind": "asset"
+  },
+  {
+   "name": "繰延税金資産",
+   "kind": "asset"
+  },
+  {
+   "name": "火災未決算",
+   "kind": "asset"
+  },
+  {
+   "name": "保証債務見返",
+   "kind": "asset"
+  },
+  {
+   "name": "諸資産",
+   "kind": "asset"
+  },
+  {
+   "name": "貸倒引当金",
+   "kind": "contra"
+  },
+  {
+   "name": "建物減価償却累計額",
+   "kind": "contra"
+  },
+  {
+   "name": "備品減価償却累計額",
+   "kind": "contra"
+  },
+  {
+   "name": "車両運搬具減価償却累計額",
+   "kind": "contra"
+  },
+  {
+   "name": "機械装置減価償却累計額",
+   "kind": "contra"
+  },
+  {
+   "name": "リース資産減価償却累計額",
+   "kind": "contra"
+  },
+  {
+   "name": "買掛金",
+   "kind": "liability"
+  },
+  {
+   "name": "支払手形",
+   "kind": "liability"
+  },
+  {
+   "name": "未払金",
+   "kind": "liability"
+  },
+  {
+   "name": "預り金",
+   "kind": "liability"
+  },
+  {
+   "name": "当座借越",
+   "kind": "liability"
+  },
+  {
+   "name": "前受金",
+   "kind": "liability"
+  },
+  {
+   "name": "リース債務",
+   "kind": "liability"
+  },
+  {
+   "name": "仮受消費税",
+   "kind": "liability"
+  },
+  {
+   "name": "未払消費税",
+   "kind": "liability"
+  },
+  {
+   "name": "未払法人税等",
+   "kind": "liability"
+  },
+  {
+   "name": "未払配当金",
+   "kind": "liability"
+  },
+  {
+   "name": "賞与引当金",
+   "kind": "liability"
+  },
+  {
+   "name": "退職給付引当金",
+   "kind": "liability"
+  },
+  {
+   "name": "保証債務",
+   "kind": "liability"
+  },
+  {
+   "name": "諸負債",
+   "kind": "liability"
+  },
+  {
+   "name": "資本金",
+   "kind": "equity"
+  },
+  {
+   "name": "資本準備金",
+   "kind": "equity"
+  },
+  {
+   "name": "利益準備金",
+   "kind": "equity"
+  },
+  {
+   "name": "その他資本剰余金",
+   "kind": "equity"
+  },
+  {
+   "name": "繰越利益剰余金",
+   "kind": "equity"
+  },
+  {
+   "name": "新築積立金",
+   "kind": "equity"
+  },
+  {
+   "name": "その他有価証券評価差額金",
+   "kind": "equity"
+  },
+  {
+   "name": "売上",
+   "kind": "revenue"
+  },
+  {
+   "name": "固定資産売却益",
+   "kind": "revenue"
+  },
+  {
+   "name": "受取利息",
+   "kind": "revenue"
+  },
+  {
+   "name": "受取配当金",
+   "kind": "revenue"
+  },
+  {
+   "name": "有価証券利息",
+   "kind": "revenue"
+  },
+  {
+   "name": "有価証券売却益",
+   "kind": "revenue"
+  },
+  {
+   "name": "貸倒引当金戻入",
+   "kind": "revenue"
+  },
+  {
+   "name": "負ののれん発生益",
+   "kind": "revenue"
+  },
+  {
+   "name": "国庫補助金受贈益",
+   "kind": "revenue"
+  },
+  {
+   "name": "仕入",
+   "kind": "expense"
+  },
+  {
+   "name": "創立費",
+   "kind": "expense"
+  },
+  {
+   "name": "開業費",
+   "kind": "expense"
+  },
+  {
+   "name": "売上原価",
+   "kind": "expense"
+  },
+  {
+   "name": "発送費",
+   "kind": "expense"
+  },
+  {
+   "name": "旅費交通費",
+   "kind": "expense"
+  },
+  {
+   "name": "消耗品費",
+   "kind": "expense"
+  },
+  {
+   "name": "通信費",
+   "kind": "expense"
+  },
+  {
+   "name": "支払手数料",
+   "kind": "expense"
+  },
+  {
+   "name": "支払利息",
+   "kind": "expense"
+  },
+  {
+   "name": "保険料",
+   "kind": "expense"
+  },
+  {
+   "name": "減価償却費",
+   "kind": "expense"
+  },
+  {
+   "name": "貸倒引当金繰入",
+   "kind": "expense"
+  },
+  {
+   "name": "賞与引当金繰入",
+   "kind": "expense"
+  },
+  {
+   "name": "貸倒損失",
+   "kind": "expense"
+  },
+  {
+   "name": "棚卸減耗損",
+   "kind": "expense"
+  },
+  {
+   "name": "商品評価損",
+   "kind": "expense"
+  },
+  {
+   "name": "手形売却損",
+   "kind": "expense"
+  },
+  {
+   "name": "電子記録債権売却損",
+   "kind": "expense"
+  },
+  {
+   "name": "固定資産売却損",
+   "kind": "expense"
+  },
+  {
+   "name": "固定資産除却損",
+   "kind": "expense"
+  },
+  {
+   "name": "固定資産圧縮損",
+   "kind": "expense"
+  },
+  {
+   "name": "修繕費",
+   "kind": "expense"
+  },
+  {
+   "name": "火災損失",
+   "kind": "expense"
+  },
+  {
+   "name": "支払リース料",
+   "kind": "expense"
+  },
+  {
+   "name": "ソフトウェア償却",
+   "kind": "expense"
+  },
+  {
+   "name": "特許権償却",
+   "kind": "expense"
+  },
+  {
+   "name": "研究開発費",
+   "kind": "expense"
+  },
+  {
+   "name": "有価証券評価損",
+   "kind": "expense"
+  },
+  {
+   "name": "賞与",
+   "kind": "expense"
+  },
+  {
+   "name": "退職給付費用",
+   "kind": "expense"
+  },
+  {
+   "name": "法人税、住民税及び事業税",
+   "kind": "expense"
+  },
+  {
+   "name": "株式交付費",
+   "kind": "expense"
+  },
+  {
+   "name": "のれん償却",
+   "kind": "expense"
+  },
+  {
+   "name": "雑損",
+   "kind": "expense"
+  },
+  {
+   "name": "租税公課",
+   "kind": "expense"
+  },
+  {
+   "name": "為替差損益",
+   "kind": "pl"
+  },
+  {
+   "name": "法人税等調整額",
+   "kind": "pl"
+  },
+  {
+   "name": "損益",
+   "kind": "pl"
+  }
+ ]
+}

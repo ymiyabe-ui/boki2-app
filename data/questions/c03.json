@@ -1,0 +1,281 @@
+{
+ "topicId": "c03",
+ "questions": [
+  {
+   "id": "c03-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c03",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "買掛金350,000円を小切手を振り出して支払った。当座預金の残高は100,000円で、借越限度額500,000円の当座借越契約がある。当座借越は当座借越勘定で処理する。",
+   "choices": [
+    "当座預金",
+    "普通預金",
+    "買掛金",
+    "支払手形",
+    "当座借越"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "買掛金",
+      "amount": 350000
+     }
+    ],
+    "credit": [
+     {
+      "account": "当座預金",
+      "amount": 100000
+     },
+     {
+      "account": "当座借越",
+      "amount": 250000
+     }
+    ]
+   },
+   "checks": {
+    "当座借越": "350000 - 100000"
+   },
+   "explanation": "当座預金の残高100,000円を超える分（350,000−100,000＝250,000円）は当座借越（負債）で処理する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c03-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c03",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "株式の配当金領収証（配当金額30,000円）を受け取った。",
+   "choices": [
+    "現金",
+    "売掛金",
+    "受取利息",
+    "受取配当金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "現金",
+      "amount": 30000
+     }
+    ],
+    "credit": [
+     {
+      "account": "受取配当金",
+      "amount": 30000
+     }
+    ]
+   },
+   "checks": {
+    "現金": "30000"
+   },
+   "explanation": "配当金領収証は通貨代用証券なので現金で処理する。貸方は受取配当金。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c03-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c03",
+   "type": "numeric",
+   "difficulty": 3,
+   "targetSec": 240,
+   "prompt": "銀行勘定調整表。当社の当座預金勘定の残高は520,000円である。差異の原因は、(a)未取付小切手90,000円、(b)時間外預入40,000円、(c)売掛金の振込入金10,000円（当社は未記帳）である。銀行の残高証明書の残高はいくらか。",
+   "answer": {
+    "value": 580000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "520000 + 10000 + 90000 - 40000"
+   },
+   "explanation": "両方を修正後の同じ残高にそろえる。当社側の修正後残高＝520,000＋10,000＝530,000円。銀行側は「残高−未取付小切手＋時間外預入」が530,000円になるので、残高＝530,000＋90,000−40,000＝580,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c03-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c03",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "銀行勘定調整表の作成中に、得意先からの売掛金10,000円の振込入金が当座預金勘定に未記帳であることが分かったので、修正する。",
+   "choices": [
+    "現金",
+    "当座預金",
+    "売掛金",
+    "前受金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "当座預金",
+      "amount": 10000
+     }
+    ],
+    "credit": [
+     {
+      "account": "売掛金",
+      "amount": 10000
+     }
+    ]
+   },
+   "checks": {
+    "当座預金": "10000"
+   },
+   "explanation": "当社の帳簿に未記帳の入金は、当社側で修正仕訳が必要。借方は当座預金、貸方は売掛金。未取付小切手や時間外預入は銀行側の事情なので仕訳不要。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c03-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c03",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "現金過不足勘定の借方残高3,000円のうち、2,000円は通信費の記帳漏れであることが判明した。残りは不明である。",
+   "choices": [
+    "現金",
+    "現金過不足",
+    "通信費",
+    "雑損"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "通信費",
+      "amount": 2000
+     }
+    ],
+    "credit": [
+     {
+      "account": "現金過不足",
+      "amount": 2000
+     }
+    ]
+   },
+   "checks": {
+    "通信費": "2000"
+   },
+   "explanation": "判明した2,000円だけを正しい費用（通信費）に振り替える。残りの1,000円は決算まで原因が分からなければ雑損にする。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c03-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c03",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "定額資金前渡法を採用している。会計係から、小口現金の使用報告（旅費交通費12,000円、消耗品費8,000円）を受け、同額の小切手を振り出して補給した。仕訳は報告と補給をまとめて1つの仕訳で行う。",
+   "choices": [
+    "現金",
+    "当座預金",
+    "小口現金",
+    "旅費交通費",
+    "消耗品費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "旅費交通費",
+      "amount": 12000
+     },
+     {
+      "account": "消耗品費",
+      "amount": 8000
+     }
+    ],
+    "credit": [
+     {
+      "account": "当座預金",
+      "amount": 20000
+     }
+    ]
+   },
+   "checks": {
+    "当座預金": "12000 + 8000"
+   },
+   "explanation": "報告（費用／小口現金）と補給（小口現金／当座預金）を1つにまとめると、小口現金が相殺されて「費用／当座預金」になる。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c03-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c03",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "当座預金口座から、銀行の手数料2,000円が引き落とされたとの通知を受けた。",
+   "choices": [
+    "現金",
+    "当座預金",
+    "通信費",
+    "支払手数料"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "支払手数料",
+      "amount": 2000
+     }
+    ],
+    "credit": [
+     {
+      "account": "当座預金",
+      "amount": 2000
+     }
+    ]
+   },
+   "checks": {
+    "支払手数料": "2000"
+   },
+   "explanation": "銀行手数料の引落しは、当社の帳簿に未記帳なら当社側で修正する。借方は支払手数料、貸方は当座預金。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c03-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c03",
+   "type": "choice",
+   "difficulty": 2,
+   "targetSec": 60,
+   "prompt": "銀行勘定調整表を作るときに、当社の帳簿の修正仕訳が必要になるものはどれか。",
+   "choices": [
+    "未取付小切手",
+    "時間外預入",
+    "取引先からの振込入金を当社が未記帳",
+    "銀行側の記帳誤り"
+   ],
+   "answer": {
+    "index": 2
+   },
+   "explanation": "未取付小切手と時間外預入は、銀行に反映されるのが遅れているだけで、当社の帳簿は正しい。銀行の記帳誤りは銀行が直す。当社の未記帳（連絡未達）は当社で仕訳が必要。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

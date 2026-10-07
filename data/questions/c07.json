@@ -1,0 +1,341 @@
+{
+ "topicId": "c07",
+ "questions": [
+  {
+   "id": "c07-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c07",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 90,
+   "prompt": "自社で利用するソフトウェア2,000,000円を購入し、代金は小切手を振り出して支払った。",
+   "choices": [
+    "当座預金",
+    "備品",
+    "ソフトウェア",
+    "研究開発費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "ソフトウェア",
+      "amount": 2000000
+     }
+    ],
+    "credit": [
+     {
+      "account": "当座預金",
+      "amount": 2000000
+     }
+    ]
+   },
+   "checks": {
+    "ソフトウェア": "2000000"
+   },
+   "explanation": "自社利用のソフトウェアの購入は、無形固定資産のソフトウェアとして資産計上する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c07-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c07",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "決算にあたり、自社利用のソフトウェア（取得原価2,000,000円、利用可能期間5年、残存価額ゼロ、定額法、直接法で記帳）を償却する。",
+   "choices": [
+    "ソフトウェア",
+    "ソフトウェア仮勘定",
+    "減価償却費",
+    "ソフトウェア償却"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "ソフトウェア償却",
+      "amount": 400000
+     }
+    ],
+    "credit": [
+     {
+      "account": "ソフトウェア",
+      "amount": 400000
+     }
+    ]
+   },
+   "checks": {
+    "ソフトウェア償却": "2000000 / 5",
+    "ソフトウェア": "2000000 / 5"
+   },
+   "explanation": "無形固定資産は通常、直接法で償却する。2,000,000円÷5年＝400,000円をソフトウェア償却として費用にし、ソフトウェアから直接減らす。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c07-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c07",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 90,
+   "prompt": "特許権を600,000円で取得し、代金は現金で支払った。",
+   "choices": [
+    "現金",
+    "ソフトウェア",
+    "特許権",
+    "のれん"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "特許権",
+      "amount": 600000
+     }
+    ],
+    "credit": [
+     {
+      "account": "現金",
+      "amount": 600000
+     }
+    ]
+   },
+   "checks": {
+    "特許権": "600000"
+   },
+   "explanation": "特許権は無形固定資産。取得にかかった支出を取得原価として資産計上する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c07-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c07",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "決算にあたり、取得した特許権（取得原価600,000円、償却期間8年、定額法、直接法で記帳）の当期分を償却する。",
+   "choices": [
+    "特許権",
+    "減価償却費",
+    "ソフトウェア償却",
+    "特許権償却"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "特許権償却",
+      "amount": 75000
+     }
+    ],
+    "credit": [
+     {
+      "account": "特許権",
+      "amount": 75000
+     }
+    ]
+   },
+   "checks": {
+    "特許権償却": "600000 / 8",
+    "特許権": "600000 / 8"
+   },
+   "explanation": "600,000円÷8年＝75,000円。無形固定資産なので直接法で、特許権を減額する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c07-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c07",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "新製品の研究開発のために支出した950,000円（うち500,000円は小切手の振出し、450,000円は後日払い）を処理する。",
+   "choices": [
+    "当座預金",
+    "ソフトウェア",
+    "特許権",
+    "未払金",
+    "研究開発費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "研究開発費",
+      "amount": 950000
+     }
+    ],
+    "credit": [
+     {
+      "account": "当座預金",
+      "amount": 500000
+     },
+     {
+      "account": "未払金",
+      "amount": 450000
+     }
+    ]
+   },
+   "checks": {
+    "研究開発費": "500000 + 450000"
+   },
+   "explanation": "研究開発費は、発生時に全額を費用とする（資産計上しない）。貸方は支払方法に応じて当座預金500,000円と未払金450,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c07-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c07",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 150,
+   "prompt": "自社利用のソフトウェアを制作するため、外部の業者に着手金800,000円を小切手で支払った。ソフトウェアはまだ完成していない。",
+   "choices": [
+    "当座預金",
+    "前払金",
+    "ソフトウェア",
+    "ソフトウェア仮勘定"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "ソフトウェア仮勘定",
+      "amount": 800000
+     }
+    ],
+    "credit": [
+     {
+      "account": "当座預金",
+      "amount": 800000
+     }
+    ]
+   },
+   "checks": {
+    "ソフトウェア仮勘定": "800000"
+   },
+   "explanation": "制作途中の支出は、完成するまで「ソフトウェア仮勘定」で処理する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c07-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c07",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "前問のソフトウェアが完成し、残額400,000円を小切手で支払って引渡しを受けた。仮勘定の残高は800,000円である。",
+   "choices": [
+    "当座預金",
+    "ソフトウェア",
+    "ソフトウェア仮勘定",
+    "特許権",
+    "未払金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "ソフトウェア",
+      "amount": 1200000
+     }
+    ],
+    "credit": [
+     {
+      "account": "ソフトウェア仮勘定",
+      "amount": 800000
+     },
+     {
+      "account": "当座預金",
+      "amount": 400000
+     }
+    ]
+   },
+   "checks": {
+    "ソフトウェア": "800000 + 400000"
+   },
+   "explanation": "完成したので、仮勘定800,000円を本勘定のソフトウェアに振り替え、新たに支払った400,000円も取得原価に含める。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c07-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c07",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 120,
+   "prompt": "会社の設立に際して、設立登記の費用など700,000円と、開業準備のための支出300,000円を現金で支払った。いずれも支出時に費用として処理する。",
+   "choices": [
+    "現金",
+    "のれん",
+    "創立費",
+    "開業費",
+    "研究開発費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "創立費",
+      "amount": 700000
+     },
+     {
+      "account": "開業費",
+      "amount": 300000
+     }
+    ],
+    "credit": [
+     {
+      "account": "現金",
+      "amount": 1000000
+     }
+    ]
+   },
+   "checks": {
+    "現金": "700000 + 300000"
+   },
+   "explanation": "設立登記などの設立のための費用は創立費、開業準備のための費用は開業費。どちらも支出時に費用として処理する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c07-009",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c07",
+   "type": "choice",
+   "difficulty": 1,
+   "targetSec": 60,
+   "prompt": "研究開発費の会計処理として正しいものはどれか。",
+   "choices": [
+    "発生時に全額を費用とする",
+    "無形固定資産に計上して償却する",
+    "繰延資産に計上して5年で償却する",
+    "完成した年度にまとめて費用とする"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "研究開発費は将来の収益獲得が不確実なので、発生したときに全額を費用処理する（研究開発費勘定）。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}
