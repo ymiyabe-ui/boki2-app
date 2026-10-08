@@ -92,5 +92,5 @@ test('祝日データは曜日と整合し、受験日までを覆っている',
 
 test('Service Worker のインストールは、配信側の古いキャッシュを拾わないよう取り直す（版の混在で起動しなくなるのを防ぐ）', () => {
   assert.match(sw, /cache: 'reload'/);
-  assert.doesNotMatch(sw, /addAll(/);
+  assert.doesNotMatch(sw, /addAll\(/);
 });
