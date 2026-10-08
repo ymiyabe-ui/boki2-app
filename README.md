@@ -28,7 +28,8 @@
 │   ├── version.js
 │   └── views/          … ホーム・時間・ミニテスト・週末の総復習・問題集・論点・設定の各画面
 ├── data/               … topics / config / plan / holidays / accounts（静的データ）
-│   └── questions/      … 論点ごとの問題（c01.json …）と索引 index.json
+│   ├── questions/      … 論点ごとの問題（c01.json …）と索引 index.json
+│   └── lessons/        … 論点ごとの講義（c01.json …）と索引 index.json
 ├── icons/              … ホーム画面用アイコン
 ├── scripts/            … serve.mjs（確認用サーバー）、set-version.mjs、make-icons.mjs
 ├── test/               … node --test で動くテスト
@@ -42,6 +43,13 @@
 2. 共有ボタン →「ホーム画面に追加」
 3. 以降はホーム画面のアイコンから開く（ブラウザで開くより記録が消えにくい）
 4. 設定タブの「バックアップを書き出す」を週1回。共有メニューで「ファイルに保存」を選ぶ
+
+## 講義を追加・直すとき
+
+1. `data/lessons/cNN.json` を作る（形は `CLAUDE.md` の「講義機能で決まったこと」）。文章はオリジナルで書く。AIが作ったものは `verified: false`
+2. `data/lessons/index.json` と `sw.js` の `ASSETS` にファイルを足す
+3. `node scripts/validate-questions.mjs` で検証する（講義も対象）
+4. 講義を修正したら `rev` を1上げる
 
 ## 問題を追加・直すとき
 
