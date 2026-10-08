@@ -8,6 +8,7 @@ import { renderWorkbook } from './views/workbook.js';
 import { renderQuiz } from './views/quiz.js';
 import { renderWeekly } from './views/weekly.js';
 import { renderTopics, renderTopicDetail } from './views/topics.js';
+import { renderLesson } from './views/lesson.js';
 import { renderSettings } from './views/settings.js';
 
 const TABS = [
@@ -52,12 +53,22 @@ async function main() {
 
   // 問題データ。読み込めなくても他の画面は使えるよう、失敗しても止めない
   let questions = [];
+  let lessons = {};
   try {
     const { files } = await getJson('./data/questions/index.json');
     const bodies = await Promise.all(files.map((f) => getJson(`./data/questions/${f}`)));
     questions = bodies.flatMap((b) => b.questions);
   } catch (e) {
     console.warn('問題データを読み込めませんでした', e);
+  }
+
+  // 講義データ。論点ごとに1ファイル。読み込めなくても他の画面は使える
+  try {
+    const { files } = await getJson('./data/lessons/index.json');
+    const bodies = await Promise.all(files.map((f) => getJson(`./data/lessons/${f}`)));
+    lessons = Object.fromEntries(bodies.map((b) => [b.topicId, b]));
+  } catch (e) {
+    console.warn('講義データを読み込めませんでした', e);
   }
 
   const { storage, ok } = pickStorage();
@@ -67,7 +78,7 @@ async function main() {
   if (navigator.storage && navigator.storage.persist) navigator.storage.persist().catch(() => {});
 
   const ctx = {
-    store, topics, config, plan, holidays, questions, quiz: null,
+    store, topics, config, plan, holidays, questions, lessons, quiz: null,
     now: () => new Date(),
     today: () => toYmd(new Date()),
     refresh: () => render(),
@@ -81,6 +92,8 @@ async function main() {
     const hash = location.hash || '#/';
     const m = hash.match(/^#\/topic\/([a-z0-9]+)$/);
     if (m) return { tab: '#/topics', view: () => renderTopicDetail(ctx, m[1]) };
+    const lm = hash.match(/^#/lesson/([a-z0-9]+)$/);
+    if (lm) return { tab: '#/topics', view: () => renderLesson(ctx, lm[1]) };
     switch (hash) {
       case '#/record': return { tab: hash, view: () => renderRecord(ctx) };
       case '#/weekly': return { tab: '#/quiz', view: () => renderWeekly(ctx) };

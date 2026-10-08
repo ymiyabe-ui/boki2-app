@@ -10,7 +10,7 @@ import { topicName } from './parts.js';
 import { buildWeeklySet, pastTopicIds, summarizeWeekly } from '../weekly.js';
 import { weeklyResultCard } from './weekly-parts.js';
 
-const KIND_LABEL = { review: '再出題', planned: '今週の論点', fill: '補い', current: '今週の論点', past: '過去の論点' };
+const KIND_LABEL = { review: '再出題', planned: '今週の論点', fill: '補い', current: '今週の論点', past: '過去の論点', lesson: '講義の確認' };
 const TYPE_LABEL = { journal: '仕訳', choice: '選択式', numeric: '数値入力' };
 
 /** 今日ミニテストで解いた問題ID */
@@ -50,11 +50,20 @@ export function startWeekly(ctx) {
   return true;
 }
 
+/** 講義のあとの確認（2〜3問）を始める。終わると「テキストを読んだ」が付く */
+export function startLessonCheck(ctx, lesson) {
+  const byId = new Map(ctx.questions.map((q) => [q.id, q]));
+  const items = lesson.checkIds.map((id) => byId.get(id)).filter(Boolean).map((q) => ({ q, kind: 'lesson' }));
+  if (!items.length) return false;
+  ctx.quiz = { mode: 'lesson', topicId: lesson.topicId, phase: 'question', items, i: 0, results: [], t0: Date.now(), shown: null };
+  return true;
+}
+
 export function renderQuiz(ctx) {
   const root = h('div', { class: 'view' });
   const body = h('div', { class: 'view' });
   const weekly = ctx.quiz && ctx.quiz.mode === 'weekly';
-  root.append(h('h1', null, weekly ? '週末の総復習' : 'ミニテスト'));
+  root.append(h('h1', null, weekly ? '週末の総復習' : ctx.quiz && ctx.quiz.mode === 'lesson' ? '講義の確認' : 'ミニテスト'));
   let clock = null;
   let tick = null;
   if (weekly && ctx.quiz.phase !== 'done') {
@@ -149,7 +158,7 @@ function question(ctx, show) {
     const sec = Math.max(1, Math.round((Date.now() - s.t0) / 1000));
     const g = gradeAnswer(q, response);
     try {
-      ctx.store.recordAnswer({ q, correct: g.correct, sec, intervals: ctx.config.reviewIntervalsDays, mode: s.mode === 'weekly' ? 'weekly' : 'minitest' });
+      ctx.store.recordAnswer({ q, correct: g.correct, sec, intervals: ctx.config.reviewIntervalsDays, mode: s.mode === 'weekly' || s.mode === 'lesson' ? s.mode : 'minitest' });
     } catch (e) {
       submit.disabled = false;
       toast(`記録できませんでした：${e.message}`);
@@ -260,6 +269,7 @@ function reportBox(ctx, q) {
 function summary(ctx, show) {
   const s = ctx.quiz;
   if (s.mode === 'weekly') return weeklySummary(ctx, s);
+  if (s.mode === 'lesson') return lessonSummary(ctx, s);
   const ok = s.results.filter((r) => r.correct).length;
   const total = s.results.length;
   const sec = s.results.reduce((a, r) => a + r.sec, 0);
@@ -298,5 +308,22 @@ function weeklySummary(ctx, s) {
   node.append(h('div', { class: 'row' },
     h('a', { class: 'btn primary grow', href: '#/weekly', style: 'text-align:center;text-decoration:none', onclick: () => { ctx.quiz = null; } }, '週末のページへ（レポート）'),
     h('a', { class: 'btn grow', href: '#/', style: 'text-align:center;text-decoration:none', onclick: () => { ctx.quiz = null; } }, 'ホームへ')));
+  return node;
+}
+
+function lessonSummary(ctx, s) {
+  const ok = s.results.filter((r) => r.correct).length;
+  const wrong = s.results.filter((r) => !r.correct);
+  const already = !!ctx.store.data.topicMarks[s.topicId];
+  if (!already) ctx.store.setTopicRead(s.topicId, true);
+  const node = h('div', { class: 'view' });
+  node.append(h('div', { class: 'card' },
+    h('h2', null, '講義の確認を終えました'),
+    h('p', { class: 'big-ans' }, `${ok} / ${s.results.length} 問正解`),
+    h('p', { class: 'small' }, already ? '「テキストを読んだ」はすでに付いています。' : '「テキストを読んだ」を付けました（レベル1）。'),
+    wrong.length ? h('p', { class: 'small' }, `間違えた${wrong.length}問は、明日もう一度出ます。講義にもどって読み返せます。`) : h('p', { class: 'small' }, '全問正解です。')));
+  node.append(h('div', { class: 'row' },
+    h('a', { class: 'btn primary grow', href: `#/lesson/${s.topicId}`, style: 'text-align:center;text-decoration:none', onclick: () => { ctx.quiz = null; } }, '講義にもどる'),
+    h('a', { class: 'btn grow', href: `#/topic/${s.topicId}`, style: 'text-align:center;text-decoration:none', onclick: () => { ctx.quiz = null; } }, '論点のページへ')));
   return node;
 }

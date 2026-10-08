@@ -166,3 +166,11 @@ button.choice.picked { background: var(--accent-soft); border-color: var(--accen
 .jline { display: flex; justify-content: space-between; gap: 6px; padding: 3px 0; border-top: 1px solid var(--line); }
 .jline .num { font-variant-numeric: tabular-nums; white-space: nowrap; }
 .big-ans { font-size: 1.25rem; font-weight: 700; margin: 4px 0; }
+
+/* 講義ページ */
+.lesson-section { margin-top: 18px; }
+.lesson-section > h2 { margin-bottom: 6px; }
+.lesson-p { margin: 8px 0; line-height: 1.85; }
+.lesson-list { margin: 8px 0; padding-left: 1.3em; line-height: 1.8; }
+.lesson-tip { margin: 10px 0; }
+.jexample { margin: 10px 0; }

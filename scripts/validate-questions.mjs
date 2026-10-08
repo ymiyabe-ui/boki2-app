@@ -3,7 +3,7 @@
 // 問題を追加・修正したら、commit の前に必ず実行する（node --test でも同じ検証が走る）。
 import { readFile, readdir } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { validateQuestions } from './validate-lib.mjs';
+import { validateQuestions, validateLessons } from './validate-lib.mjs';
 
 const dir = (rel) => fileURLToPath(new URL(`../data/${rel}`, import.meta.url));
 const json = async (path) => JSON.parse(await readFile(path, 'utf8'));
@@ -13,8 +13,14 @@ export async function loadAll() {
   const names = (await readdir(qdir)).filter((n) => /^[a-z]\d+\.json$/.test(n));
   const files = {};
   for (const n of names) files[n] = await json(`${qdir}${n}`);
+  const ldir = dir('lessons/');
+  const lessonNames = (await readdir(ldir)).filter((n) => /^[a-z]\d+\.json$/.test(n));
+  const lessons = {};
+  for (const n of lessonNames) lessons[n] = await json(`${ldir}${n}`);
   return {
     files,
+    lessons,
+    lessonIndex: await json(`${ldir}index.json`),
     index: await json(`${qdir}index.json`),
     topics: (await json(dir('topics.json'))).topics,
     accounts: (await json(dir('accounts.json'))).accounts,
@@ -24,12 +30,12 @@ export async function loadAll() {
 
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
   const input = await loadAll();
-  const errors = validateQuestions(input);
+  const errors = [...validateQuestions(input), ...validateLessons(input)];
   const total = Object.values(input.files).reduce((a, f) => a + f.questions.length, 0);
   if (errors.length) {
     console.error(`問題データに ${errors.length} 件の問題があります：`);
     for (const e of errors) console.error(`  ・${e}`);
     process.exit(1);
   }
-  console.log(`問題データは正常です（${Object.keys(input.files).length}論点・${total}問）`);
+  console.log(`問題データは正常です（${Object.keys(input.files).length}論点・${total}問）。講義は${Object.keys(input.lessons).length}論点分`);
 }

@@ -128,3 +128,66 @@ function validateNumeric(q, w, err) {
     if (!sameNumber(v, a.value)) err(w, `checks.value の計算結果 ${v} が答え ${a.value} と違います（式: ${q.checks.value}）`);
   } catch (e) { err(w, `checks.value：${e.message}`); }
 }
+
+// ---------- 講義データ ----------
+// 渡すもの：{ lessons: { 'c01.json': {...} }, lessonIndex: {files[]}, files(問題), topics, accounts }
+// 講義の形：{ topicId, rev, source, verified, minutes, summary, sections: [{ heading, blocks: [...] }], checkIds: [] }
+// ブロック：{t:'p',text} / {t:'list',items} / {t:'tip',text} / {t:'journal',title,debit:[[科目,金額]],credit:[[科目,金額]],note?}
+const LESSON_REQUIRED = ['topicId', 'rev', 'source', 'verified', 'minutes', 'summary', 'sections', 'checkIds'];
+
+export function validateLessons({ lessons = {}, lessonIndex, files = {}, topics, accounts }) {
+  const errors = [];
+  const err = (where, msg) => errors.push(`${where}: ${msg}`);
+  const topicIds = new Set(topics.map((t) => t.id));
+  const accountSet = new Set(accounts.map((a) => a.name));
+  const questionTopic = new Map();
+  for (const body of Object.values(files)) for (const q of body.questions || []) questionTopic.set(q.id, q.topicId);
+
+  const listed = new Set((lessonIndex && lessonIndex.files) || []);
+  for (const f of Object.keys(lessons)) if (!listed.has(f)) err(f, 'lessons/index.json に載っていません');
+  for (const f of listed) if (!(f in lessons)) err(f, 'lessons/index.json にあるがファイルがありません');
+
+  for (const [file, l] of Object.entries(lessons)) {
+    const fileTopic = file.replace(/\.json$/, '');
+    for (const k of LESSON_REQUIRED) if (l[k] === undefined || l[k] === null || l[k] === '') err(file, `必須項目 ${k} がありません`);
+    if (!topicIds.has(fileTopic)) err(file, `論点ID ${fileTopic} が topics.json にありません`);
+    if (l.topicId !== fileTopic) err(file, `topicId がファイル名と違います（${l.topicId}）`);
+    if (l.source !== 'original') err(file, 'source は "original" にしてください');
+    if (typeof l.verified !== 'boolean') err(file, 'verified は true/false です');
+    if (!Number.isInteger(l.rev) || l.rev < 1) err(file, 'rev は1以上の整数です');
+    if (!(l.minutes > 0)) err(file, 'minutes は正の数です');
+    if (!Array.isArray(l.sections) || !l.sections.length) { err(file, 'sections がありません'); continue; }
+    l.sections.forEach((s, si) => {
+      const w = `${file} 節${si + 1}`;
+      if (!s.heading) err(w, 'heading がありません');
+      if (!Array.isArray(s.blocks) || !s.blocks.length) { err(w, 'blocks がありません'); return; }
+      s.blocks.forEach((b, bi) => {
+        const wb = `${w} ブロック${bi + 1}`;
+        if (b.t === 'p' || b.t === 'tip') { if (!b.text) err(wb, 'text がありません'); }
+        else if (b.t === 'list') { if (!Array.isArray(b.items) || !b.items.length) err(wb, 'items がありません'); }
+        else if (b.t === 'journal') validateLessonJournal(b, wb, accountSet, err);
+        else err(wb, `t が不正です（${b.t}）`);
+      });
+    });
+    if (!Array.isArray(l.checkIds) || l.checkIds.length < 2 || l.checkIds.length > 3) err(file, 'checkIds は2〜3問にしてください');
+    else for (const id of l.checkIds) {
+      if (!questionTopic.has(id)) err(file, `確認の問題 ${id} が問題データにありません`);
+      else if (questionTopic.get(id) !== fileTopic) err(file, `確認の問題 ${id} は別の論点の問題です`);
+    }
+  }
+  return errors;
+}
+
+function validateLessonJournal(b, w, accountSet, err) {
+  let total = { debit: 0, credit: 0 };
+  for (const side of ['debit', 'credit']) {
+    if (!Array.isArray(b[side]) || !b[side].length) { err(w, `${side === 'debit' ? '借方' : '貸方'}がありません`); continue; }
+    for (const row of b[side]) {
+      const [account, amount] = row;
+      if (!accountSet.has(account)) err(w, `勘定科目 ${account} が accounts.json にありません`);
+      if (!Number.isInteger(amount) || amount <= 0) err(w, `${account} の金額が正の整数ではありません`);
+      else total[side] += amount;
+    }
+  }
+  if (total.debit !== total.credit) err(w, `貸借が一致しません（借方${total.debit}・貸方${total.credit}）`);
+}

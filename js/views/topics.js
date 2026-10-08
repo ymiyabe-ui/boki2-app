@@ -41,6 +41,12 @@ export function renderTopicDetail(ctx, id) {
   if (topic.includes && topic.includes.length) root.append(h('p', { class: 'small' }, `含む項目：${topic.includes.join('、')}`));
   if (topic.scopeNote) root.append(h('p', { class: 'small muted' }, `範囲の注意：${topic.scopeNote}`));
 
+  if (ctx.lessons && ctx.lessons[id]) {
+    const l = ctx.lessons[id];
+    root.append(h('a', { class: 'btn primary', href: `#/lesson/${id}`, style: 'display:block;text-align:center;text-decoration:none' },
+      `📖 講義を読む（約${l.minutes}分）`));
+  }
+
   const check = h('input', { type: 'checkbox', checked: m.marked, onchange: (e) => {
     store.setTopicRead(id, e.target.checked);
     toast(e.target.checked ? '「読んだ」にしました' : 'チェックを外しました');
