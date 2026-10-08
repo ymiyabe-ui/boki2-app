@@ -92,7 +92,7 @@ async function main() {
     const hash = location.hash || '#/';
     const m = hash.match(/^#\/topic\/([a-z0-9]+)$/);
     if (m) return { tab: '#/topics', view: () => renderTopicDetail(ctx, m[1]) };
-    const lm = hash.match(/^#/lesson/([a-z0-9]+)$/);
+    const lm = hash.match(/^#\/lesson\/([a-z0-9]+)$/);
     if (lm) return { tab: '#/topics', view: () => renderLesson(ctx, lm[1]) };
     switch (hash) {
       case '#/record': return { tab: hash, view: () => renderRecord(ctx) };
