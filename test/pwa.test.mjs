@@ -89,3 +89,8 @@ test('祝日データは曜日と整合し、受験日までを覆っている',
   assert.equal(new Date('2027-01-11T00:00:00Z').getUTCDay(), 1);
   assert.equal(new Date('2026-10-12T00:00:00Z').getUTCDay(), 1);
 });
+
+test('Service Worker のインストールは、配信側の古いキャッシュを拾わないよう取り直す（版の混在で起動しなくなるのを防ぐ）', () => {
+  assert.match(sw, /cache: 'reload'/);
+  assert.doesNotMatch(sw, /addAll(/);
+});

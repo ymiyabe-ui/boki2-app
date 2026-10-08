@@ -1,7 +1,7 @@
 // Service Worker：アプリ一式を端末に保存してオフラインでも動かす。
 // 更新の流れ：VERSION を上げる → 新しいキャッシュを作って待機 → アプリ上の「再読み込み」で切り替え。
 // VERSION は package.json・js/version.js と同じ値（scripts/set-version.mjs で一括変更）
-const VERSION = '0.3.1';
+const VERSION = '0.3.2';
 const CACHE = `boki2-app-v${VERSION}`;
 
 const ASSETS = [
@@ -64,7 +64,12 @@ const ASSETS = [
 
 self.addEventListener('install', (event) => {
   // skipWaiting はしない。利用者が「再読み込み」を押すまで、今の版のまま動かす
-  event.waitUntil(caches.open(CACHE).then((c) => c.addAll(ASSETS)));
+  // 配信側のキャッシュ（max-age）に古いファイルが残っていても拾わないよう、cache: 'reload' で取り直して一式をそろえる
+  event.waitUntil(caches.open(CACHE).then((c) => Promise.all(ASSETS.map(async (url) => {
+    const res = await fetch(new Request(url, { cache: 'reload' }));
+    if (!res.ok) throw new Error(`${url} を取得できません（${res.status}）`);
+    await c.put(url, res);
+  }))));
 });
 
 self.addEventListener('activate', (event) => {
