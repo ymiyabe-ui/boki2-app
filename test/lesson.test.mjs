@@ -68,7 +68,7 @@ function solve(root, q) {
 test('論点のページに講義へのリンクが出る（講義のない論点には出ない）', () => {
   const ctx = mkCtx();
   assert.ok(renderTopicDetail(ctx, 'c02').all((e) => e.tag === 'a' && e.attrs.href === '#/lesson/c02').length === 1);
-  assert.equal(renderTopicDetail(ctx, 'c05').all((e) => e.tag === 'a' && e.attrs.href === '#/lesson/c05').length, 0);
+  assert.equal(renderTopicDetail(ctx, 'c14').all((e) => e.tag === 'a' && e.attrs.href === '#/lesson/c14').length, 0);
 });
 
 test('講義ページ：節と仕訳例が出て、確認の問題を全部解くと「読んだ」が付き、ミニテストの回数には数えない', () => {
@@ -100,5 +100,5 @@ test('講義ページ：節と仕訳例が出て、確認の問題を全部解�
 });
 
 test('講義のない論点では、講義ページが「まだありません」と出る', () => {
-  assert.ok(renderLesson(mkCtx(), 'c05').text.includes('まだありません'));
+  assert.ok(renderLesson(mkCtx(), 'c14').text.includes('まだありません'));
 });
