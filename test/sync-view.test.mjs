@@ -58,3 +58,10 @@ test('記録を保存できない環境では、使えないと表示する', ()
   const card = syncCard({ sync: null, refresh() {} });
   assert.ok(card.text.includes('この環境では使えません'));
 });
+
+test('設定済みでエラーがないとき、画面に「null」という文字が出ない', () => {
+  const card = syncCard({ sync: stubSync({ configured: true, lastSyncAt: '2026-11-25T22:25:00', lastError: null }, []), refresh() {} });
+  assert.ok(card.text.includes('最後の同期'));
+  assert.ok(!card.text.includes('null'));
+  assert.ok(card.children.every((c) => c != null));
+});

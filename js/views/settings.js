@@ -42,7 +42,8 @@ export function syncCard(ctx) {
     card.append(
       h('p', { class: 'small muted' }, 'PCとスマホの記録を、自動でまとめます。アプリを開いたときと、記録したあとに同期します。'),
       h('p', null, st.lastSyncAt ? `最後の同期：${fmtSyncTime(st.lastSyncAt)}` : 'まだ同期していません'),
-      st.lastError ? h('div', { class: 'banner bad' }, st.lastError) : null,
+      // 要素を空（null）のまま append に渡すと、ブラウザは「null」という文字を画面に出してしまう。配列に入れて、ないときは渡さない
+      ...(st.lastError ? [h('div', { class: 'banner bad' }, st.lastError)] : []),
       h('button', { class: 'primary', style: 'width:100%', onclick: async () => {
         const r = await sync.syncNow('manual');
         toast(r.ok ? (r.changed ? '同期しました（記録が更新されました）' : '同期しました') : (r.error || '同期できませんでした'));
