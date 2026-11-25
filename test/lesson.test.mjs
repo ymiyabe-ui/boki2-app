@@ -102,3 +102,15 @@ test('講義ページ：節と仕訳例が出て、確認の問題を全部解�
 test('講義のない論点では、講義ページが「まだありません」と出る', () => {
   assert.ok(renderLesson(mkCtx(), 'c14').text.includes('まだありません'));
 });
+
+test('計画の第1〜3週（c01〜c13）の論点に、講義がそろっている', () => {
+  for (const w of plan.weeks.slice(0, 3)) for (const id of w.topics) assert.ok(lessons[id], `${id} の講義がありません`);
+});
+
+test('すべての講義ページが描画でき、節の見出しと「未確認」が出る', () => {
+  for (const id of Object.keys(lessons)) {
+    const page = renderLesson(mkCtx(), id);
+    for (const s of lessons[id].sections) assert.ok(page.text.includes(s.heading), `${id}：${s.heading} が出ていない`);
+    assert.ok(page.text.includes('未確認'), `${id}：未確認の表示がない`);
+  }
+});
