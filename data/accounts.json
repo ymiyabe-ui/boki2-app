@@ -448,6 +448,186 @@
   {
    "name": "損益",
    "kind": "pl"
+  },
+  {
+   "name": "契約資産",
+   "kind": "asset"
+  },
+  {
+   "name": "支店",
+   "kind": "asset"
+  },
+  {
+   "name": "本店",
+   "kind": "liability"
+  },
+  {
+   "name": "支店A",
+   "kind": "asset"
+  },
+  {
+   "name": "支店B",
+   "kind": "asset"
+  },
+  {
+   "name": "未収収益",
+   "kind": "asset"
+  },
+  {
+   "name": "前払費用",
+   "kind": "asset"
+  },
+  {
+   "name": "契約負債",
+   "kind": "liability"
+  },
+  {
+   "name": "返金負債",
+   "kind": "liability"
+  },
+  {
+   "name": "未払費用",
+   "kind": "liability"
+  },
+  {
+   "name": "前受収益",
+   "kind": "liability"
+  },
+  {
+   "name": "繰延内部利益",
+   "kind": "contra"
+  },
+  {
+   "name": "役務収益",
+   "kind": "revenue"
+  },
+  {
+   "name": "工事収益",
+   "kind": "revenue"
+  },
+  {
+   "name": "受取家賃",
+   "kind": "revenue"
+  },
+  {
+   "name": "繰延内部利益戻入",
+   "kind": "revenue"
+  },
+  {
+   "name": "工事原価",
+   "kind": "expense"
+  },
+  {
+   "name": "支払家賃",
+   "kind": "expense"
+  },
+  {
+   "name": "繰延内部利益控除",
+   "kind": "expense"
+  },
+  {
+   "name": "子会社株式",
+   "kind": "asset"
+  },
+  {
+   "name": "利益剰余金",
+   "kind": "equity"
+  },
+  {
+   "name": "非支配株主持分",
+   "kind": "equity"
+  },
+  {
+   "name": "非支配株主持分当期変動額",
+   "kind": "equity"
+  },
+  {
+   "name": "資本金当期首残高",
+   "kind": "equity"
+  },
+  {
+   "name": "利益剰余金当期首残高",
+   "kind": "equity"
+  },
+  {
+   "name": "非支配株主持分当期首残高",
+   "kind": "equity"
+  },
+  {
+   "name": "剰余金の配当",
+   "kind": "equity"
+  },
+  {
+   "name": "非支配株主に帰属する当期純利益",
+   "kind": "expense"
+  },
+  {
+   "name": "借入金",
+   "kind": "liability"
+  },
+  {
+   "name": "材料",
+   "kind": "asset"
+  },
+  {
+   "name": "仕掛品",
+   "kind": "asset"
+  },
+  {
+   "name": "製品",
+   "kind": "asset"
+  },
+  {
+   "name": "賃金",
+   "kind": "expense"
+  },
+  {
+   "name": "製造間接費",
+   "kind": "expense"
+  },
+  {
+   "name": "材料消費価格差異",
+   "kind": "expense"
+  },
+  {
+   "name": "賃率差異",
+   "kind": "expense"
+  },
+  {
+   "name": "法定福利費",
+   "kind": "expense"
+  },
+  {
+   "name": "製造間接費配賦差異",
+   "kind": "expense"
+  },
+  {
+   "name": "切削部門費",
+   "kind": "expense"
+  },
+  {
+   "name": "組立部門費",
+   "kind": "expense"
+  },
+  {
+   "name": "動力部門費",
+   "kind": "expense"
+  },
+  {
+   "name": "修繕部門費",
+   "kind": "expense"
+  },
+  {
+   "name": "仕損費",
+   "kind": "expense"
+  },
+  {
+   "name": "工場",
+   "kind": "asset"
+  },
+  {
+   "name": "本社",
+   "kind": "liability"
   }
  ]
 }

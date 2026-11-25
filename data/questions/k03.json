@@ -1,0 +1,286 @@
+{
+ "topicId": "k03",
+ "questions": [
+  {
+   "id": "k03-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k03",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "当月の賃金の支払高は900,000円、前月末の未払高は100,000円、当月末の未払高は120,000円である。当月の消費賃金はいくらか。",
+   "answer": {
+    "value": 920000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "900000-100000+120000"
+   },
+   "explanation": "当月消費賃金＝支払高－前月未払高＋当月未払高＝900,000－100,000＋120,000＝920,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k03-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k03",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "直接工の当月の賃金総額は1,500,000円、総作業時間は1,000時間（うち直接作業時間は400時間）である。実際賃率で計算すると、直接労務費はいくらか。",
+   "answer": {
+    "value": 600000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "1500000/1000*400"
+   },
+   "explanation": "実際賃率＝1,500,000÷1,000時間＝1,500円。直接労務費＝1,500×400時間＝600,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k03-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k03",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "年間の予定賃金総額は21,600,000円、年間の予定総作業時間は12,000時間である。予定賃率（1時間あたり）はいくらか。",
+   "answer": {
+    "value": 1800,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "21600000/12000"
+   },
+   "explanation": "予定賃率＝21,600,000÷12,000時間＝1,800円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k03-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k03",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "予定賃率は1時間1,800円である。直接工の当月の作業時間は、直接作業時間300時間、間接作業時間20時間だった。賃金の消費の仕訳を答えなさい。",
+   "choices": [
+    "賃金",
+    "仕掛品",
+    "製造間接費",
+    "賃率差異",
+    "預り金",
+    "現金",
+    "法定福利費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕掛品",
+      "amount": 540000
+     },
+     {
+      "account": "製造間接費",
+      "amount": 36000
+     }
+    ],
+    "credit": [
+     {
+      "account": "賃金",
+      "amount": 576000
+     }
+    ]
+   },
+   "checks": {
+    "仕掛品": "1800*300",
+    "製造間接費": "1800*20",
+    "賃金": "1800*(300+20)"
+   },
+   "explanation": "直接作業300時間×1,800＝540,000円は仕掛品、間接作業20時間×1,800＝36,000円は製造間接費。貸方の賃金は合計の576,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k03-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k03",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "当月の実際の消費賃金は580,000円で、予定賃率による消費額は576,000円だった。賃率差異を計上する仕訳を答えなさい。",
+   "choices": [
+    "賃金",
+    "仕掛品",
+    "製造間接費",
+    "賃率差異",
+    "預り金",
+    "現金",
+    "法定福利費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "賃率差異",
+      "amount": 4000
+     }
+    ],
+    "credit": [
+     {
+      "account": "賃金",
+      "amount": 4000
+     }
+    ]
+   },
+   "checks": {
+    "賃率差異": "580000-576000",
+    "賃金": "580000-576000"
+   },
+   "explanation": "実際の消費額580,000円のほうが、予定の576,000円より4,000円多いので、不利差異（借方）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k03-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k03",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "賃金の総額800,000円について、所得税等の預り金100,000円を差し引いて、残額を現金で支払った。",
+   "choices": [
+    "賃金",
+    "仕掛品",
+    "製造間接費",
+    "賃率差異",
+    "預り金",
+    "現金",
+    "法定福利費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "賃金",
+      "amount": 800000
+     }
+    ],
+    "credit": [
+     {
+      "account": "預り金",
+      "amount": 100000
+     },
+     {
+      "account": "現金",
+      "amount": 700000
+     }
+    ]
+   },
+   "checks": {
+    "賃金": "800000",
+    "預り金": "100000",
+    "現金": "800000-100000"
+   },
+   "explanation": "支払賃金は控除前の総額800,000円。預り金100,000円を差し引いた700,000円が現金の支払額。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k03-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k03",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "会社負担の社会保険料30,000円を現金で納付した（法定福利費で処理する）。",
+   "choices": [
+    "賃金",
+    "仕掛品",
+    "製造間接費",
+    "賃率差異",
+    "預り金",
+    "現金",
+    "法定福利費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "法定福利費",
+      "amount": 30000
+     }
+    ],
+    "credit": [
+     {
+      "account": "現金",
+      "amount": 30000
+     }
+    ]
+   },
+   "checks": {
+    "法定福利費": "30000",
+    "現金": "30000"
+   },
+   "explanation": "会社負担分の社会保険料は法定福利費（労務費）。金額は30,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k03-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k03",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "直接工の就業時間は160時間で、うち直接作業時間は130時間、間接作業時間は20時間、手待時間は10時間であった。賃率は1時間1,500円である。間接労務費（製造間接費として処理する額）はいくらか。",
+   "answer": {
+    "value": 45000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "1500*(20+10)"
+   },
+   "explanation": "間接作業時間と手待時間は間接労務費。(20＋10)時間×1,500円＝45,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k03-009",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k03",
+   "type": "choice",
+   "difficulty": 1,
+   "targetSec": 45,
+   "prompt": "直接工の手待時間（材料の到着待ちなど）の賃金は、どの原価として処理するか。",
+   "choices": [
+    "製造間接費（間接労務費）",
+    "仕掛品（直接労務費）",
+    "営業費（販売費及び一般管理費）",
+    "処理しない"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "手待時間は製品をつくっていない時間なので、直接労務費ではなく、間接労務費として製造間接費に集める。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

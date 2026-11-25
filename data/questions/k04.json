@@ -1,0 +1,253 @@
+{
+ "topicId": "k04",
+ "questions": [
+  {
+   "id": "k04-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k04",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "年間の製造間接費予算は12,000,000円、年間の予定直接作業時間は24,000時間である。予定配賦率（1時間あたり）はいくらか。",
+   "answer": {
+    "value": 500,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "12000000/24000"
+   },
+   "explanation": "予定配賦率＝12,000,000÷24,000時間＝500円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k04-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k04",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "予定配賦率は1時間500円である。当月の実際の直接作業時間は1,900時間であった。予定配賦額はいくらか。",
+   "answer": {
+    "value": 950000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "500*1900"
+   },
+   "explanation": "予定配賦額＝予定配賦率×実際の直接作業時間＝500×1,900＝950,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k04-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k04",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "予定配賦率500円で、当月の実際の直接作業時間1,900時間分の製造間接費を、仕掛品に配賦した。",
+   "choices": [
+    "仕掛品",
+    "製造間接費",
+    "製造間接費配賦差異",
+    "減価償却費",
+    "現金",
+    "売上原価"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕掛品",
+      "amount": 950000
+     }
+    ],
+    "credit": [
+     {
+      "account": "製造間接費",
+      "amount": 950000
+     }
+    ]
+   },
+   "checks": {
+    "仕掛品": "500*1900",
+    "製造間接費": "500*1900"
+   },
+   "explanation": "配賦額は 500×1,900時間＝950,000円。仕掛品を借方、製造間接費を貸方にする。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k04-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k04",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "当月の製造間接費の実際発生額は1,030,000円、予定配賦額は950,000円であった。製造間接費配賦差異はいくらか（借方差異を正の数で答えなさい）。",
+   "answer": {
+    "value": 80000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "1030000-950000"
+   },
+   "explanation": "実際発生額1,030,000円が予定配賦額950,000円より80,000円多いので、80,000円の借方差異（不利差異）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k04-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k04",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "当月の製造間接費の実際発生額1,030,000円と予定配賦額950,000円の差額を、製造間接費配賦差異勘定に振り替えた。",
+   "choices": [
+    "仕掛品",
+    "製造間接費",
+    "製造間接費配賦差異",
+    "減価償却費",
+    "現金",
+    "売上原価"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "製造間接費配賦差異",
+      "amount": 80000
+     }
+    ],
+    "credit": [
+     {
+      "account": "製造間接費",
+      "amount": 80000
+     }
+    ]
+   },
+   "checks": {
+    "製造間接費配賦差異": "1030000-950000",
+    "製造間接費": "1030000-950000"
+   },
+   "explanation": "製造間接費勘定の借方に実際額、貸方に予定配賦額が載り、差額80,000円（借方残高）を配賦差異に移す。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k04-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k04",
+   "type": "numeric",
+   "difficulty": 3,
+   "targetSec": 240,
+   "prompt": "変動費率は1時間200円、固定費予算は月600,000円、実際操業度は1,900時間、実際発生額は1,030,000円である。公式法変動予算による予算差異（不利差異）はいくらか。",
+   "answer": {
+    "value": 50000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "1030000-(200*1900+600000)"
+   },
+   "explanation": "予算許容額＝200×1,900＋600,000＝980,000円。実際発生額1,030,000円との差額50,000円が不利差異。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k04-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k04",
+   "type": "numeric",
+   "difficulty": 3,
+   "targetSec": 240,
+   "prompt": "固定費率は1時間300円、基準操業度は月2,000時間、実際操業度は1,900時間である。操業度差異（不利差異）はいくらか。",
+   "answer": {
+    "value": 30000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "300*(2000-1900)"
+   },
+   "explanation": "操業度差異＝固定費率×(基準操業度－実際操業度)＝300×100時間＝30,000円の不利差異（実際が基準を下回った）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k04-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k04",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "工場の減価償却費は年額2,400,000円である。1か月分を製造間接費として計上する。",
+   "choices": [
+    "仕掛品",
+    "製造間接費",
+    "製造間接費配賦差異",
+    "減価償却費",
+    "現金",
+    "売上原価"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "製造間接費",
+      "amount": 200000
+     }
+    ],
+    "credit": [
+     {
+      "account": "減価償却費",
+      "amount": 200000
+     }
+    ]
+   },
+   "checks": {
+    "製造間接費": "2400000/12",
+    "減価償却費": "2400000/12"
+   },
+   "explanation": "月割経費。2,400,000÷12か月＝200,000円を、製造間接費に集める。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k04-009",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k04",
+   "type": "choice",
+   "difficulty": 2,
+   "targetSec": 60,
+   "prompt": "実際操業度が基準操業度を下回ったとき、操業度差異はどうなるか。",
+   "choices": [
+    "不利差異（借方差異）になる",
+    "有利差異（貸方差異）になる",
+    "差異は出ない",
+    "予算差異に振り替わる"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "固定費は操業度に関係なく発生するが、配賦は操業度に応じて行われる。実際が基準を下回ると、固定費の一部が配賦されずに残り、不利差異になる。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

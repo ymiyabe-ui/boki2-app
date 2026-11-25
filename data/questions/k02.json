@@ -1,0 +1,241 @@
+{
+ "topicId": "k02",
+ "questions": [
+  {
+   "id": "k02-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k02",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "材料を代金1,200,000円で購入し、引取運賃40,000円を支払った。この材料の購入原価はいくらか。",
+   "answer": {
+    "value": 1240000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "1200000+40000"
+   },
+   "explanation": "購入原価＝購入代価＋引取運賃＝1,200,000＋40,000＝1,240,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k02-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k02",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "月初に200個（単価50円）、月中に300個（単価60円）を受け入れ、350個を払い出した。先入先出法による払出価額はいくらか。",
+   "answer": {
+    "value": 19000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "200*50+150*60"
+   },
+   "explanation": "先に受け入れた200個を単価50円で、残り150個を単価60円で払い出す。200×50＋150×60＝10,000＋9,000＝19,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k02-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k02",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "月初に200個（単価50円）、月中に300個（単価60円）を受け入れ、350個を払い出した。移動平均法による払出価額はいくらか（払出しは、300個の受入れのあと）。",
+   "answer": {
+    "value": 19600,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "(200*50+300*60)/(200+300)*350"
+   },
+   "explanation": "受入れ後の平均単価は (10,000＋18,000)÷500個＝56円。払出価額は 350×56＝19,600円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k02-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k02",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "月初に200個（単価50円）、月中に300個（単価60円）、さらに月末に500個（単価62円）を受け入れた。月中に350個を払い出した。総平均法による払出価額はいくらか。",
+   "answer": {
+    "value": 20650,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "(200*50+300*60+500*62)/(200+300+500)*350"
+   },
+   "explanation": "月間の総額は 10,000＋18,000＋31,000＝59,000円、総数量は1,000個で、平均単価は59円。払出価額は 350×59＝20,650円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k02-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k02",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "材料の帳簿棚卸数量は120個、実地棚卸数量は115個、単価は300円である。棚卸減耗費はいくらか。",
+   "answer": {
+    "value": 1500,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "300*(120-115)"
+   },
+   "explanation": "棚卸減耗費＝単価×(帳簿数量－実地数量)＝300×5個＝1,500円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k02-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k02",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "予定価格（1個200円）で、材料300個を消費した（直接材料費）。実際の消費額（実際の単価で計算）は58,500円だった。材料消費価格差異を計上する。",
+   "choices": [
+    "材料",
+    "仕掛品",
+    "製造間接費",
+    "材料消費価格差異",
+    "買掛金",
+    "現金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕掛品",
+      "amount": 60000
+     }
+    ],
+    "credit": [
+     {
+      "account": "材料",
+      "amount": 58500
+     },
+     {
+      "account": "材料消費価格差異",
+      "amount": 1500
+     }
+    ]
+   },
+   "checks": {
+    "仕掛品": "200*300",
+    "材料": "58500",
+    "材料消費価格差異": "200*300-58500"
+   },
+   "explanation": "予定消費額は 200×300個＝60,000円。実際の消費額58,500円のほうが1,500円少ないので、有利差異（貸方）。材料の貸方は実際の消費額。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k02-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k02",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "材料の帳簿棚卸数量は80個、実地棚卸数量は76個、単価は500円である。この棚卸減耗は正常な範囲のものとして処理する。",
+   "choices": [
+    "材料",
+    "仕掛品",
+    "製造間接費",
+    "材料消費価格差異",
+    "買掛金",
+    "現金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "製造間接費",
+      "amount": 2000
+     }
+    ],
+    "credit": [
+     {
+      "account": "材料",
+      "amount": 2000
+     }
+    ]
+   },
+   "checks": {
+    "製造間接費": "500*(80-76)",
+    "材料": "500*(80-76)"
+   },
+   "explanation": "棚卸減耗費＝500×4個＝2,000円。正常な減耗は製造間接費にして、材料を減らす。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k02-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k02",
+   "type": "choice",
+   "difficulty": 2,
+   "targetSec": 60,
+   "prompt": "物価が上昇しているとき、先入先出法で計算した材料の払出価額は、移動平均法に比べてどうなるか（複数回、単価の違う受入れがある場合）。",
+   "choices": [
+    "小さくなる（古い低い単価から払い出すため）",
+    "大きくなる（新しい高い単価から払い出すため）",
+    "必ず同じになる",
+    "計算できない"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "先入先出法は古い単価から払い出す。物価が上昇していれば、古い単価は低いので、払出価額は小さく出る。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k02-009",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k02",
+   "type": "choice",
+   "difficulty": 1,
+   "targetSec": 45,
+   "prompt": "継続記録法の説明として正しいものはどれか。",
+   "choices": [
+    "材料を受け入れたとき、払い出したときに、そのつど数量を記録する",
+    "期末に実地棚卸をして、消費数量を逆算する",
+    "月末に1回だけ、まとめて払出しを記録する",
+    "予定価格を使って払出額を決める"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "継続記録法は、受入れ・払出しのたびに記録するので、帳簿の数量が常に分かる。実地棚卸との差が棚卸減耗になる。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

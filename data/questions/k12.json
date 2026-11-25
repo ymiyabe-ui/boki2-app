@@ -1,0 +1,429 @@
+{
+ "topicId": "k12",
+ "questions": [
+  {
+   "id": "k12-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k12",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "【本社】材料800,000円を掛けで購入し、工場に納入した（工場会計は独立している）。",
+   "choices": [
+    "工場",
+    "本社",
+    "材料",
+    "賃金",
+    "製造間接費",
+    "製品",
+    "買掛金",
+    "預り金",
+    "現金",
+    "機械装置減価償却累計額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "工場",
+      "amount": 800000
+     }
+    ],
+    "credit": [
+     {
+      "account": "買掛金",
+      "amount": 800000
+     }
+    ]
+   },
+   "checks": {
+    "工場": "800000",
+    "買掛金": "800000"
+   },
+   "explanation": "材料の購入は本社が行い、工場の材料として納入されたので、本社は、工場勘定（借方）と、買掛金（貸方）で記録する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k12-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k12",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "【工場】前問の材料800,000円（本社が掛けで購入）が、工場に納入された。",
+   "choices": [
+    "工場",
+    "本社",
+    "材料",
+    "賃金",
+    "製造間接費",
+    "製品",
+    "買掛金",
+    "預り金",
+    "現金",
+    "機械装置減価償却累計額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "材料",
+      "amount": 800000
+     }
+    ],
+    "credit": [
+     {
+      "account": "本社",
+      "amount": 800000
+     }
+    ]
+   },
+   "checks": {
+    "材料": "800000",
+    "本社": "800000"
+   },
+   "explanation": "工場は、受け入れた材料（借方）と、本社勘定（貸方）で記録する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k12-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k12",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "【工場】本社が、工場の従業員の賃金500,000円を支払った。",
+   "choices": [
+    "工場",
+    "本社",
+    "材料",
+    "賃金",
+    "製造間接費",
+    "製品",
+    "買掛金",
+    "預り金",
+    "現金",
+    "機械装置減価償却累計額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "賃金",
+      "amount": 500000
+     }
+    ],
+    "credit": [
+     {
+      "account": "本社",
+      "amount": 500000
+     }
+    ]
+   },
+   "checks": {
+    "賃金": "500000",
+    "本社": "500000"
+   },
+   "explanation": "工場は、賃金（借方）と本社勘定（貸方）で記録する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k12-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k12",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "【本社】工場の従業員の賃金500,000円を、預り金50,000円を差し引いて、現金で支払った。",
+   "choices": [
+    "工場",
+    "本社",
+    "材料",
+    "賃金",
+    "製造間接費",
+    "製品",
+    "買掛金",
+    "預り金",
+    "現金",
+    "機械装置減価償却累計額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "工場",
+      "amount": 500000
+     }
+    ],
+    "credit": [
+     {
+      "account": "預り金",
+      "amount": 50000
+     },
+     {
+      "account": "現金",
+      "amount": 450000
+     }
+    ]
+   },
+   "checks": {
+    "工場": "500000",
+    "預り金": "50000",
+    "現金": "500000-50000"
+   },
+   "explanation": "本社は、工場勘定（借方）を計上し、預り金50,000円と現金450,000円（貸方）で記録する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k12-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k12",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "【工場】完成した製品1,500,000円を、本社に引き渡した。",
+   "choices": [
+    "工場",
+    "本社",
+    "材料",
+    "賃金",
+    "製造間接費",
+    "製品",
+    "買掛金",
+    "預り金",
+    "現金",
+    "機械装置減価償却累計額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "本社",
+      "amount": 1500000
+     }
+    ],
+    "credit": [
+     {
+      "account": "製品",
+      "amount": 1500000
+     }
+    ]
+   },
+   "checks": {
+    "本社": "1500000",
+    "製品": "1500000"
+   },
+   "explanation": "製品が工場から出ていくので、製品勘定（貸方）。相手は本社勘定（借方）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k12-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k12",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "【本社】工場から製品1,500,000円の引渡しを受けた。",
+   "choices": [
+    "工場",
+    "本社",
+    "材料",
+    "賃金",
+    "製造間接費",
+    "製品",
+    "買掛金",
+    "預り金",
+    "現金",
+    "機械装置減価償却累計額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "製品",
+      "amount": 1500000
+     }
+    ],
+    "credit": [
+     {
+      "account": "工場",
+      "amount": 1500000
+     }
+    ]
+   },
+   "checks": {
+    "製品": "1500000",
+    "工場": "1500000"
+   },
+   "explanation": "本社は、受け入れた製品（借方）と、工場勘定（貸方）で記録する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k12-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k12",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "【工場】本社が所有する機械の減価償却費120,000円を計上した（製造間接費で処理）。",
+   "choices": [
+    "工場",
+    "本社",
+    "材料",
+    "賃金",
+    "製造間接費",
+    "製品",
+    "買掛金",
+    "預り金",
+    "現金",
+    "機械装置減価償却累計額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "製造間接費",
+      "amount": 120000
+     }
+    ],
+    "credit": [
+     {
+      "account": "本社",
+      "amount": 120000
+     }
+    ]
+   },
+   "checks": {
+    "製造間接費": "120000",
+    "本社": "120000"
+   },
+   "explanation": "減価償却累計額は本社の帳簿にあるので、工場は、製造間接費（借方）と本社勘定（貸方）で記録する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k12-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k12",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "【本社】工場にある機械（本社が所有）の減価償却費120,000円を計上した。",
+   "choices": [
+    "工場",
+    "本社",
+    "材料",
+    "賃金",
+    "製造間接費",
+    "製品",
+    "買掛金",
+    "預り金",
+    "現金",
+    "機械装置減価償却累計額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "工場",
+      "amount": 120000
+     }
+    ],
+    "credit": [
+     {
+      "account": "機械装置減価償却累計額",
+      "amount": 120000
+     }
+    ]
+   },
+   "checks": {
+    "工場": "120000",
+    "機械装置減価償却累計額": "120000"
+   },
+   "explanation": "本社は、工場勘定（借方）と機械装置減価償却累計額（貸方）で記録する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k12-009",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k12",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "【工場】本社が、工場の電力料70,000円を現金で支払った（間接経費）。",
+   "choices": [
+    "工場",
+    "本社",
+    "材料",
+    "賃金",
+    "製造間接費",
+    "製品",
+    "買掛金",
+    "預り金",
+    "現金",
+    "機械装置減価償却累計額"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "製造間接費",
+      "amount": 70000
+     }
+    ],
+    "credit": [
+     {
+      "account": "本社",
+      "amount": 70000
+     }
+    ]
+   },
+   "checks": {
+    "製造間接費": "70000",
+    "本社": "70000"
+   },
+   "explanation": "工場は、使った間接経費（製造間接費）を借方、本社勘定を貸方にする。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k12-010",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k12",
+   "type": "choice",
+   "difficulty": 1,
+   "targetSec": 45,
+   "prompt": "工場会計が独立しているとき、本社の「工場」勘定と、工場の「本社」勘定の関係として、正しいものはどれか。",
+   "choices": [
+    "貸借が逆で、残高が一致する",
+    "貸借が同じで、残高が一致する",
+    "貸借が逆で、残高は一致しなくてよい",
+    "関係はない"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "2つの勘定は、お互いの取引を、相手を相手勘定にして記録する対応勘定なので、貸借が逆で、金額が一致する。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

@@ -1,0 +1,217 @@
+{
+ "topicId": "k11",
+ "questions": [
+  {
+   "id": "k11-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k11",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "販売価格は1個2,000円、変動費は1個1,200円、固定費は月1,200,000円である。貢献利益率は何%か。",
+   "answer": {
+    "value": 40,
+    "unit": "%"
+   },
+   "checks": {
+    "value": "(2000-1200)/2000*100"
+   },
+   "explanation": "1個あたりの貢献利益は 2,000－1,200＝800円。貢献利益率＝800÷2,000＝40％。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k11-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k11",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "販売価格は1個2,000円、変動費は1個1,200円、固定費は月1,200,000円である。損益分岐点売上高はいくらか。",
+   "answer": {
+    "value": 3000000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "1200000/((2000-1200)/2000)"
+   },
+   "explanation": "貢献利益率は40％。損益分岐点売上高＝固定費1,200,000÷0.4＝3,000,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k11-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k11",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "販売価格は1個2,000円、変動費は1個1,200円、固定費は月1,200,000円である。損益分岐点販売量は何個か。",
+   "answer": {
+    "value": 1500,
+    "unit": "個"
+   },
+   "checks": {
+    "value": "1200000/(2000-1200)"
+   },
+   "explanation": "損益分岐点販売量＝固定費1,200,000÷1個あたりの貢献利益800円＝1,500個。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k11-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k11",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "販売価格は1個2,000円、変動費は1個1,200円、固定費は月1,200,000円である。営業利益600,000円を達成するために必要な売上高はいくらか。",
+   "answer": {
+    "value": 4500000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "(1200000+600000)/((2000-1200)/2000)"
+   },
+   "explanation": "必要な売上高＝(固定費1,200,000＋目標利益600,000)÷貢献利益率0.4＝4,500,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k11-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k11",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "販売価格は1個2,000円、変動費は1個1,200円、固定費は月1,200,000円である。営業利益400,000円を達成するために必要な販売量は何個か。",
+   "answer": {
+    "value": 2000,
+    "unit": "個"
+   },
+   "checks": {
+    "value": "(1200000+400000)/(2000-1200)"
+   },
+   "explanation": "必要な販売量＝(固定費1,200,000＋目標利益400,000)÷1個あたりの貢献利益800円＝2,000個。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k11-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k11",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "販売価格は1個2,000円、変動費は1個1,200円、固定費は月1,200,000円である。実際の売上高が4,000,000円のとき、安全余裕率は何%か。損益分岐点売上高は3,000,000円である。",
+   "answer": {
+    "value": 25,
+    "unit": "%"
+   },
+   "checks": {
+    "value": "(4000000-3000000)/4000000*100"
+   },
+   "explanation": "安全余裕率＝(4,000,000－3,000,000)÷4,000,000＝25％。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k11-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k11",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "高低点法で原価を分解する。機械運転時間が最高の月は1,200時間で総原価560,000円、最低の月は800時間で総原価400,000円である。変動費率（1時間あたり）はいくらか。",
+   "answer": {
+    "value": 400,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "(560000-400000)/(1200-800)"
+   },
+   "explanation": "変動費率＝(560,000－400,000)÷(1,200－800)＝160,000÷400＝400円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k11-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k11",
+   "type": "numeric",
+   "difficulty": 3,
+   "targetSec": 240,
+   "prompt": "前問の条件で、固定費（月額）はいくらか。",
+   "answer": {
+    "value": 80000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "560000-400*1200"
+   },
+   "explanation": "固定費＝最高点の総原価560,000－変動費率400×1,200時間＝560,000－480,000＝80,000円。（最低点で計算しても、400,000－400×800＝80,000円で一致する。）",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k11-009",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k11",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "販売価格は1個2,000円、変動費は1個1,200円、固定費は月1,200,000円である。売上高が4,000,000円のとき、営業利益はいくらか。",
+   "answer": {
+    "value": 400000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "4000000*((2000-1200)/2000)-1200000"
+   },
+   "explanation": "貢献利益＝4,000,000×0.4＝1,600,000円。営業利益＝1,600,000－1,200,000＝400,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k11-010",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k11",
+   "type": "choice",
+   "difficulty": 1,
+   "targetSec": 45,
+   "prompt": "損益分岐点とはどのような点か。",
+   "choices": [
+    "営業利益がちょうどゼロになる売上高（販売量）",
+    "売上高が最大になる点",
+    "変動費と固定費が等しくなる点",
+    "貢献利益が最大になる点"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "損益分岐点は、貢献利益が固定費と等しくなり、営業利益がゼロになる点。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

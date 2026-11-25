@@ -1,7 +1,7 @@
 // Service Worker：アプリ一式を端末に保存してオフラインでも動かす。
 // 更新の流れ：VERSION を上げる → 新しいキャッシュを作って待機 → アプリ上の「再読み込み」で切り替え。
 // VERSION は package.json・js/version.js と同じ値（scripts/set-version.mjs で一括変更）
-const VERSION = '0.3.5';
+const VERSION = '0.3.6';
 const CACHE = `boki2-app-v${VERSION}`;
 
 const ASSETS = [
@@ -52,6 +52,23 @@ const ASSETS = [
   './data/lessons/c11.json',
   './data/lessons/c12.json',
   './data/lessons/c13.json',
+  './data/lessons/c14.json',
+  './data/lessons/c15.json',
+  './data/lessons/c16.json',
+  './data/lessons/c17.json',
+  './data/lessons/c18.json',
+  './data/lessons/k01.json',
+  './data/lessons/k02.json',
+  './data/lessons/k03.json',
+  './data/lessons/k04.json',
+  './data/lessons/k05.json',
+  './data/lessons/k06.json',
+  './data/lessons/k07.json',
+  './data/lessons/k08.json',
+  './data/lessons/k09.json',
+  './data/lessons/k10.json',
+  './data/lessons/k11.json',
+  './data/lessons/k12.json',
   './data/questions/index.json',
   './data/questions/c01.json',
   './data/questions/c02.json',
@@ -66,6 +83,23 @@ const ASSETS = [
   './data/questions/c11.json',
   './data/questions/c12.json',
   './data/questions/c13.json',
+  './data/questions/c14.json',
+  './data/questions/c15.json',
+  './data/questions/c16.json',
+  './data/questions/c17.json',
+  './data/questions/c18.json',
+  './data/questions/k01.json',
+  './data/questions/k02.json',
+  './data/questions/k03.json',
+  './data/questions/k04.json',
+  './data/questions/k05.json',
+  './data/questions/k06.json',
+  './data/questions/k07.json',
+  './data/questions/k08.json',
+  './data/questions/k09.json',
+  './data/questions/k10.json',
+  './data/questions/k11.json',
+  './data/questions/k12.json',
   './icons/apple-touch-icon.png',
   './icons/icon-192.png',
   './icons/icon-512.png',

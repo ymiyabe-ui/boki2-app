@@ -1,0 +1,255 @@
+{
+ "topicId": "k06",
+ "questions": [
+  {
+   "id": "k06-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k06",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "製造間接費の配賦率は1時間400円である。指図書#101の直接作業時間は150時間であった。#101に配賦される製造間接費はいくらか。",
+   "answer": {
+    "value": 60000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "400*150"
+   },
+   "explanation": "配賦額＝配賦率×直接作業時間＝400×150時間＝60,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k06-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k06",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "指図書#101は、直接材料費300,000円、直接労務費200,000円、直接作業時間150時間であった。製造間接費の配賦率は1時間400円である。#101の製造原価はいくらか。",
+   "answer": {
+    "value": 560000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "300000+200000+400*150"
+   },
+   "explanation": "製造間接費の配賦額は 400×150＝60,000円。製造原価＝300,000＋200,000＋60,000＝560,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k06-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k06",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "指図書#102は、月初仕掛品が180,000円で、当月に直接材料費100,000円、直接労務費80,000円、製造間接費配賦額60,000円がかかり、当月に完成した。#102の完成品原価はいくらか。",
+   "answer": {
+    "value": 420000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "180000+100000+80000+60000"
+   },
+   "explanation": "完成品原価＝月初仕掛品180,000＋当月の直接材料費100,000＋直接労務費80,000＋製造間接費60,000＝420,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k06-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k06",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "指図書#101で仕損が生じ、補修指図書#101-2を発行した。補修指図書に集計された原価は30,000円である。この原価を仕損費に振り替える仕訳を答えなさい。",
+   "choices": [
+    "仕掛品",
+    "仕損費",
+    "製品",
+    "売上原価",
+    "製造間接費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕損費",
+      "amount": 30000
+     }
+    ],
+    "credit": [
+     {
+      "account": "仕掛品",
+      "amount": 30000
+     }
+    ]
+   },
+   "checks": {
+    "仕損費": "30000",
+    "仕掛品": "30000"
+   },
+   "explanation": "補修指図書#101-2に集計された原価30,000円を、仕掛品から仕損費に移す。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k06-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k06",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "前問の仕損費30,000円を、元の指図書#101に賦課する仕訳を答えなさい。",
+   "choices": [
+    "仕掛品",
+    "仕損費",
+    "製品",
+    "売上原価",
+    "製造間接費"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕掛品",
+      "amount": 30000
+     }
+    ],
+    "credit": [
+     {
+      "account": "仕損費",
+      "amount": 30000
+     }
+    ]
+   },
+   "checks": {
+    "仕掛品": "30000",
+    "仕損費": "30000"
+   },
+   "explanation": "仕損費を、補修が必要になった元の指図書#101の原価に加える。仕掛品（#101）の増加。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k06-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k06",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "指図書#101の製造原価は560,000円であった。補修指図書の原価30,000円を仕損費として#101に賦課したあとの、#101の製造原価はいくらか。",
+   "answer": {
+    "value": 590000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "560000+30000"
+   },
+   "explanation": "補修指図書の原価30,000円を加えて、560,000＋30,000＝590,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k06-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k06",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "補修指図書には、直接材料費8,000円、直接労務費12,000円、直接作業時間25時間が集計された。製造間接費の配賦率は1時間400円である。補修指図書の原価（仕損費）はいくらか。",
+   "answer": {
+    "value": 30000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "8000+12000+400*25"
+   },
+   "explanation": "製造間接費の配賦額は 400×25時間＝10,000円。合計は 8,000＋12,000＋10,000＝30,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k06-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k06",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "月末に指図書#103が未完成である。#103には、直接材料費180,000円、直接労務費110,000円、直接作業時間90時間がかかっている（製造間接費の配賦率は1時間400円）。月末仕掛品の原価はいくらか。",
+   "answer": {
+    "value": 326000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "180000+110000+400*90"
+   },
+   "explanation": "製造間接費の配賦額は 400×90時間＝36,000円。月末仕掛品＝180,000＋110,000＋36,000＝326,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k06-009",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k06",
+   "type": "choice",
+   "difficulty": 1,
+   "targetSec": 45,
+   "prompt": "個別原価計算が適しているのは、どのような生産形態か。",
+   "choices": [
+    "注文を受けて、製品ごとに仕様が違うものをつくる（受注生産）",
+    "同じ規格の製品を、連続して大量につくる",
+    "複数の製品を、同じ工程で同時につくる",
+    "商品を仕入れて販売する"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "個別原価計算は、製造指図書ごとに原価を集計する方法で、受注生産に適する。同種の製品を連続して大量につくる場合は、総合原価計算。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k06-010",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k06",
+   "type": "choice",
+   "difficulty": 2,
+   "targetSec": 60,
+   "prompt": "補修指図書を発行して仕損が生じた場合の、仕損費の処理として正しいものはどれか（この論点の範囲）。",
+   "choices": [
+    "補修を必要とした元の指図書に賦課する",
+    "売上原価にする",
+    "製造間接費として、すべての指図書に配賦する",
+    "営業外費用にする"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "2級では、補修指図書に集計した原価（仕損費）を、元の指図書に賦課する方法を扱う。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

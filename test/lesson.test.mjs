@@ -68,7 +68,10 @@ function solve(root, q) {
 test('論点のページに講義へのリンクが出る（講義のない論点には出ない）', () => {
   const ctx = mkCtx();
   assert.ok(renderTopicDetail(ctx, 'c02').all((e) => e.tag === 'a' && e.attrs.href === '#/lesson/c02').length === 1);
-  assert.equal(renderTopicDetail(ctx, 'c14').all((e) => e.tag === 'a' && e.attrs.href === '#/lesson/c14').length, 0);
+  // 全論点に講義がそろったので、講義のない状態は、c14の講義だけを外した文脈で確かめる
+  const without = { ...ctx, lessons: Object.fromEntries(Object.entries(lessons).filter(([k]) => k !== 'c14')) };
+  assert.equal(renderTopicDetail(without, 'c14').all((e) => e.tag === 'a' && e.attrs.href === '#/lesson/c14').length, 0);
+  assert.equal(renderTopicDetail(ctx, 'c14').all((e) => e.tag === 'a' && e.attrs.href === '#/lesson/c14').length, 1);
 });
 
 test('講義ページ：節と仕訳例が出て、確認の問題を全部解くと「読んだ」が付き、ミニテストの回数には数えない', () => {
@@ -100,11 +103,12 @@ test('講義ページ：節と仕訳例が出て、確認の問題を全部解�
 });
 
 test('講義のない論点では、講義ページが「まだありません」と出る', () => {
-  assert.ok(renderLesson(mkCtx(), 'c14').text.includes('まだありません'));
+  const without = { ...mkCtx(), lessons: Object.fromEntries(Object.entries(lessons).filter(([k]) => k !== 'c14')) };
+  assert.ok(renderLesson(without, 'c14').text.includes('まだありません'));
 });
 
-test('計画の第1〜3週（c01〜c13）の論点に、講義がそろっている', () => {
-  for (const w of plan.weeks.slice(0, 3)) for (const id of w.topics) assert.ok(lessons[id], `${id} の講義がありません`);
+test('学習計画のすべての論点に、講義がそろっている', () => {
+  for (const w of plan.weeks) for (const id of w.topics) assert.ok(lessons[id], `${id} の講義がありません`);
 });
 
 test('すべての講義ページが描画でき、節の見出しと「未確認」が出る', () => {

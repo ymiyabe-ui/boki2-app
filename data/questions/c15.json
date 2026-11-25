@@ -1,0 +1,322 @@
+{
+ "topicId": "c15",
+ "questions": [
+  {
+   "id": "c15-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c15",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "【本店】支店に現金500,000円を送付した。",
+   "choices": [
+    "現金",
+    "支店",
+    "本店",
+    "仕入",
+    "売掛金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "支店",
+      "amount": 500000
+     }
+    ],
+    "credit": [
+     {
+      "account": "現金",
+      "amount": 500000
+     }
+    ]
+   },
+   "checks": {
+    "支店": "500000",
+    "現金": "500000"
+   },
+   "explanation": "本店が支店に渡した分は、本店の帳簿の支店勘定の借方に記録する。金額は500,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c15-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c15",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "【支店】本店から現金500,000円を受け取った。",
+   "choices": [
+    "現金",
+    "支店",
+    "本店",
+    "仕入",
+    "売掛金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "現金",
+      "amount": 500000
+     }
+    ],
+    "credit": [
+     {
+      "account": "本店",
+      "amount": 500000
+     }
+    ]
+   },
+   "checks": {
+    "現金": "500000",
+    "本店": "500000"
+   },
+   "explanation": "支店は、本店から受け取った分を、本店勘定の貸方に記録する。金額は500,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c15-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c15",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "【本店】原価400,000円の商品を支店に送付した。",
+   "choices": [
+    "現金",
+    "支店",
+    "本店",
+    "仕入",
+    "売上"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "支店",
+      "amount": 400000
+     }
+    ],
+    "credit": [
+     {
+      "account": "仕入",
+      "amount": 400000
+     }
+    ]
+   },
+   "checks": {
+    "支店": "400000",
+    "仕入": "400000"
+   },
+   "explanation": "商品が本店から出ていくので、仕入（原価400,000円）を減らし、支店への貸しとして支店勘定の借方に記録する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c15-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c15",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "【本店】支店の得意先から、支店の売掛金120,000円を当座預金に受け取った。",
+   "choices": [
+    "当座預金",
+    "支店",
+    "本店",
+    "売掛金",
+    "売上"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "当座預金",
+      "amount": 120000
+     }
+    ],
+    "credit": [
+     {
+      "account": "支店",
+      "amount": 120000
+     }
+    ]
+   },
+   "checks": {
+    "当座預金": "120000",
+    "支店": "120000"
+   },
+   "explanation": "支店の債権を本店が回収したので、本店の当座預金が120,000円増え、支店への貸し（支店勘定）が減る。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c15-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c15",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "決算にあたり、本店の支店勘定は借方1,350,000円、支店の本店勘定は貸方1,320,000円で、一致しない。差額は、支店が本店に送った現金30,000円が、本店にまだ届いていないためだった。【本店】の未達事項を整理する仕訳を答えなさい。",
+   "choices": [
+    "現金",
+    "支店",
+    "本店",
+    "仕入",
+    "売掛金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "現金",
+      "amount": 30000
+     }
+    ],
+    "credit": [
+     {
+      "account": "支店",
+      "amount": 30000
+     }
+    ]
+   },
+   "checks": {
+    "現金": "30000",
+    "支店": "30000"
+   },
+   "explanation": "支店が先に記帳した送金なので、本店も受け取ったものとして記録する。現金が30,000円増え、支店への貸しが減る。整理後は、どちらも1,320,000円で一致する。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c15-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c15",
+   "type": "journal",
+   "difficulty": 3,
+   "targetSec": 180,
+   "prompt": "本店集中計算制度を採用している。支店Aが支店Bに現金100,000円を送付した。【本店】の仕訳を答えなさい。",
+   "choices": [
+    "支店A",
+    "支店B",
+    "本店",
+    "現金",
+    "仕入"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "支店B",
+      "amount": 100000
+     }
+    ],
+    "credit": [
+     {
+      "account": "支店A",
+      "amount": 100000
+     }
+    ]
+   },
+   "checks": {
+    "支店B": "100000",
+    "支店A": "100000"
+   },
+   "explanation": "本店を経由したものとして、本店は、受け取った支店B（借方）と、送った支店A（貸方）の両方を相手に記録する。金額は100,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c15-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c15",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "【本店】決算にあたり、支店が当期純利益450,000円を計上したので、本店の損益に取り込んだ。",
+   "choices": [
+    "支店",
+    "本店",
+    "損益",
+    "現金",
+    "繰越利益剰余金"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "支店",
+      "amount": 450000
+     }
+    ],
+    "credit": [
+     {
+      "account": "損益",
+      "amount": 450000
+     }
+    ]
+   },
+   "checks": {
+    "支店": "450000",
+    "損益": "450000"
+   },
+   "explanation": "支店の純利益450,000円は、支店勘定の借方（支店への貸しの増加）と、損益勘定の貸方で、本店の損益に取り込む。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c15-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c15",
+   "type": "numeric",
+   "difficulty": 3,
+   "targetSec": 240,
+   "prompt": "本店は、商品を原価に25%の利益を加算した価格で支店に送付している。支店の期末商品は、振替価格で300,000円である。内部利益の額はいくらか。",
+   "answer": {
+    "value": 60000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "300000*25/125"
+   },
+   "explanation": "振替価格は原価の125%。内部利益は 300,000×25/125＝60,000円（原価は240,000円）。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "c15-009",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "c15",
+   "type": "choice",
+   "difficulty": 1,
+   "targetSec": 45,
+   "prompt": "本店集中計算制度の説明として正しいものはどれか。",
+   "choices": [
+    "支店間の取引も、すべて本店を相手にしたものとして記録する",
+    "支店間の取引は、支店どうしの勘定だけで記録し、本店は記帳しない",
+    "支店間の取引は、決算のときにまとめて本店が記録する",
+    "支店間の取引は、現金のやり取りだけを記録する"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "本店集中計算制度では、支店は常に本店勘定だけを使い、本店が支店Aと支店Bの勘定の両方を使って記録する。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

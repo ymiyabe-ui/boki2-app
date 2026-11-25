@@ -1,0 +1,219 @@
+{
+ "topicId": "k08",
+ "questions": [
+  {
+   "id": "k08-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k08",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "第2工程（平均法）の前工程費について。月初仕掛品の前工程費は150,000円、当月に前工程から受け入れた原価は850,000円である。完成品800個、月末仕掛品200個（前工程費は始点投入）。月末仕掛品の前工程費はいくらか。",
+   "answer": {
+    "value": 200000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "(150000+850000)/(800+200)*200"
+   },
+   "explanation": "前工程費の単価＝(150,000＋850,000)÷(800＋200)＝1,000円。月末仕掛品の前工程費＝200×1,000＝200,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k08-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k08",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "前問の第2工程（平均法）で、加工費について。月初仕掛品の加工費は50,000円、当月の加工費は580,000円。月末仕掛品200個の加工進捗度は50%である。月末仕掛品の加工費はいくらか。",
+   "answer": {
+    "value": 70000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "(50000+580000)/(800+200*50/100)*(200*50/100)"
+   },
+   "explanation": "完成品換算量は 800＋200×50％＝900。加工費の単価＝(50,000＋580,000)÷900＝700円。月末仕掛品の加工費＝100×700＝70,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k08-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k08",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "前問までの条件で、第2工程の完成品総合原価はいくらか（月末仕掛品は前工程費200,000円と加工費70,000円）。",
+   "answer": {
+    "value": 1360000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "(150000+850000+50000+580000)-(200000+70000)"
+   },
+   "explanation": "総額は 150,000＋850,000＋50,000＋580,000＝1,630,000円。月末仕掛品は 200,000＋70,000＝270,000円。完成品総合原価＝1,630,000－270,000＝1,360,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k08-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k08",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "等級別総合原価計算で、等級Bの等価係数は0.8、完成品数量は500個である。等級Bの積数はいくらか。",
+   "answer": {
+    "value": 400,
+    "unit": "積数"
+   },
+   "checks": {
+    "value": "0.8*500"
+   },
+   "explanation": "積数＝等価係数×完成品数量＝0.8×500＝400。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k08-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k08",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "完成品総合原価は1,500,000円である。等級Aは等価係数1.0で600個、等級Bは等価係数0.8で500個である。等級Bの完成品総合原価はいくらか。",
+   "answer": {
+    "value": 600000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "1500000*(0.8*500)/(1*600+0.8*500)"
+   },
+   "explanation": "積数は、等級Aが 1.0×600＝600、等級Bが 0.8×500＝400（合計1,000）。等級Bの原価＝1,500,000×400/1,000＝600,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k08-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k08",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "前問の条件で、等級Aの完成品1個あたりの原価はいくらか。",
+   "answer": {
+    "value": 1500,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "1500000*(1*600)/(1*600+0.8*500)/600"
+   },
+   "explanation": "等級Aの原価＝1,500,000×600/1,000＝900,000円。1個あたりは 900,000÷600個＝1,500円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k08-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k08",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "組間接費600,000円を、直接作業時間（A組300時間、B組200時間）で配賦する。A組に配賦される額はいくらか。",
+   "answer": {
+    "value": 360000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "600000*300/(300+200)"
+   },
+   "explanation": "配賦額＝600,000×300/500＝360,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k08-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k08",
+   "type": "numeric",
+   "difficulty": 1,
+   "targetSec": 150,
+   "prompt": "B組の当月の直接材料費は400,000円、直接労務費は250,000円、組間接費の配賦額は240,000円である。B組の当月製造費用はいくらか。",
+   "answer": {
+    "value": 890000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "400000+250000+240000"
+   },
+   "explanation": "当月製造費用＝400,000＋250,000＋240,000＝890,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k08-009",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k08",
+   "type": "choice",
+   "difficulty": 1,
+   "targetSec": 45,
+   "prompt": "等級別総合原価計算が適しているのはどれか。",
+   "choices": [
+    "同じ工程で、同じ種類の製品を、大きさや品質の違う等級に分けてつくる場合",
+    "工程が複数あり、前の工程の完成品を次の工程で加工する場合",
+    "種類の違う製品を、同じ工程で同時につくる場合",
+    "注文ごとに仕様の違う製品をつくる場合"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "等級別は、同種で、大きさ・品質の違いだけがある製品の原価計算。2つ目は工程別、3つ目は組別、4つ目は個別原価計算。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k08-010",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k08",
+   "type": "choice",
+   "difficulty": 2,
+   "targetSec": 60,
+   "prompt": "工程別総合原価計算（累加法）で、第2工程の月末仕掛品に含まれる前工程費の扱いとして、正しいものはどれか。",
+   "choices": [
+    "始点投入の材料費と同様に、数量そのもの（進捗度100%）で按分する",
+    "加工費と同様に、加工進捗度で換算して按分する",
+    "月末仕掛品には、前工程費を含めない",
+    "前工程費は、すべて完成品が負担する"
+   ],
+   "answer": {
+    "index": 0
+   },
+   "explanation": "前工程の加工はすべて済んで引き継がれているので、第2工程の仕掛品にも、前工程費は全額（100%）含まれる。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}

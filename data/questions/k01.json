@@ -1,0 +1,316 @@
+{
+ "topicId": "k01",
+ "questions": [
+  {
+   "id": "k01-001",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k01",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "材料1,200,000円を掛けで購入した。",
+   "choices": [
+    "材料",
+    "仕掛品",
+    "製品",
+    "賃金",
+    "製造間接費",
+    "買掛金",
+    "売上原価",
+    "売掛金",
+    "売上"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "材料",
+      "amount": 1200000
+     }
+    ],
+    "credit": [
+     {
+      "account": "買掛金",
+      "amount": 1200000
+     }
+    ]
+   },
+   "checks": {
+    "材料": "1200000",
+    "買掛金": "1200000"
+   },
+   "explanation": "材料の購入は、材料（資産）の増加。代金は掛けなので、買掛金を貸方にする。金額は1,200,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k01-002",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k01",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "材料を消費した。直接材料費は500,000円、間接材料費は80,000円である。",
+   "choices": [
+    "材料",
+    "仕掛品",
+    "製品",
+    "賃金",
+    "製造間接費",
+    "買掛金",
+    "売上原価",
+    "売掛金",
+    "売上"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕掛品",
+      "amount": 500000
+     },
+     {
+      "account": "製造間接費",
+      "amount": 80000
+     }
+    ],
+    "credit": [
+     {
+      "account": "材料",
+      "amount": 580000
+     }
+    ]
+   },
+   "checks": {
+    "仕掛品": "500000",
+    "製造間接費": "80000",
+    "材料": "500000+80000"
+   },
+   "explanation": "直接材料費は仕掛品、間接材料費は製造間接費に集める。貸方の材料は合計の580,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k01-003",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k01",
+   "type": "journal",
+   "difficulty": 2,
+   "targetSec": 150,
+   "prompt": "賃金を消費した。直接工の直接労務費は600,000円、間接工の間接労務費は150,000円である。",
+   "choices": [
+    "材料",
+    "仕掛品",
+    "製品",
+    "賃金",
+    "製造間接費",
+    "買掛金",
+    "売上原価",
+    "売掛金",
+    "売上"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "仕掛品",
+      "amount": 600000
+     },
+     {
+      "account": "製造間接費",
+      "amount": 150000
+     }
+    ],
+    "credit": [
+     {
+      "account": "賃金",
+      "amount": 750000
+     }
+    ]
+   },
+   "checks": {
+    "仕掛品": "600000",
+    "製造間接費": "150000",
+    "賃金": "600000+150000"
+   },
+   "explanation": "直接労務費は仕掛品、間接労務費は製造間接費。貸方の賃金は合計の750,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k01-004",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k01",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "製品が完成し、製造原価2,000,000円を仕掛品勘定から製品勘定に振り替えた。",
+   "choices": [
+    "材料",
+    "仕掛品",
+    "製品",
+    "賃金",
+    "製造間接費",
+    "買掛金",
+    "売上原価",
+    "売掛金",
+    "売上"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "製品",
+      "amount": 2000000
+     }
+    ],
+    "credit": [
+     {
+      "account": "仕掛品",
+      "amount": 2000000
+     }
+    ]
+   },
+   "checks": {
+    "製品": "2000000",
+    "仕掛品": "2000000"
+   },
+   "explanation": "完成した製品の原価2,000,000円は、仕掛品から製品に移る。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k01-005",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k01",
+   "type": "journal",
+   "difficulty": 1,
+   "targetSec": 120,
+   "prompt": "製品を掛けで販売した。この製品の製造原価は1,400,000円である。売上原価を計上する仕訳を答えなさい。",
+   "choices": [
+    "材料",
+    "仕掛品",
+    "製品",
+    "賃金",
+    "製造間接費",
+    "買掛金",
+    "売上原価",
+    "売掛金",
+    "売上"
+   ],
+   "answer": {
+    "debit": [
+     {
+      "account": "売上原価",
+      "amount": 1400000
+     }
+    ],
+    "credit": [
+     {
+      "account": "製品",
+      "amount": 1400000
+     }
+    ]
+   },
+   "checks": {
+    "売上原価": "1400000",
+    "製品": "1400000"
+   },
+   "explanation": "売れた製品の原価1,400,000円を、製品勘定から売上原価に振り替える。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k01-006",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k01",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "当期の材料費は1,500,000円、労務費は900,000円、経費は300,000円である。期首仕掛品は200,000円、期末仕掛品は250,000円である。当期製品製造原価はいくらか。",
+   "answer": {
+    "value": 2650000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "1500000+900000+300000+200000-250000"
+   },
+   "explanation": "当期製造費用＝1,500,000＋900,000＋300,000＝2,700,000円。当期製品製造原価＝200,000＋2,700,000－250,000＝2,650,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k01-007",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k01",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "期首製品は400,000円、当期製品製造原価は2,650,000円、期末製品は500,000円である。売上原価はいくらか。",
+   "answer": {
+    "value": 2550000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "400000+2650000-500000"
+   },
+   "explanation": "売上原価＝期首製品400,000＋当期製品製造原価2,650,000－期末製品500,000＝2,550,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k01-008",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k01",
+   "type": "numeric",
+   "difficulty": 2,
+   "targetSec": 180,
+   "prompt": "売上高は4,000,000円、売上原価は2,550,000円、営業費（販売費及び一般管理費）は600,000円である。営業利益はいくらか。",
+   "answer": {
+    "value": 850000,
+    "unit": "円"
+   },
+   "checks": {
+    "value": "4000000-2550000-600000"
+   },
+   "explanation": "売上総利益＝4,000,000－2,550,000＝1,450,000円。営業利益＝1,450,000－600,000＝850,000円。",
+   "source": "original",
+   "verified": false
+  },
+  {
+   "id": "k01-009",
+   "rev": 1,
+   "domain": "keiri",
+   "exam": "boki2",
+   "topicId": "k01",
+   "type": "choice",
+   "difficulty": 1,
+   "targetSec": 45,
+   "prompt": "次のうち、製造原価に含まれないものはどれか。",
+   "choices": [
+    "工場の機械の減価償却費",
+    "本社の事務員の給料",
+    "製造部門の電力料",
+    "製品に使う素材の消費額"
+   ],
+   "answer": {
+    "index": 1
+   },
+   "explanation": "本社の事務員の給料は、販売費及び一般管理費（営業費）で、製造原価ではない。他の3つは、工場で製品をつくるためにかかる費用。",
+   "source": "original",
+   "verified": false
+  }
+ ]
+}
