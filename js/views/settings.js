@@ -23,6 +23,57 @@ export async function saveFile(text, name) {
   return 'downloaded';
 }
 
+const fmtSyncTime = (iso) => {
+  const d = new Date(iso);
+  const p = (n) => String(n).padStart(2, '0');
+  return `${d.getMonth() + 1}/${d.getDate()} ${p(d.getHours())}:${p(d.getMinutes())}`;
+};
+
+/** 端末間の同期の設定。サーバーのURLと合言葉は、この端末の中にだけ保存する（バックアップには入らない） */
+export function syncCard(ctx) {
+  const sync = ctx.sync;
+  const card = h('div', { class: 'card' }, h('h2', null, '端末間の同期'));
+  if (!sync) {
+    card.append(h('p', { class: 'small muted' }, 'この環境では使えません（記録を保存できない環境です）。'));
+    return card;
+  }
+  const st = sync.status();
+  if (st.configured) {
+    card.append(
+      h('p', { class: 'small muted' }, 'PCとスマホの記録を、自動でまとめます。アプリを開いたときと、記録したあとに同期します。'),
+      h('p', null, st.lastSyncAt ? `最後の同期：${fmtSyncTime(st.lastSyncAt)}` : 'まだ同期していません'),
+      st.lastError ? h('div', { class: 'banner bad' }, st.lastError) : null,
+      h('button', { class: 'primary', style: 'width:100%', onclick: async () => {
+        const r = await sync.syncNow('manual');
+        toast(r.ok ? (r.changed ? '同期しました（記録が更新されました）' : '同期しました') : (r.error || '同期できませんでした'));
+        ctx.refresh();
+      } }, '今すぐ同期'),
+      h('button', { style: 'width:100%;margin-top:8px', onclick: () => {
+        if (!confirm('この端末の同期をやめます。記録はこの端末に残ります（サーバーの記録も消えません）。よろしいですか？')) return;
+        sync.clear();
+        toast('同期をやめました');
+        ctx.refresh();
+      } }, '同期をやめる'));
+    return card;
+  }
+  const url = h('input', { type: 'url', placeholder: 'https://script.google.com/macros/s/…/exec', autocomplete: 'off' });
+  const token = h('input', { type: 'password', placeholder: '合言葉', autocomplete: 'off' });
+  card.append(
+    h('p', { class: 'small muted' }, 'PCとスマホで、同じ記録を使えるようにします。設定用のリンクを開くと、下の欄は自動で入ります。'),
+    h('label', { class: 'small' }, '同期先のURL'), url,
+    h('label', { class: 'small' }, '合言葉'), token,
+    h('button', { class: 'primary', style: 'width:100%;margin-top:8px', onclick: async () => {
+      const u = url.value.trim();
+      const t = token.value.trim();
+      if (!/^https:\/\/script\.google\.com\/macros\/s\/[A-Za-z0-9_-]+\/exec$/.test(u) || !t) { alert('URLと合言葉を、正しく入れてください。'); return; }
+      sync.configure({ url: u, token: t });
+      const r = await sync.syncNow('setup');
+      toast(r.ok ? '同期しました' : (r.error || '同期できませんでした'));
+      ctx.refresh();
+    } }, '設定して同期する'));
+  return card;
+}
+
 export function renderSettings(ctx) {
   const { store } = ctx;
   const c = store.counts();
@@ -67,6 +118,8 @@ export function renderSettings(ctx) {
     h('h2', null, 'バックアップから戻す'),
     h('p', { class: 'small muted' }, '書き出したファイルを選ぶと、今の記録をその内容で置き換えます。'),
     input));
+
+  root.append(syncCard(ctx));
 
   root.append(h('div', { class: 'card' },
     h('h2', null, 'アプリについて'),

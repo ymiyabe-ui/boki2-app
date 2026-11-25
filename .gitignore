@@ -11,3 +11,7 @@ node_modules/
 .DS_Store
 Thumbs.db
 Desktop.ini
+
+# 同期サーバー（Google Apps Script）の接続情報。コミットしない
+gas/.clasp.json
+gas/Local.js

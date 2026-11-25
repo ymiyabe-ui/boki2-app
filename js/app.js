@@ -1,7 +1,8 @@
 // 起動・画面の切り替え・Service Worker の登録と更新通知
 import { createStore } from './store.js';
 import { toYmd } from './dates.js';
-import { h } from './ui.js';
+import { h, toast } from './ui.js';
+import { createSync, parseSetupHash } from './sync.js';
 import { renderHome } from './views/home.js';
 import { renderRecord } from './views/record.js';
 import { renderWorkbook } from './views/workbook.js';
@@ -84,6 +85,27 @@ async function main() {
     refresh: () => render(),
   };
 
+  // 端末間の同期（設定したときだけ動く）。記録を保存できない環境では使わない
+  const sync = ok ? createSync({
+    store, storage, fetchImpl: (...a) => fetch(...a), intervals: config.reviewIntervalsDays,
+    // 同期で記録が変わったら、読み取り専用の画面だけ描き直す（入力中の画面は触らない）
+    onChanged: () => { if (['#/', '#/settings', '#/topics'].includes(location.hash || '#/')) render(); },
+  }) : null;
+  ctx.sync = sync;
+  if (sync) store.onChange = () => sync.schedule();
+
+  /** 設定リンク（#/setup-sync?u=…&t=…）で開かれたら、同期の設定を保存して設定画面へ移る */
+  function applySetupLink() {
+    const found = parseSetupHash(location.hash);
+    if (!found) return;
+    history.replaceState(null, '', `${location.pathname}${location.search}#/settings`);
+    if (!sync) { alert('この環境では、同期を使えません。'); return; }
+    if (!confirm(`この端末で、学習記録の同期を始めます。\n\n同期先：${found.url.slice(0, 48)}…\n\nよろしいですか？`)) return;
+    sync.configure(found);
+    toast('同期の設定を保存しました');
+    sync.syncNow('setup').then((r) => { toast(r.ok ? '同期しました' : r.error || '同期できませんでした'); render(); });
+  }
+
   const tabs = h('nav', { class: 'tabs', 'aria-label': 'メニュー' }, TABS.map(([href, label, ico]) => h('a', { href, 'data-href': href }, h('span', { class: 'ico', 'aria-hidden': 'true' }, ico), label)));
   document.body.append(tabs);
   let cleanup = null;
@@ -122,15 +144,19 @@ async function main() {
     tabs.querySelectorAll('a').forEach((a) => (a.dataset.href === tab ? a.setAttribute('aria-current', 'page') : a.removeAttribute('aria-current')));
   }
 
-  window.addEventListener('hashchange', () => { render(); window.scrollTo(0, 0); });
+  window.addEventListener('hashchange', () => { applySetupLink(); render(); window.scrollTo(0, 0); });
   // 日をまたいで開きっぱなしでも、アプリに戻ったときに今日の表示へ直す
   let shownDay = ctx.today();
   document.addEventListener('visibilitychange', () => {
     if (document.visibilityState !== 'visible') return;
     if (ctx.today() !== shownDay) { shownDay = ctx.today(); render(); }
     if (swReg) swReg.update().catch(() => {});
+    if (sync) sync.syncNow('visible');
   });
+  window.addEventListener('online', () => { if (sync) sync.syncNow('online'); });
+  applySetupLink();
   render();
+  if (sync) sync.syncNow('start');
 
   // --- Service Worker と更新通知 ---
   let swReg = null;

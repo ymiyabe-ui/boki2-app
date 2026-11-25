@@ -2,6 +2,7 @@
 // 方針：読み込めないデータは絶対に上書きしない。移行・取り込みの前には元データを別キーに残す。
 import { toYmd, diffDays } from './dates.js';
 import { applyAnswer } from './review.js';
+import { addTombstone } from './merge.js';
 
 export const STORAGE_KEY = 'boki2-app:data';
 export const CURRENT_VERSION = 1;
@@ -81,6 +82,8 @@ export function createStore(storage, opts = {}) {
     status: 'new', // 'new' | 'ok' | 'migrated' | 'corrupt' | 'too-new'
     readOnly: false,
     message: '',
+    changeCount: 0, // 保存した回数。同期の途中で記録が変わったかを知るために使う
+    onChange: null, // 保存のたびに呼ばれる（同期の予約）
 
     load() {
       let raw = null;
@@ -133,9 +136,13 @@ export function createStore(storage, opts = {}) {
       return this;
     },
 
-    save() {
+    save(opts = {}) {
       if (this.readOnly) throw new Error(this.message || '読み取り専用のため保存できません');
       storage.setItem(STORAGE_KEY, JSON.stringify(this.data));
+      this.changeCount += 1;
+      if (!opts.silent && typeof this.onChange === 'function') {
+        try { this.onChange(); } catch { /* 同期の失敗で記録を止めない */ }
+      }
     },
 
     // ---- 勉強時間 ----
@@ -147,6 +154,7 @@ export function createStore(storage, opts = {}) {
     },
     deleteSession(id) {
       this.data.sessions = this.data.sessions.filter((s) => s.id !== id);
+      addTombstone(this.data, id, now().toISOString());
       this.save();
     },
 
@@ -192,6 +200,7 @@ export function createStore(storage, opts = {}) {
     },
     deleteAttempt(id) {
       this.data.attempts = this.data.attempts.filter((a) => a.id !== id);
+      addTombstone(this.data, id, now().toISOString());
       this.save();
     },
 
@@ -218,6 +227,7 @@ export function createStore(storage, opts = {}) {
     },
     deleteErrorReport(id) {
       this.data.errorReports = this.data.errorReports.filter((r) => r.id !== id);
+      addTombstone(this.data, id, now().toISOString());
       this.save();
     },
 
@@ -242,13 +252,17 @@ export function createStore(storage, opts = {}) {
     },
     deleteMock(id) {
       this.data.mocks = this.data.mocks.filter((m) => m.id !== id);
+      addTombstone(this.data, id, now().toISOString());
       this.save();
     },
 
     // ---- 「テキストを読んだ」----
     setTopicRead(topicId, read) {
       if (read) this.data.topicMarks[topicId] = { readAt: now().toISOString(), readDate: toYmd(now()) };
-      else delete this.data.topicMarks[topicId];
+      else {
+        delete this.data.topicMarks[topicId];
+        addTombstone(this.data, `mark:${topicId}`, now().toISOString());
+      }
       this.save();
     },
 
@@ -291,6 +305,14 @@ export function createStore(storage, opts = {}) {
       this.data = data;
       this.data.timer = null;
       this.save();
+    },
+
+    /** 同期の結果を取り込む。この端末だけのもの（タイマー・バックアップ日時）は保つ。同期の予約は呼ばない */
+    applySynced(data) {
+      if (this.readOnly) throw new Error(this.message);
+      const meta = { ...(data.meta || {}), lastBackupAt: this.data.meta ? this.data.meta.lastBackupAt : null };
+      this.data = { ...data, timer: this.data.timer, meta };
+      this.save({ silent: true });
     },
 
     counts() {
